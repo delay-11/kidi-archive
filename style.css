@@ -549,15 +549,16 @@ section{padding:8px 20px 48px;}
 .result-actions .btn{flex:1; text-align:center;}
 
 footer{padding:30px 20px 50px; color:var(--paper-dim); font-size:12px;}
-.footer-brand{text-align:center; margin-bottom:16px;}
+.footer-brand{font-weight:700; text-align:left;}
 .footer-row{
-  display:flex; justify-content:space-between; align-items:flex-start; gap:12px;
-  flex-wrap:wrap; text-align:left;
+  display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  flex-wrap:wrap; text-align:left; margin-bottom:8px;
 }
+.footer-row:last-child{margin-bottom:0;}
 .footer-copyright{font-size:11px; color:var(--paper-dim); opacity:0.6; white-space:nowrap;}
 .footer-legal{font-size:10.5px; line-height:1.7; color:var(--paper-dim); opacity:0.6; text-align:right;}
 @media (max-width:480px){
-  .footer-row{flex-direction:column; align-items:center; text-align:center;}
+  .footer-row{flex-direction:column; align-items:center; text-align:center; gap:4px;}
   .footer-legal{text-align:center;}
 }
 .topbar-inquiry{
