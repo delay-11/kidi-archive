@@ -1,1 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko" style="background:#14151A;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap">
+<title>KIDI ARCHIVE</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<meta name="description" content="키보드, 스위치, 키캡이 뭔지 몰라도 여기서 다 찾아봐요. 배열·스위치·프로파일 정리부터 나에게 맞는 조합 찾기, 호환 여부 확인까지.">
+<meta property="og:title" content="KIDI ARCHIVE — 키보드·스위치·키캡 아카이브">
+<meta property="og:description" content="키보드 처음 사고 키캡 바꿔보려는데 용어부터 막막할 때, 쉽게 정리해드려요.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="background:#14151A;">
 
+<div class="topbar">
+  <button id="topBackBtn" class="top-back-btn hidden" onclick="goHome()" aria-label="홈으로">←</button>
+  <div class="logo" onclick="goHome()" style="cursor:pointer;">KIDI<span>/</span>ARCHIVE</div>
+  <div class="topbar-right">
+    <button class="eyebrow topbar-inquiry" id="topEyebrow" onclick="openInquiry()">문의하기</button>
+    <button class="hamburger-btn" onclick="toggleMenu()" aria-label="메뉴">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</div>
+
+<div id="menuBackdrop" class="menu-backdrop" onclick="closeMenu()"></div>
+<div id="navMenu" class="nav-menu">
+  <button class="nav-item" onclick="navGo('home')">홈</button>
+  <button class="nav-item" onclick="navGo('keyboard')"><span class="nav-num">01</span>키보드</button>
+  <button class="nav-item" onclick="navGo('switch')"><span class="nav-num">02</span>스위치</button>
+  <button class="nav-item" onclick="navGo('keycap')"><span class="nav-num">03</span>키캡</button>
+  <button class="nav-item" onclick="navGo('custom')"><span class="nav-num">04</span>커스텀</button>
+  <button class="nav-item" onclick="navGo('accessories')"><span class="nav-num">05</span>용품</button>
+  <button class="nav-item nav-accent nav-accent-lead" onclick="navGo('quiz')">나에게 맞는 조합 찾기 →</button>
+  <button class="nav-item nav-accent nav-compat" onclick="navGo('compat')">호환 가능 여부 확인하기 →</button>
+</div>
+
+<!-- ===== SPEC MODAL (축 스펙 팝업) ===== -->
+<audio id="switchPreviewAudio" preload="none"></audio>
+<div id="specModalBackdrop" class="spec-modal-backdrop hidden" onclick="closeSpecModal()"></div>
+<div id="specModal" class="spec-modal hidden"></div>
+
+<!-- ===== HOME VIEW ===== -->
+<div id="homeView">
+  <div class="hero">
+    <div class="hero-row" id="heroKeys"></div>
+    <div class="eyebrow">키보드 · 스위치 · 키캡</div>
+    <h1>이게 뭔지 <em>몰라도</em><br>여기서 다 찾아봐요</h1>
+    <p>키보드 처음 사고 키캡 바꿔보려는데 용어부터 막막할 때 — 배열, 스위치, 프로파일까지 쉽게 정리했어요.</p>
+    <div class="hero-cta">
+      <button class="btn primary" onclick="startQuiz()">나에게 맞는 조합 찾기 →</button>
+      <button class="btn compat-btn" onclick="startCompatCheck()">호환 여부 확인하기 →</button>
+    </div>
+  </div>
+
+  <section id="browseSection">
+    <div class="section-head">
+      <h2>카테고리</h2>
+    </div>
+
+    <div class="cat-grid">
+    <button class="cat-card cat-link" onclick="showCategory('keyboard')">
+      <div class="cat-left">
+        <div class="cat-title"><span class="num">01</span><h3>키보드</h3></div>
+      </div>
+      <span class="cat-arrow">→</span>
+    </button>
+
+    <button class="cat-card cat-link" onclick="showCategory('switch')">
+      <div class="cat-left">
+        <div class="cat-title"><span class="num">02</span><h3>스위치</h3></div>
+      </div>
+      <span class="cat-arrow">→</span>
+    </button>
+
+    <button class="cat-card cat-link" onclick="showCategory('keycap')">
+      <div class="cat-left">
+        <div class="cat-title"><span class="num">03</span><h3>키캡</h3></div>
+      </div>
+      <span class="cat-arrow">→</span>
+    </button>
+
+    <button class="cat-card cat-link" onclick="showCategory('custom')">
+      <div class="cat-left">
+        <div class="cat-title"><span class="num">04</span><h3>커스텀</h3></div>
+      </div>
+      <span class="cat-arrow">→</span>
+    </button>
+
+    <button class="cat-card cat-link" onclick="showCategory('accessories')">
+      <div class="cat-left">
+        <div class="cat-title"><span class="num">05</span><h3>용품</h3></div>
+      </div>
+      <span class="cat-arrow">→</span>
+    </button>
+    </div>
+  </section>
+
+  <footer>
+    KEYCAP DESIGN / KIDI ARCHIVE
+    <div class="footer-legal">
+      © 2026 KidiKidi. All rights reserved.<br>
+      본 웹사이트(KIDI ARCHIVE)의 콘텐츠, 디자인 및 코드는 KidiKidi의 자산입니다.<br>
+      무단 복제, 배포, 재사용을 금지합니다.
+    </div>
+  </footer>
+</div>
+
+<!-- ===== CATEGORY DETAIL VIEW ===== -->
+<div id="categoryView" class="hidden">
+  <section style="padding-top:24px;">
+    <div class="quiz-wrap">
+      <div id="categoryContent"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== QUIZ VIEW ===== -->
+<div id="quizView" class="hidden">
+  <section style="padding-top:24px;">
+    <div class="quiz-wrap">
+
+      <div id="questionsWrap"></div>
+
+      <div id="resultWrap" class="hidden">
+        <div class="eyebrow" style="margin-bottom:10px;">추천 결과</div>
+        <h2 style="font-size:20px; margin-bottom:18px;">이 조합, 한번 보세요</h2>
+        <div id="resultCards"></div>
+        <div class="result-actions">
+          <button class="btn" onclick="saveResultImage()">공유하기</button>
+          <button class="btn primary" onclick="resetQuiz()">다시 답하기</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- ===== COMPAT CHECK VIEW ===== -->
+<div id="compatCheckView" class="hidden">
+  <section style="padding-top:24px;">
+    <div class="quiz-wrap">
+      <div class="eyebrow" style="margin-bottom:8px;">호환 가능 여부</div>
+      <h2 style="font-size:20px; margin-bottom:16px;">내 키보드의 제품명을 검색해보세요</h2>
+
+      <div class="compat-tabs">
+        <button id="tabSearch" class="compat-tab active" onclick="setCompatMode('search')">제품명으로 검색</button>
+        <button id="tabBrand" class="compat-tab" onclick="setCompatMode('brand')">브랜드로 찾기</button>
+      </div>
+
+      <div id="compatSearchPane">
+        <input
+          id="compatSearchInput"
+          class="compat-search-input"
+          type="text"
+          inputmode="search"
+          placeholder=""
+          oninput="renderCompatSearch(this.value)"
+        >
+        <div id="compatSearchResults" style="margin-top:16px;"></div>
+      </div>
+
+      <div id="compatBrandPane" class="hidden">
+        <div id="compatBrandResults"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
