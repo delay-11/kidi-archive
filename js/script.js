@@ -997,8 +997,7 @@ function showResult(){
           <div class="result-item"><div class="label">프로파일</div><div class="value">${profile}</div></div>
         </div>
         <div class="profile-viz">
-          ${profileRowsSvg(profile, swVar[sw])}
-          <div class="pv-label">${profile} 프로파일<br>R1~R4 열별 높이 참고용 실루엣</div>
+          ${photoSlot(profile)}
         </div>
       </div>
     `;
