@@ -199,7 +199,8 @@ function renderCategory(key){
         <button class="scroll-arrow left" onclick="scrollRowBy('${rowId}',-1)" aria-label="이전"><span class="scroll-arrow-icon"></span></button>
         <div class="card-row" id="${rowId}">`;
       sec.items.forEach(it=>{
-        html += `<div class="h-card">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div></div></div>`;
+        const cardClass = sec.label==='배열' ? 'h-card h-card-layout' : 'h-card';
+        html += `<div class="${cardClass}">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div></div></div>`;
       });
       html += `</div>
         <button class="scroll-arrow right" onclick="scrollRowBy('${rowId}',1)" aria-label="다음"><span class="scroll-arrow-icon"></span></button>
