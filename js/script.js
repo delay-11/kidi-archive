@@ -439,6 +439,7 @@ const keyboardCompatDB = {
   'Logitech Alto Keys K98M': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON},
   'Logitech G Pro': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON},
   'Logitech G316': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON},
+  'Logitech G316 X': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON},
   'Logitech G512': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON},
   'Logitech G413 SE': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON},
   'Logitech G913': {brand:'Logitech(로지텍)', verdict:'no', reason:LP_REASON},
