@@ -567,6 +567,7 @@ const keyboardCompatDB = {
   /* ---------- 프리플로우 ---------- */
   '프리플로우 아콘 AK74': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON},
   '프리플로우 MCHOSE Ace68': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON},
+  '프리플로우 archon REAL HX (81key)': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON},
 
   /* ---------- Dareu ---------- */
   'Dareu COOL68 8K': {brand:'DAREU(다얼유)', verdict:'ok', reason:OK_REASON},
