@@ -415,6 +415,7 @@ const keyboardCompatDB = {
   'Keychron Q3': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON},
   'Keychron Q4': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON},
   'Keychron K15 Pro SE ZMK': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON},
+  'Keychron Q13 PRO MAX': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON},
   'Lemokey X3': {brand:'Keychron(키크론)', verdict:'warn', reason:'자료가 엇갈려서 구매 전 판매처 확인을 추천해요.'},
   'Lemokey L1': {brand:'Keychron(키크론)', verdict:'warn', reason:'자료가 엇갈려서 구매 전 판매처 확인을 추천해요.'},
   'Keychron B1 Pro': {brand:'Keychron(키크론)', verdict:'no', reason:'팬터그래프 방식이라 키캡 교체가 어려워요.'},
