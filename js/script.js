@@ -555,7 +555,7 @@ const keyboardCompatDB = {
   'GEEKSTAR GKG108': {brand:'GEEKSTAR(긱스타)', verdict:'ok', reason:OK_REASON, alias:['긱스타 gkg108']},
   'GEEKSTAR GKG87': {brand:'GEEKSTAR(긱스타)', verdict:'ok', reason:OK_REASON, alias:['긱스타 gkg87']},
   'GEEKSTAR JK08': {brand:'GEEKSTAR(긱스타)', verdict:'ok', reason:OK_REASON, alias:['긱스타 jk08']},
-  'GEEKSTAR Foundation': {brand:'GEEKSTAR(긱스타)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['긱스타 파운데이션']},
+  '긱스타 파운데이션': {brand:'GEEKSTAR(긱스타)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['geekstar 파운데이션']},
   'GEEKSTAR GK03 PRO': {brand:'GEEKSTAR(긱스타)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['긱스타 gk03 pro']},
   'GEEKSTAR GK108FE': {brand:'GEEKSTAR(긱스타)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['긱스타 gk108fe']},
   'GEEKSTAR GK02': {brand:'GEEKSTAR(긱스타)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['긱스타 gk02']},
@@ -586,7 +586,7 @@ const keyboardCompatDB = {
   'VARO V104': {brand:'VARO(바로)', verdict:'ok', reason:OK_REASON, alias:['바로 v104']},
 
   /* ---------- MONSTARGEAR(몬스타기어) ---------- */
-  '몬스타 가츠 닌자87 SE': {brand:'MONSTARGEAR(몬스타기어)', verdict:'ok', reason:OK_REASON},
+  '몬스타 가츠 닌자87 SE': {brand:'MONSTARGEAR(몬스타기어)', verdict:'ok', reason:OK_REASON, alias:['monstargear 가츠 닌자87 se']},
 
   /* ---------- ATK ---------- */
   'ATK RS7 Air': {brand:'ATK', verdict:'ok', reason:OK_REASON},
