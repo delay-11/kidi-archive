@@ -409,54 +409,54 @@ const LP_REASON = '로우프로파일 전용 스위치라 일반 키캡이 맞�
 
 const keyboardCompatDB = {
   /* ---------- Keychron / Lemokey ---------- */
-  'Keychron K8': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON},
-  'Keychron Q1': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON},
-  'Keychron Q2': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON},
-  'Keychron Q3': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON},
-  'Keychron Q4': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON},
-  'Keychron K15 Pro SE ZMK': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON},
+  'Keychron K8': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON, alias:['키크론 k8']},
+  'Keychron Q1': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON, alias:['키크론 q1']},
+  'Keychron Q2': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON, alias:['키크론 q2']},
+  'Keychron Q3': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON, alias:['키크론 q3']},
+  'Keychron Q4': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON, alias:['키크론 q4']},
+  'Keychron K15 Pro SE ZMK': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON, alias:['키크론 k15 pro se zmk']},
   'Keychron Q13 PRO MAX': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON, alias:['키크론 q13 pro max']},
-  'Lemokey X3': {brand:'Keychron(키크론)', verdict:'warn', reason:'자료가 엇갈려서 구매 전 판매처 확인을 추천해요.'},
-  'Lemokey L1': {brand:'Keychron(키크론)', verdict:'warn', reason:'자료가 엇갈려서 구매 전 판매처 확인을 추천해요.'},
-  'Keychron B1 Pro': {brand:'Keychron(키크론)', verdict:'no', reason:'팬터그래프 방식이라 키캡 교체가 어려워요.'},
-  'Keychron K5 SE': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON},
-  'Keychron K5 SE ZMK': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON},
-  'Keychron Extreme eX75': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON},
-  'Keychron Extreme eX99': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON},
-  'Keychron Extreme eX67': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON},
-  'Keychron K2 HE': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON},
-  'Keychron K4 HE': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON},
-  'Keychron K10 HE': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON},
-  'Keychron K8 HE': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON},
-  'Keychron K6 HE': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON},
+  'Lemokey X3': {brand:'Keychron(키크론)', verdict:'warn', reason:'자료가 엇갈려서 구매 전 판매처 확인을 추천해요.', alias:['레모키 x3', '키크론 레모키 x3']},
+  'Lemokey L1': {brand:'Keychron(키크론)', verdict:'warn', reason:'자료가 엇갈려서 구매 전 판매처 확인을 추천해요.', alias:['레모키 l1', '키크론 레모키 l1']},
+  'Keychron B1 Pro': {brand:'Keychron(키크론)', verdict:'no', reason:'팬터그래프 방식이라 키캡 교체가 어려워요.', alias:['키크론 b1 pro']},
+  'Keychron K5 SE': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON, alias:['키크론 k5 se']},
+  'Keychron K5 SE ZMK': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON, alias:['키크론 k5 se zmk']},
+  'Keychron Extreme eX75': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON, alias:['키크론 익스트림 ex75']},
+  'Keychron Extreme eX99': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON, alias:['키크론 익스트림 ex99']},
+  'Keychron Extreme eX67': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON, alias:['키크론 익스트림 ex67']},
+  'Keychron K2 HE': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON, alias:['키크론 k2 he']},
+  'Keychron K4 HE': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON, alias:['키크론 k4 he']},
+  'Keychron K10 HE': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON, alias:['키크론 k10 he']},
+  'Keychron K8 HE': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON, alias:['키크론 k8 he']},
+  'Keychron K6 HE': {brand:'Keychron(키크론)', verdict:'no', reason:LP_REASON, alias:['키크론 k6 he']},
 
   /* ---------- Glorious ---------- */
-  'GMMK Pro': {brand:'GLORIOUS(글로리어스)', verdict:'warn', reason:'기계식이지만 모델별로 조금씩 달라 구매 전 확인이 필요해요.'},
-  'GMMK3 Pro': {brand:'GLORIOUS(글로리어스)', verdict:'ok', reason:OK_REASON},
-  'GMMK3 HE': {brand:'GLORIOUS(글로리어스)', verdict:'ok', reason:OK_REASON},
-  'GMMK': {brand:'GLORIOUS(글로리어스)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.'},
+  'GMMK Pro': {brand:'GLORIOUS(글로리어스)', verdict:'warn', reason:'기계식이지만 모델별로 조금씩 달라 구매 전 확인이 필요해요.', alias:['글로리어스 gmmk pro']},
+  'GMMK3 Pro': {brand:'GLORIOUS(글로리어스)', verdict:'ok', reason:OK_REASON, alias:['글로리어스 gmmk3 pro']},
+  'GMMK3 HE': {brand:'GLORIOUS(글로리어스)', verdict:'ok', reason:OK_REASON, alias:['글로리어스 gmmk3 he']},
+  'GMMK': {brand:'GLORIOUS(글로리어스)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['글로리어스 gmmk']},
 
   /* ---------- Logitech ---------- */
-  'Logitech Alto Keys K98M': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON},
-  'Logitech G Pro': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON},
-  'Logitech G316': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON},
-  'Logitech G316 X': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON},
-  'Logitech G512': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON},
-  'Logitech G413 SE': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON},
-  'Logitech G913': {brand:'Logitech(로지텍)', verdict:'no', reason:LP_REASON},
-  'Logitech G915': {brand:'Logitech(로지텍)', verdict:'no', reason:'G913과 같은 로우프로파일(GL) 라인이라 일반 키캡이 맞지 않아요.'},
-  'Logitech G515': {brand:'Logitech(로지텍)', verdict:'no', reason:'마그네틱·택타일·리니어 全 라인업이 로우프로파일(22mm)이라 일반 키캡이 맞지 않아요.'},
-  'Logitech MX Mechanical': {brand:'Logitech(로지텍)', verdict:'no', reason:LP_REASON},
-  'Logitech MX Mechanical Mini': {brand:'Logitech(로지텍)', verdict:'no', reason:LP_REASON},
-  'Logitech MX Mechanical Mini for Mac': {brand:'Logitech(로지텍)', verdict:'no', reason:LP_REASON},
-  'Logitech MX Keys Mini': {brand:'Logitech(로지텍)', verdict:'no', reason:'시저(팬터그래프) 방식이라 키캡 교체가 어려워요.'},
-  'Logitech MX Keys S': {brand:'Logitech(로지텍)', verdict:'no', reason:'시저(팬터그래프) 방식이라 키캡 교체가 어려워요.'},
-  'Logitech MX Keys S for Mac': {brand:'Logitech(로지텍)', verdict:'no', reason:'시저(팬터그래프) 방식이라 키캡 교체가 어려워요.'},
-  'Logitech K580': {brand:'Logitech(로지텍)', verdict:'no', reason:'시저(팬터그래프) 방식이라 키캡 교체가 어려워요.'},
-  'Logitech POP ICON Keys': {brand:'Logitech(로지텍)', verdict:'no', reason:'시저(팬터그래프) 방식이라 키캡 교체가 어려워요.'},
-  'Logitech Pebble K380s': {brand:'Logitech(로지텍)', verdict:'no', reason:'시저(팬터그래프) 방식이라 키캡 교체가 어려워요.'},
-  'Logitech K780': {brand:'Logitech(로지텍)', verdict:'no', reason:'시저(팬터그래프) 방식이라 키캡 교체가 어려워요.'},
-  'Logitech K120': {brand:'Logitech(로지텍)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.'},
+  'Logitech Alto Keys K98M': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON, alias:['로지텍 알토 키즈 k98m', '로지텍 k98m']},
+  'Logitech G Pro': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON, alias:['로지텍 g pro']},
+  'Logitech G316': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON, alias:['로지텍 g316']},
+  'Logitech G316 X': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON, alias:['로지텍 g316 x']},
+  'Logitech G512': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON, alias:['로지텍 g512']},
+  'Logitech G413 SE': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON, alias:['로지텍 g413 se']},
+  'Logitech G913': {brand:'Logitech(로지텍)', verdict:'no', reason:LP_REASON, alias:['로지텍 g913']},
+  'Logitech G915': {brand:'Logitech(로지텍)', verdict:'no', reason:'G913과 같은 로우프로파일(GL) 라인이라 일반 키캡이 맞지 않아요.', alias:['로지텍 g915']},
+  'Logitech G515': {brand:'Logitech(로지텍)', verdict:'no', reason:'마그네틱·택타일·리니어 全 라인업이 로우프로파일(22mm)이라 일반 키캡이 맞지 않아요.', alias:['로지텍 g515']},
+  'Logitech MX Mechanical': {brand:'Logitech(로지텍)', verdict:'no', reason:LP_REASON, alias:['로지텍 mx 미케니컬']},
+  'Logitech MX Mechanical Mini': {brand:'Logitech(로지텍)', verdict:'no', reason:LP_REASON, alias:['로지텍 mx 미케니컬 미니']},
+  'Logitech MX Mechanical Mini for Mac': {brand:'Logitech(로지텍)', verdict:'no', reason:LP_REASON, alias:['로지텍 mx 미케니컬 미니 for mac']},
+  'Logitech MX Keys Mini': {brand:'Logitech(로지텍)', verdict:'no', reason:'시저(팬터그래프) 방식이라 키캡 교체가 어려워요.', alias:['로지텍 mx 키즈 미니']},
+  'Logitech MX Keys S': {brand:'Logitech(로지텍)', verdict:'no', reason:'시저(팬터그래프) 방식이라 키캡 교체가 어려워요.', alias:['로지텍 mx 키즈 s']},
+  'Logitech MX Keys S for Mac': {brand:'Logitech(로지텍)', verdict:'no', reason:'시저(팬터그래프) 방식이라 키캡 교체가 어려워요.', alias:['로지텍 mx 키즈 s for mac']},
+  'Logitech K580': {brand:'Logitech(로지텍)', verdict:'no', reason:'시저(팬터그래프) 방식이라 키캡 교체가 어려워요.', alias:['로지텍 k580']},
+  'Logitech POP ICON Keys': {brand:'Logitech(로지텍)', verdict:'no', reason:'시저(팬터그래프) 방식이라 키캡 교체가 어려워요.', alias:['로지텍 팝 아이콘 키즈']},
+  'Logitech Pebble K380s': {brand:'Logitech(로지텍)', verdict:'no', reason:'시저(팬터그래프) 방식이라 키캡 교체가 어려워요.', alias:['로지텍 페블 k380s']},
+  'Logitech K780': {brand:'Logitech(로지텍)', verdict:'no', reason:'시저(팬터그래프) 방식이라 키캡 교체가 어려워요.', alias:['로지텍 k780']},
+  'Logitech K120': {brand:'Logitech(로지텍)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['로지텍 k120']},
 
   /* ---------- 레오폴드 ---------- */
   '레오폴드 FC750': {brand:'LEOPOLD(레오폴드)', verdict:'ok', reason:OK_REASON},
@@ -473,7 +473,7 @@ const keyboardCompatDB = {
   '레오폴드 R3TLS': {brand:'LEOPOLD(레오폴드)', verdict:'warn', reason:'정전용량 무접점(토프레) 방식이라 스위치 모양이 달라요. 전용 키캡인지 확인하세요.'},
 
   /* ---------- Apple ---------- */
-  'Apple Magic Keyboard': {brand:'Apple(애플)', verdict:'no', reason:'팬터그래프 방식이라 키캡 교체가 어려워요.'},
+  'Apple Magic Keyboard': {brand:'Apple(애플)', verdict:'no', reason:'팬터그래프 방식이라 키캡 교체가 어려워요.', alias:['애플 매직 키보드']},
 
   /* ---------- 한성 ---------- */
   '한성 TFG Magnetox': {brand:'한성컴퓨터', verdict:'ok', reason:OK_REASON},
@@ -540,16 +540,16 @@ const keyboardCompatDB = {
   '앱코 KM400': {brand:'ABKO(앱코)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.'},
 
   /* ---------- AULA(독거미) ---------- */
-  'AULA F108 Pro': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON},
-  'AULA F87 Pro': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON},
-  'AULA F75': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON},
-  'AULA F87': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON},
-  'AULA F99': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON},
-  'AULA F65': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON},
-  'AULA S102': {brand:'AULA(독거미)', verdict:'no', reason:'스위치 모양이 달라 일반 키캡이 맞지 않아요.'},
-  'AULA HERO 84HE': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON},
-  'AULA F108': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON},
-  'AULA AG75': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON},
+  'AULA F108 Pro': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f108 pro']},
+  'AULA F87 Pro': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f87 pro']},
+  'AULA F75': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f75']},
+  'AULA F87': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f87']},
+  'AULA F99': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f99']},
+  'AULA F65': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f65']},
+  'AULA S102': {brand:'AULA(독거미)', verdict:'no', reason:'스위치 모양이 달라 일반 키캡이 맞지 않아요.', alias:['아울라 s102']},
+  'AULA HERO 84HE': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 히어로 84he']},
+  'AULA F108': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f108']},
+  'AULA AG75': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 ag75']},
 
   /* ---------- 긱스타 ---------- */
   '긱스타 GKG108': {brand:'GEEKSTAR(긱스타)', verdict:'ok', reason:OK_REASON},
@@ -562,8 +562,8 @@ const keyboardCompatDB = {
   '긱스타 GK01': {brand:'GEEKSTAR(긱스타)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.'},
 
   /* ---------- Rainy (WOB) ---------- */
-  'Rainy75': {brand:'Rainy(레이니)', verdict:'ok', reason:OK_REASON},
-  'Rainy87': {brand:'Rainy(레이니)', verdict:'ok', reason:OK_REASON},
+  'Rainy75': {brand:'Rainy(레이니)', verdict:'ok', reason:OK_REASON, alias:['레이니75']},
+  'Rainy87': {brand:'Rainy(레이니)', verdict:'ok', reason:OK_REASON, alias:['레이니87']},
 
   /* ---------- 프리플로우 ---------- */
   '프리플로우 아콘 AK74': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON},
@@ -571,19 +571,19 @@ const keyboardCompatDB = {
   '프리플로우 archon REAL HX': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON},
 
   /* ---------- Dareu ---------- */
-  'Dareu COOL68 8K': {brand:'DAREU(다얼유)', verdict:'ok', reason:OK_REASON},
+  'Dareu COOL68 8K': {brand:'DAREU(다얼유)', verdict:'ok', reason:OK_REASON, alias:['다얼유 cool68 8k']},
 
   /* ---------- Lofree ---------- */
-  'Lofree Flow 2': {brand:'LOFREE(로프리)', verdict:'ok', reason:OK_REASON},
+  'Lofree Flow 2': {brand:'LOFREE(로프리)', verdict:'ok', reason:OK_REASON, alias:['로프리 플로우 2']},
 
   /* ---------- YUNZII ---------- */
-  'YUNZII X71': {brand:'YUNZII(윤지)', verdict:'ok', reason:OK_REASON},
+  'YUNZII X71': {brand:'YUNZII(윤지)', verdict:'ok', reason:OK_REASON, alias:['윤지 x71']},
 
   /* ---------- SWAGKEY ---------- */
-  'SWAGKEY QK80MK2': {brand:'SWAGKEY(스웨그키)', verdict:'ok', reason:OK_REASON},
+  'SWAGKEY QK80MK2': {brand:'SWAGKEY(스웨그키)', verdict:'ok', reason:OK_REASON, alias:['스웨그키 qk80mk2']},
 
   /* ---------- VARO ---------- */
-  'VARO V104': {brand:'VARO(바로)', verdict:'ok', reason:OK_REASON},
+  'VARO V104': {brand:'VARO(바로)', verdict:'ok', reason:OK_REASON, alias:['바로 v104']},
 
   /* ---------- MONSTARGEAR(몬스타기어) ---------- */
   '몬스타 가츠 닌자87 SE': {brand:'MONSTARGEAR(몬스타기어)', verdict:'ok', reason:OK_REASON},
@@ -592,53 +592,53 @@ const keyboardCompatDB = {
   'ATK RS7 Air': {brand:'ATK', verdict:'ok', reason:OK_REASON},
 
   /* ---------- CHERRY(체리) ---------- */
-  'CHERRY MX BOARD 2.0S': {brand:'CHERRY(체리)', verdict:'ok', reason:OK_REASON},
+  'CHERRY MX BOARD 2.0S': {brand:'CHERRY(체리)', verdict:'ok', reason:OK_REASON, alias:['체리 mx board 2.0s']},
 
   /* ---------- g-clicker(지클릭커) ---------- */
-  'g-clicker GTR87': {brand:'g-clicker(지클릭커)', verdict:'ok', reason:OK_REASON},
+  'g-clicker GTR87': {brand:'g-clicker(지클릭커)', verdict:'ok', reason:OK_REASON, alias:['지클릭커 gtr87']},
 
   /* ---------- Gravastar(그라바스타) ---------- */
-  'Gravastar Mercury K98 Pro': {brand:'Gravastar(그라바스타)', verdict:'ok', reason:OK_REASON},
+  'Gravastar Mercury K98 Pro': {brand:'Gravastar(그라바스타)', verdict:'ok', reason:OK_REASON, alias:['그라바스타 머큐리 k98 pro']},
 
   /* ---------- Razer ---------- */
-  'Razer BlackWidow V4 75': {brand:'Razer(레이저)', verdict:'ok', reason:OK_REASON},
+  'Razer BlackWidow V4 75': {brand:'Razer(레이저)', verdict:'ok', reason:OK_REASON, alias:['레이저 블랙위도우 v4 75']},
 
   /* ---------- GDEVIL(지데빌) ---------- */
-  'GDEVIL G917 SCUD': {brand:'GDEVIL(지데빌)', verdict:'ok', reason:OK_REASON},
+  'GDEVIL G917 SCUD': {brand:'GDEVIL(지데빌)', verdict:'ok', reason:OK_REASON, alias:['지데빌 g917 scud']},
 
   /* ---------- Womier ---------- */
-  'Womier WK98': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier L98': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier X98': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier M98': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier M99': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier WD99': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier DUO87': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier M87 Pro': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier QK87': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier SK75 TMR': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier RD75': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier SK75': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier WD75': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier L75': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier WK75': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier ERA75': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier SK71 Pro': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier Q75': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier SK80': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier MT75': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier K80': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier L80': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier Q61 V2': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier VK66 Pro': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier SK65 V2': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier M68 HE V2': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier M68 HE PRO': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier L65': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier SK61 HE': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier Q61 Pro': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier WK61': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON},
-  'Womier SK30': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON}
+  'Womier WK98': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 wk98']},
+  'Womier L98': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 l98']},
+  'Womier X98': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 x98']},
+  'Womier M98': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 m98']},
+  'Womier M99': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 m99']},
+  'Womier WD99': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 wd99']},
+  'Womier DUO87': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 duo87']},
+  'Womier M87 Pro': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 m87 pro']},
+  'Womier QK87': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 qk87']},
+  'Womier SK75 TMR': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 sk75 tmr']},
+  'Womier RD75': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 rd75']},
+  'Womier SK75': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 sk75']},
+  'Womier WD75': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 wd75']},
+  'Womier L75': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 l75']},
+  'Womier WK75': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 wk75']},
+  'Womier ERA75': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 era75']},
+  'Womier SK71 Pro': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 sk71 pro']},
+  'Womier Q75': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 q75']},
+  'Womier SK80': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 sk80']},
+  'Womier MT75': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 mt75']},
+  'Womier K80': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 k80']},
+  'Womier L80': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 l80']},
+  'Womier Q61 V2': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 q61 v2']},
+  'Womier VK66 Pro': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 vk66 pro']},
+  'Womier SK65 V2': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 sk65 v2']},
+  'Womier M68 HE V2': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 m68 he v2']},
+  'Womier M68 HE PRO': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 m68 he pro']},
+  'Womier L65': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 l65']},
+  'Womier SK61 HE': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 sk61 he']},
+  'Womier Q61 Pro': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 q61 pro']},
+  'Womier WK61': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 wk61']},
+  'Womier SK30': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 sk30']}
 };
 
 function startCompatCheck(){
