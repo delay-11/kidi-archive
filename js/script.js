@@ -415,7 +415,7 @@ const keyboardCompatDB = {
   'Keychron Q3': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON},
   'Keychron Q4': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON},
   'Keychron K15 Pro SE ZMK': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON},
-  'Keychron Q13 PRO MAX': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON},
+  'Keychron Q13 PRO MAX': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON, alias:['키크론 q13 pro max']},
   'Lemokey X3': {brand:'Keychron(키크론)', verdict:'warn', reason:'자료가 엇갈려서 구매 전 판매처 확인을 추천해요.'},
   'Lemokey L1': {brand:'Keychron(키크론)', verdict:'warn', reason:'자료가 엇갈려서 구매 전 판매처 확인을 추천해요.'},
   'Keychron B1 Pro': {brand:'Keychron(키크론)', verdict:'no', reason:'팬터그래프 방식이라 키캡 교체가 어려워요.'},
@@ -731,7 +731,11 @@ function renderCompatSearch(query){
   }
 
   const matches = Object.keys(keyboardCompatDB)
-    .filter(name => name.toLowerCase().includes(q))
+    .filter(name => {
+      if(name.toLowerCase().includes(q)) return true;
+      const aliases = keyboardCompatDB[name].alias;
+      return !!aliases && aliases.some(a => a.toLowerCase().includes(q));
+    })
     .sort(koSort);
 
   if(matches.length === 0){
