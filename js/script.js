@@ -475,6 +475,9 @@ const keyboardCompatDB = {
   /* ---------- Apple ---------- */
   'Apple Magic Keyboard': {brand:'Apple(애플)', verdict:'no', reason:'팬터그래프 방식이라 키캡 교체가 어려워요.', alias:['애플 매직 키보드']},
 
+  /* ---------- Acer(에이서) ---------- */
+  'Acer OKW244': {brand:'Acer(에이서)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['에이서 okw244']},
+
   /* ---------- 한성 ---------- */
   '한성 TFG Magnetox': {brand:'한성컴퓨터', verdict:'ok', reason:OK_REASON},
   '한성 TFG Magnetox 2XL': {brand:'한성컴퓨터', verdict:'ok', reason:OK_REASON},
