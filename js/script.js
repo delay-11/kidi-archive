@@ -573,6 +573,7 @@ const keyboardCompatDB = {
   'PREFLOW Archon AK74': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 아콘 ak74']},
   'PREFLOW MCHOSE Ace68': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 mchose ace68']},
   'PREFLOW Archon REAL HX': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 아콘 real hx', '프리플로우 archon real hx']},
+  'PREFLOW Archon M1 PRO 2': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 아콘 m1 pro 2', '프리플로우 archon m1 pro 2']},
 
   /* ---------- Dareu ---------- */
   'Dareu COOL68 8K': {brand:'DAREU(다얼유)', verdict:'ok', reason:OK_REASON, alias:['다얼유 cool68 8k']},
@@ -582,6 +583,9 @@ const keyboardCompatDB = {
 
   /* ---------- YUNZII ---------- */
   'YUNZII X71': {brand:'YUNZII(윤지)', verdict:'ok', reason:OK_REASON, alias:['윤지 x71']},
+
+  /* ---------- Wooting(우팅) ---------- */
+  'Wooting 60HE': {brand:'Wooting(우팅)', verdict:'ok', reason:OK_REASON, alias:['우팅 60he']},
 
   /* ---------- SWAGKEY ---------- */
   'SWAGKEY QK80MK2': {brand:'SWAGKEY(스웨그키)', verdict:'ok', reason:OK_REASON, alias:['스웨그키 qk80mk2']},
