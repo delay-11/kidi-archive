@@ -547,6 +547,7 @@ const keyboardCompatDB = {
   'AULA F108 Pro': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f108 pro']},
   'AULA F87 Pro': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f87 pro']},
   'AULA F75': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f75']},
+  'AULA F75Max': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f75max', '독거미 f75max']},
   'AULA F87': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f87']},
   'AULA F99': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f99']},
   'AULA F65': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f65']},
