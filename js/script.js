@@ -594,6 +594,9 @@ const keyboardCompatDB = {
   /* ---------- VARO ---------- */
   'VARO V104': {brand:'VARO(바로)', verdict:'ok', reason:OK_REASON, alias:['바로 v104']},
 
+  /* ---------- QSENN(큐센) ---------- */
+  'QSENN Q108': {brand:'QSENN(큐센)', verdict:'ok', reason:OK_REASON, alias:['큐센 q108']},
+
   /* ---------- MONSTARGEAR(몬스타기어) ---------- */
   'MONSTARGEAR 가츠 닌자87 SE': {brand:'MONSTARGEAR(몬스타기어)', verdict:'ok', reason:OK_REASON, alias:['몬스타 가츠 닌자87 se']},
 
