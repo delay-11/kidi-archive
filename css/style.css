@@ -1,36 +1,37 @@
+/* 기본값(라이트) — prefers-color-scheme을 지원하지 않거나 설정이 없는 환경의 기본 테마 */
 :root{
-  --ink:#14151A;
-  --panel:#1D2027;
-  --panel2:#23262E;
-  --paper:#F1EFE6;
-  --paper-dim:#9C9A91;
-  --line:#33353E;
-  --linear:#E8434B;
-  --tactile:#C98A4B;
-  --clicky:#3E7BE0;
-  --accent:#E8B84A;
+  --ink:#FAF8F1;
+  --panel:#FFFFFF;
+  --panel2:#F0EDE2;
+  --paper:#1C1D22;
+  --paper-dim:#6E6C62;
+  --line:#DEDACC;
+  --linear:#D1323A;
+  --tactile:#96591F;
+  --clicky:#2E5FC0;
+  --accent:#9C6B10;
   --accent-dim:#E8B84A33;
-  --accent-strong:#F3D488;
-  --ok:#5FD68C;
-  --topbar-bg:rgba(20,21,26,0.9);
+  --accent-strong:#8A5C0A;
+  --ok:#1E7A42;
+  --topbar-bg:rgba(250,248,241,0.85);
 }
 
-/* ---------- 라이트 모드 (시스템 설정을 따름) ---------- */
-@media (prefers-color-scheme: light){
+/* ---------- 다크 모드 (시스템 설정을 따름) ---------- */
+@media (prefers-color-scheme: dark){
   :root{
-    --ink:#FAF8F1;
-    --panel:#FFFFFF;
-    --panel2:#F0EDE2;
-    --paper:#1C1D22;
-    --paper-dim:#6E6C62;
-    --line:#DEDACC;
-    --linear:#D1323A;
-    --tactile:#96591F;
-    --clicky:#2E5FC0;
-    --accent:#9C6B10;
-    --accent-strong:#8A5C0A;
-    --ok:#1E7A42;
-    --topbar-bg:rgba(250,248,241,0.85);
+    --ink:#14151A;
+    --panel:#1D2027;
+    --panel2:#23262E;
+    --paper:#F1EFE6;
+    --paper-dim:#9C9A91;
+    --line:#33353E;
+    --linear:#E8434B;
+    --tactile:#C98A4B;
+    --clicky:#3E7BE0;
+    --accent:#E8B84A;
+    --accent-strong:#F3D488;
+    --ok:#5FD68C;
+    --topbar-bg:rgba(20,21,26,0.9);
   }
 }
 
