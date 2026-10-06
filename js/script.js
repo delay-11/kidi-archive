@@ -415,6 +415,7 @@ const keyboardCompatDB = {
   'Keychron Q3': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON, alias:['키크론 q3']},
   'Keychron Q4': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON, alias:['키크론 q4']},
   'Keychron K15 Pro SE ZMK': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON, alias:['키크론 k15 pro se zmk']},
+  'Keychron K10 PRO SE2': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON, alias:['키크론 k10 pro se2']},
   'Keychron Q13 PRO MAX': {brand:'Keychron(키크론)', verdict:'ok', reason:OK_REASON, alias:['키크론 q13 pro max']},
   'Lemokey X3': {brand:'Keychron(키크론)', verdict:'warn', reason:'자료가 엇갈려서 구매 전 판매처 확인을 추천해요.', alias:['레모키 x3', '키크론 레모키 x3']},
   'Lemokey L1': {brand:'Keychron(키크론)', verdict:'warn', reason:'자료가 엇갈려서 구매 전 판매처 확인을 추천해요.', alias:['레모키 l1', '키크론 레모키 l1']},
@@ -474,6 +475,9 @@ const keyboardCompatDB = {
 
   /* ---------- Apple ---------- */
   'Apple Magic Keyboard': {brand:'Apple(애플)', verdict:'no', reason:'팬터그래프 방식이라 키캡 교체가 어려워요.', alias:['애플 매직 키보드']},
+
+  /* ---------- Acer(에이서) ---------- */
+  'Acer OKW244': {brand:'Acer(에이서)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['에이서 okw244']},
 
   /* ---------- 한성 ---------- */
   '한성 TFG Magnetox': {brand:'한성컴퓨터', verdict:'ok', reason:OK_REASON},
@@ -543,6 +547,7 @@ const keyboardCompatDB = {
   'AULA F108 Pro': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f108 pro']},
   'AULA F87 Pro': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f87 pro']},
   'AULA F75': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f75']},
+  'AULA F75Max': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f75max', '독거미 f75max']},
   'AULA F87': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f87']},
   'AULA F99': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f99']},
   'AULA F65': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f65']},
@@ -569,6 +574,7 @@ const keyboardCompatDB = {
   'PREFLOW Archon AK74': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 아콘 ak74']},
   'PREFLOW MCHOSE Ace68': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 mchose ace68']},
   'PREFLOW Archon REAL HX': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 아콘 real hx', '프리플로우 archon real hx']},
+  'PREFLOW Archon M1 PRO 2': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 아콘 m1 pro 2', '프리플로우 archon m1 pro 2']},
 
   /* ---------- Dareu ---------- */
   'Dareu COOL68 8K': {brand:'DAREU(다얼유)', verdict:'ok', reason:OK_REASON, alias:['다얼유 cool68 8k']},
@@ -579,11 +585,17 @@ const keyboardCompatDB = {
   /* ---------- YUNZII ---------- */
   'YUNZII X71': {brand:'YUNZII(윤지)', verdict:'ok', reason:OK_REASON, alias:['윤지 x71']},
 
+  /* ---------- Wooting(우팅) ---------- */
+  'Wooting 60HE': {brand:'Wooting(우팅)', verdict:'ok', reason:OK_REASON, alias:['우팅 60he']},
+
   /* ---------- SWAGKEY ---------- */
   'SWAGKEY QK80MK2': {brand:'SWAGKEY(스웨그키)', verdict:'ok', reason:OK_REASON, alias:['스웨그키 qk80mk2']},
 
   /* ---------- VARO ---------- */
   'VARO V104': {brand:'VARO(바로)', verdict:'ok', reason:OK_REASON, alias:['바로 v104']},
+
+  /* ---------- QSENN(큐센) ---------- */
+  'QSENN Q108': {brand:'QSENN(큐센)', verdict:'ok', reason:OK_REASON, alias:['큐센 q108']},
 
   /* ---------- MONSTARGEAR(몬스타기어) ---------- */
   'MONSTARGEAR 가츠 닌자87 SE': {brand:'MONSTARGEAR(몬스타기어)', verdict:'ok', reason:OK_REASON, alias:['몬스타 가츠 닌자87 se']},
@@ -602,6 +614,7 @@ const keyboardCompatDB = {
 
   /* ---------- Razer ---------- */
   'Razer BlackWidow V4 75': {brand:'Razer(레이저)', verdict:'ok', reason:OK_REASON, alias:['레이저 블랙위도우 v4 75']},
+  'Razer BlackWidow V4 Tenkeyless HyperSpeed': {brand:'Razer(레이저)', verdict:'ok', reason:OK_REASON, alias:['레이저 블랙위도우 v4 텐키리스 하이퍼스피드']},
 
   /* ---------- GDEVIL(지데빌) ---------- */
   'GDEVIL G917 SCUD': {brand:'GDEVIL(지데빌)', verdict:'ok', reason:OK_REASON, alias:['지데빌 g917 scud']},
@@ -1033,7 +1046,8 @@ function saveResultImage(){
   const el = document.querySelector('#resultCards .result-card');
   if(!el) return;
   loadHtml2Canvas().then(()=>{
-    return window.html2canvas(el, { backgroundColor: '#1D2027', scale: 2 });
+    const panelColor = getComputedStyle(document.documentElement).getPropertyValue('--panel').trim();
+    return window.html2canvas(el, { backgroundColor: panelColor, scale: 2 });
   }).then(canvas=>{
     const link = document.createElement('a');
     link.download = 'kidi-archive-result.png';
