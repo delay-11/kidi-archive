@@ -10,6 +10,28 @@
   --clicky:#3E7BE0;
   --accent:#E8B84A;
   --accent-dim:#E8B84A33;
+  --accent-strong:#F3D488;
+  --ok:#5FD68C;
+  --topbar-bg:rgba(20,21,26,0.9);
+}
+
+/* ---------- 라이트 모드 (시스템 설정을 따름) ---------- */
+@media (prefers-color-scheme: light){
+  :root{
+    --ink:#FAF8F1;
+    --panel:#FFFFFF;
+    --panel2:#F0EDE2;
+    --paper:#1C1D22;
+    --paper-dim:#6E6C62;
+    --line:#DEDACC;
+    --linear:#D1323A;
+    --tactile:#96591F;
+    --clicky:#2E5FC0;
+    --accent:#9C6B10;
+    --accent-strong:#8A5C0A;
+    --ok:#1E7A42;
+    --topbar-bg:rgba(250,248,241,0.85);
+  }
 }
 
 *{box-sizing:border-box; margin:0; padding:0;}
@@ -17,9 +39,9 @@ button{
   font-family:inherit; -webkit-appearance:none; appearance:none;
   background:none; border:none; color:inherit;
 }
-html{scroll-behavior:smooth; background:#14151A !important; min-height:100%; color-scheme:dark;}
+html{scroll-behavior:smooth; background:var(--ink); min-height:100%; color-scheme:light dark;}
 body{
-  background:#14151A !important;
+  background:var(--ink);
   color:var(--paper);
   min-height:100vh;
   font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
@@ -42,7 +64,7 @@ h1,h2,h3{font-weight:800; letter-spacing:-0.01em;}
   position:sticky; top:0; z-index:50;
   display:flex; align-items:center; justify-content:space-between;
   padding:16px 20px;
-  background:rgba(20,21,26,0.9);
+  background:var(--topbar-bg);
   backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line);
 }
@@ -90,11 +112,11 @@ h1,h2,h3{font-weight:800; letter-spacing:-0.01em;}
 }
 .nav-num{font-family:'Space Grotesk',monospace; font-size:11px; color:var(--paper-dim); font-weight:600;}
 .nav-item.nav-accent{
-  color:#F3D488; border-bottom:none;
+  color:var(--accent-strong); border-bottom:none;
   font-size:14.5px; padding-top:12px; padding-bottom:12px;
 }
 .nav-item.nav-accent.nav-accent-lead{margin-top:14px;}
-.nav-item.nav-accent.nav-compat{color:#F3D488;}
+.nav-item.nav-accent.nav-compat{color:var(--accent-strong);}
 .nav-item.nav-inquiry{
   color:var(--paper-dim); font-size:13px; font-weight:600;
   border-bottom:none; margin-top:10px; padding-top:10px;
@@ -303,7 +325,7 @@ section{padding:8px 20px 48px;}
   font-size:12.5px; font-weight:700; padding:5px 11px; border-radius:20px;
   margin-bottom:10px;
 }
-.compat-verdict.ok{background:#2E7D4F33; color:#5FD68C;}
+.compat-verdict.ok{background:#2E7D4F33; color:var(--ok);}
 .compat-verdict.warn{background:#C98A4B33; color:var(--tactile);}
 .compat-verdict.no{background:#E8434B33; color:var(--linear);}
 .compat-result-reason{font-size:13px; color:var(--paper-dim); line-height:1.55;}
@@ -345,7 +367,7 @@ section{padding:8px 20px 48px;}
 .bm-badge{
   flex-shrink:0; font-size:11px; font-weight:700; padding:4px 10px; border-radius:20px; white-space:nowrap;
 }
-.bm-badge.ok{background:#2E7D4F33; color:#5FD68C;}
+.bm-badge.ok{background:#2E7D4F33; color:var(--ok);}
 .bm-badge.warn{background:#C98A4B33; color:var(--tactile);}
 .bm-badge.no{background:#E8434B33; color:var(--linear);}
 

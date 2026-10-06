@@ -1046,7 +1046,8 @@ function saveResultImage(){
   const el = document.querySelector('#resultCards .result-card');
   if(!el) return;
   loadHtml2Canvas().then(()=>{
-    return window.html2canvas(el, { backgroundColor: '#1D2027', scale: 2 });
+    const panelColor = getComputedStyle(document.documentElement).getPropertyValue('--panel').trim();
+    return window.html2canvas(el, { backgroundColor: panelColor, scale: 2 });
   }).then(canvas=>{
     const link = document.createElement('a');
     link.download = 'kidi-archive-result.png';
