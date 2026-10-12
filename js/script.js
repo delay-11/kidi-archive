@@ -618,6 +618,7 @@ const keyboardCompatDB = {
 
   /* ---------- GDEVIL(지데빌) ---------- */
   'GDEVIL G917 SCUD': {brand:'GDEVIL(지데빌)', verdict:'ok', reason:OK_REASON, alias:['지데빌 g917 scud']},
+  'GDEVIL G812 METEOR': {brand:'GDEVIL(지데빌)', verdict:'ok', reason:OK_REASON, alias:['지데빌 g812 meteor']},
 
   /* ---------- Womier ---------- */
   'Womier WK98': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 wk98']},
