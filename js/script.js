@@ -542,6 +542,7 @@ const keyboardCompatDB = {
   'ABKO K150': {brand:'ABKO(앱코)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['앱코 k150']},
   'ABKO MK87': {brand:'ABKO(앱코)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['앱코 mk87']},
   'ABKO KM400': {brand:'ABKO(앱코)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['앱코 km400']},
+  'ABKO COX 엠프리스': {brand:'ABKO(앱코)', verdict:'ok', reason:OK_REASON, alias:['앱코 cox 엠프리스']},
 
   /* ---------- AULA(독거미) ---------- */
   'AULA F108 Pro': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f108 pro']},
