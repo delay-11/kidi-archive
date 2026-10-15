@@ -576,6 +576,7 @@ const keyboardCompatDB = {
   'PREFLOW MCHOSE Ace68': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 mchose ace68']},
   'PREFLOW Archon REAL HX': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 아콘 real hx', '프리플로우 archon real hx']},
   'PREFLOW Archon M1 PRO 2': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 아콘 m1 pro 2', '프리플로우 archon m1 pro 2']},
+  'PREFLOW Archon M1 PRO 2 MAX': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 아콘 m1 pro 2 max', '프리플로우 archon m1 pro 2 max']},
 
   /* ---------- Dareu ---------- */
   'Dareu COOL68 8K': {brand:'DAREU(다얼유)', verdict:'ok', reason:OK_REASON, alias:['다얼유 cool68 8k']},
@@ -591,6 +592,7 @@ const keyboardCompatDB = {
 
   /* ---------- SWAGKEY ---------- */
   'SWAGKEY QK80MK2': {brand:'SWAGKEY(스웨그키)', verdict:'ok', reason:OK_REASON, alias:['스웨그키 qk80mk2']},
+  'SWAGKEY NAJA68 래피드트리거 자석축 8K': {brand:'SWAGKEY(스웨그키)', verdict:'ok', reason:OK_REASON, alias:['스웨그키 naja68 래피드트리거 자석축 8k']},
 
   /* ---------- VARO ---------- */
   'VARO V104': {brand:'VARO(바로)', verdict:'ok', reason:OK_REASON, alias:['바로 v104']},
