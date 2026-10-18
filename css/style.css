@@ -75,9 +75,17 @@ h1,h2,h3{font-weight:800; letter-spacing:-0.01em;}
 .topbar-right{display:flex; align-items:center; gap:16px;}
 
 .top-back-btn{
-  font-size:18px; color:var(--paper); padding:0; margin-right:14px;
-  line-height:1; cursor:pointer;
+  font-size:18px; color:var(--paper); padding:0 4px; margin-right:10px;
+  line-height:1; cursor:pointer; display:inline-flex; align-items:center;
 }
+.top-back-btn .chev{width:10px; height:10px; border-width:2px;}
+/* 버튼 글자색을 따라가는 꺾쇠 화살표 (> / <) */
+.chev{
+  display:inline-block; width:6px; height:6px; vertical-align:middle;
+  border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor;
+  transform:rotate(-45deg); margin:-2px 2px 0 1px;
+}
+.chev.left{transform:rotate(135deg); margin:-2px 1px 0 2px;}
 
 .hamburger-btn{
   width:19px; height:13px; padding:0; cursor:pointer;
@@ -147,6 +155,7 @@ h1,h2,h3{font-weight:800; letter-spacing:-0.01em;}
   font-style:normal; color:var(--accent); transition:color 0.5s ease;
 }
 .hero p{color:var(--paper-dim); font-size:14.5px; word-break:keep-all;}
+@media (max-width:480px){ .hero p br{display:none;} }
 .hero-cta{
   margin-top:24px; display:flex; gap:10px; flex-wrap:wrap;
 }

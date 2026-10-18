@@ -17,7 +17,7 @@
 <body>
 
 <div class="topbar">
-  <button id="topBackBtn" class="top-back-btn hidden" onclick="goHome()" aria-label="홈으로">←</button>
+  <button id="topBackBtn" class="top-back-btn hidden" onclick="goHome()" aria-label="홈으로"><span class="chev left" aria-hidden="true"></span></button>
   <div class="logo" onclick="goHome()" style="cursor:pointer;">KIDI<span>/</span>ARCHIVE</div>
   <div class="topbar-right">
     <button class="eyebrow topbar-inquiry" id="topEyebrow" onclick="openInquiry()">문의하기</button>
@@ -35,8 +35,8 @@
   <button class="nav-item" onclick="navGo('keycap')"><span class="nav-num">03</span>키캡</button>
   <button class="nav-item" onclick="navGo('custom')"><span class="nav-num">04</span>커스텀</button>
   <button class="nav-item" onclick="navGo('accessories')"><span class="nav-num">05</span>용품</button>
-  <button class="nav-item nav-accent nav-accent-lead" onclick="navGo('quiz')">나에게 맞는 조합 찾기 →</button>
-  <button class="nav-item nav-accent nav-compat" onclick="navGo('compat')">호환 가능 여부 확인하기 →</button>
+  <button class="nav-item nav-accent nav-accent-lead" onclick="navGo('quiz')">나에게 맞는 조합 찾기 <span class="chev" aria-hidden="true"></span></button>
+  <button class="nav-item nav-accent nav-compat" onclick="navGo('compat')">호환 가능 여부 확인하기 <span class="chev" aria-hidden="true"></span></button>
 </div>
 
 <!-- ===== SPEC MODAL (축 스펙 팝업) ===== -->
@@ -50,10 +50,10 @@
     <div class="hero-row" id="heroKeys"></div>
     <div class="eyebrow">키보드 · 스위치 · 키캡</div>
     <h1>이게 뭔지 <em>몰라도</em><br>여기서 다 찾아봐요</h1>
-    <p>키보드 처음 사고 키캡 바꿔보려는데 용어부터 막막할 때 —<br>배열, 스위치, 프로파일까지 쉽게 정리했어요.</p>
+    <p>키보드 처음 사고 키캡 바꿔보려는데 용어부터 막막할 때&nbsp;— <br>배열, 스위치, 프로파일까지 쉽게 정리했어요.</p>
     <div class="hero-cta">
-      <button class="btn primary" onclick="startQuiz()">나에게 맞는 조합 찾기 →</button>
-      <button class="btn compat-btn" onclick="startCompatCheck()">호환 여부 확인하기 →</button>
+      <button class="btn primary" onclick="startQuiz()">나에게 맞는 조합 찾기 <span class="chev" aria-hidden="true"></span></button>
+      <button class="btn compat-btn" onclick="startCompatCheck()">호환 여부 확인하기 <span class="chev" aria-hidden="true"></span></button>
     </div>
   </div>
 

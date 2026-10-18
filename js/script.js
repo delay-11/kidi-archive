@@ -240,8 +240,8 @@ function renderCategory(key){
     } else {
       sec.items.forEach(it=>{
         const border = it.accent ? `border-left:3px solid var(${it.accent});` : '';
-        const ctaBtn = it.orderLink ? `<button class="detail-cta" onclick="goCustomOrder('${it.name}')">커스텀 바로가기 →</button>` : '';
-        const buyBtn = it.buyUrl ? `<button class="detail-cta" onclick="window.open('${it.buyUrl}', '_blank')">구매하기 →</button>` : '';
+        const ctaBtn = it.orderLink ? `<button class="detail-cta" onclick="goCustomOrder('${it.name}')">커스텀 바로가기 <span class="chev" aria-hidden="true"></span></button>` : '';
+        const buyBtn = it.buyUrl ? `<button class="detail-cta" onclick="window.open('${it.buyUrl}', '_blank')">구매하기 <span class="chev" aria-hidden="true"></span></button>` : '';
         const hasPhoto = !!photoSrc[it.name];
         const photo = hasPhoto ? photoSlot(it.name) : '';
         const itemClass = hasPhoto ? 'detail-item has-icon' : 'detail-item';
@@ -932,7 +932,7 @@ function renderQuestion(){
         `).join('')}
       </div>
       <div class="quiz-nav">
-        <button onclick="prevQ()" ${current===0?'disabled':''}>← 이전</button>
+        <button onclick="prevQ()" ${current===0?'disabled':''}><span class="chev left" aria-hidden="true"></span> 이전</button>
       </div>
     </div>
   `;
