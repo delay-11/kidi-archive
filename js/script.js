@@ -27,14 +27,6 @@ photoSrc['카일 마시멜로우 클릭'] = 'images/Kailh Marshmallow Click.png'
 photoSrc['카일 마시멜로우 택타일'] = 'images/Kailh Marshmallow Tactile.png';
 photoSrc['기계식'] = 'images/Mechanical.png';
 photoSrc['팬터그래프'] = 'images/Pantograph.png';
-photoSrc['풀사이즈 (106/108키)'] = 'images/108 layout.jpg';
-photoSrc['TKL (87키)'] = 'images/TKL layout.jpg';
-photoSrc['75%'] = 'images/75 layout.jpg';
-photoSrc['65%'] = 'images/65 layout.jpg';
-photoSrc['60%'] = 'images/60 layout.jpg';
-photoSrc['40%대'] = 'images/40 layout.jpg';
-photoSrc['앨리스/스플릿'] = 'images/Alice layout.jpg';
-photoSrc['95% (95키)'] = 'images/95 layout.jpg';
 photoSrc['CHERRY'] = 'images/CHERRY.jpg';
 photoSrc['OEM'] = 'images/OEM.jpg';
 photoSrc['SA'] = 'images/SA.jpg';
@@ -105,14 +97,19 @@ const categoryData = {
         {name:'로우프로파일', desc:'일반 키보드보다 스위치와 키캡 높이를 낮춘 형태예요. 얇고 짧은 키 이동거리가 특징이에요.'}
       ]},
       { label:'키보드 배열', items:[
-        {name:'풀사이즈 (106/108키)', desc:'숫자패드까지 포함된 가장 기본 배열이에요.'},
-        {name:'95% (95키)', desc:'풀사이즈에서 넘패드 폭만 줄여 압축한 배열이에요. 숫자패드는 유지하면서 폭은 살짝 줄일 수 있어요.'},
-        {name:'TKL (87키)', desc:'숫자패드를 뺀 배열로 책상 공간을 좀 더 확보할 수 있어요.'},
+        {name:'108키 · 풀사이즈', desc:'숫자패드와 기능키까지 모두 갖춘 가장 기본적인 배열이에요.'},
+        {name:'106키 · 한국형 풀사이즈', desc:'한/영·한자 키가 들어간 국내 표준 풀사이즈 배열이에요.'},
+        {name:'104키 · ANSI 풀사이즈', desc:'해외에서 많이 쓰는 ANSI 규격의 풀사이즈 배열이에요. 한/영·한자 키가 따로 없어요.'},
+        {name:'98키 · 컴팩트 풀사이즈', desc:'숫자패드는 유지하면서 키 사이 빈 공간을 줄여 폭을 좁힌 배열이에요.'},
+        {name:'96% · 컴팩트 풀사이즈', desc:'키를 더 촘촘하게 붙여 풀사이즈 기능을 더 작은 폭에 담은 배열이에요.'},
+        {name:'87키 · TKL', desc:'숫자패드를 뺀 배열로 책상 공간을 좀 더 확보할 수 있어요.'},
         {name:'75%', desc:'TKL에서 방향키·기능키는 유지하면서 더 좁힌 배열이에요.'},
         {name:'65%', desc:'방향키만 남기고 기능키 줄을 없앤 컴팩트 배열이에요.'},
-        {name:'60%', desc:'방향키까지 없앤 가장 작은 표준 배열, 조합키로 대체해서 써요.'},
-        {name:'40%대', desc:'숫자 줄까지 생략한 초소형 배열이에요. 별도 세팅이 필요해요.'},
-        {name:'앨리스/스플릿', desc:'좌우가 벌어지거나 완전히 분리된 인체공학형 배열이에요.'}
+        {name:'60% · 61키', desc:'방향키까지 없앤 가장 작은 표준 배열이에요. 조합키로 대체해서 써요.'},
+        {name:'40%', desc:'숫자 줄까지 생략한 초소형 배열이에요. 별도 세팅이 필요해요.'},
+        {name:'Numpad', desc:'숫자패드만 따로 떼어낸 보조 키보드예요. 작은 배열 키보드와 함께 쓰기 좋아요.'},
+        {name:'Alice', desc:'가운데가 벌어지고 좌우가 살짝 기울어진 인체공학 배열이에요.'},
+        {name:'Split', desc:'키보드가 좌우로 완전히 나뉜 배열이에요. 어깨 너비에 맞춰 놓을 수 있어요.'}
       ]}
     ]
   },
@@ -1121,7 +1118,7 @@ function showResult(){
   const profiles = top2(scores.profile, ['OEM','CHERRY']);
   const drives = top2(scores.drive, ['기계식']);
 
-  const layoutLabel = {fullsize:'풀사이즈', tkl:'TKL', '75':'75%', '65':'65%', '60':'60%', '40':'40%대'};
+  const layoutLabel = {fullsize:'풀사이즈', tkl:'TKL', '75':'75%', '65':'65%', '60':'60%', '40':'40%'};
   const swLabel = {linear:'리니어', tactile:'택타일', clicky:'클릭'};
   const swVar = {linear:'--linear', tactile:'--tactile', clicky:'--clicky'};
 
