@@ -97,19 +97,19 @@ const categoryData = {
         {name:'로우프로파일', desc:'일반 키보드보다 스위치와 키캡 높이를 낮춘 형태예요. 얇고 짧은 키 이동거리가 특징이에요.'}
       ]},
       { label:'키보드 배열', items:[
-        {name:'108키 · 풀사이즈', desc:'숫자패드와 기능키까지 모두 갖춘 가장 기본적인 배열이에요.'},
-        {name:'106키 · 한국형 풀사이즈', desc:'한/영·한자 키가 들어간 국내 표준 풀사이즈 배열이에요.'},
-        {name:'104키 · ANSI 풀사이즈', desc:'해외에서 많이 쓰는 ANSI 규격의 풀사이즈 배열이에요. 한/영·한자 키가 따로 없어요.'},
-        {name:'98키 · 컴팩트 풀사이즈', desc:'숫자패드는 유지하면서 키 사이 빈 공간을 줄여 폭을 좁힌 배열이에요.'},
-        {name:'96% · 컴팩트 풀사이즈', desc:'키를 더 촘촘하게 붙여 풀사이즈 기능을 더 작은 폭에 담은 배열이에요.'},
-        {name:'87키 · TKL', desc:'숫자패드를 뺀 배열로 책상 공간을 좀 더 확보할 수 있어요.'},
-        {name:'75%', desc:'TKL에서 방향키·기능키는 유지하면서 더 좁힌 배열이에요.'},
-        {name:'65%', desc:'방향키만 남기고 기능키 줄을 없앤 컴팩트 배열이에요.'},
-        {name:'60% · 61키', desc:'방향키까지 없앤 가장 작은 표준 배열이에요. 조합키로 대체해서 써요.'},
-        {name:'40%', desc:'숫자 줄까지 생략한 초소형 배열이에요. 별도 세팅이 필요해요.'},
-        {name:'Numpad', desc:'숫자패드만 따로 떼어낸 보조 키보드예요. 작은 배열 키보드와 함께 쓰기 좋아요.'},
-        {name:'Alice', desc:'가운데가 벌어지고 좌우가 살짝 기울어진 인체공학 배열이에요.'},
-        {name:'Split', desc:'키보드가 좌우로 완전히 나뉜 배열이에요. 어깨 너비에 맞춰 놓을 수 있어요.'}
+        {name:'108키 · 풀사이즈', desc:'숫자패드와 기능키까지 갖춘 풀사이즈 배열이에요.', check:'추가 기능키 위치·크기 확인'},
+        {name:'106키 · 한국형 풀사이즈', desc:'한/영·한자 키가 포함된 한국형 풀사이즈 배열이에요.', check:'한/영·한자 키와 하단열 확인'},
+        {name:'104키 · ANSI 풀사이즈', desc:'숫자패드까지 포함된 대표적인 ANSI 풀사이즈 배열이에요.', check:'Enter · Shift · Spacebar 규격 확인'},
+        {name:'98키 · 컴팩트 풀사이즈', desc:'숫자패드는 유지하면서 전체 폭을 줄인 배열이에요.', check:'우 Shift · Numpad 0 · 하단키 확인'},
+        {name:'96% · 컴팩트 풀사이즈', desc:'풀사이즈 기능을 대부분 유지한 압축형 배열이에요.', check:'우 Shift · Numpad 0 · 1U 키 확인'},
+        {name:'87키 · TKL', desc:'풀사이즈에서 숫자패드를 제외한 배열이에요.', check:'주요 특수키 규격 확인'},
+        {name:'75%', desc:'기능키와 방향키를 유지한 컴팩트 배열이에요.', check:'짧은 우 Shift · 우측 1U 키 확인'},
+        {name:'65%', desc:'기능키 줄은 생략하고 방향키는 유지한 배열이에요.', check:'짧은 우 Shift · 1U 하단키 확인'},
+        {name:'60% · 61키', desc:'기능키와 전용 방향키를 줄인 소형 배열이에요.', check:'변형 배열은 Shift · 하단열 확인'},
+        {name:'40%', desc:'숫자열까지 줄인 초소형 배열이에요.', check:'특수 modifier · Spacebar 확인'},
+        {name:'Numpad', desc:'숫자패드 부분만 따로 분리한 배열이에요.', check:'0 · + · Enter 크기 확인'},
+        {name:'Alice', desc:'양손 각도를 벌린 인체공학형 배열이에요.', check:'분할 Spacebar · B키 · Shift 확인'},
+        {name:'Split', desc:'좌우가 분리되어 배치를 조절할 수 있는 배열이에요.', check:'분할 Spacebar · 하단 특수키 구성 확인'}
       ]}
     ]
   },
@@ -200,7 +200,8 @@ function renderCategory(key){
         <div class="card-row" id="${rowId}">`;
       sec.items.forEach(it=>{
         const cardClass = sec.label==='키보드 배열' ? 'h-card h-card-layout' : 'h-card';
-        html += `<div class="${cardClass}">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div></div></div>`;
+        const check = it.check ? `<div class="kc"><div class="kc-divider"></div><div class="kc-label">KEYCAP CHECK</div><div class="kc-text">${it.check}</div></div>` : '';
+        html += `<div class="${cardClass}">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
       });
       html += `</div>
         <button class="scroll-arrow right" onclick="scrollRowBy('${rowId}',1)" aria-label="다음"><span class="scroll-arrow-icon"></span></button>

@@ -425,6 +425,12 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 .h-card .h-body{padding:11px 12px 14px;}
 .h-card .d-name{font-weight:700; font-size:13.5px; margin-bottom:5px; word-break:keep-all;}
 .h-card .d-desc{font-size:11.5px; color:var(--paper-dim); line-height:1.5; word-break:keep-all;}
+.h-card-layout{display:flex; flex-direction:column;}
+.h-card-layout .h-body{flex:1; display:flex; flex-direction:column;}
+.kc{margin-top:auto; padding-top:10px;}
+.kc-divider{width:18px; height:2px; border-radius:1px; background:var(--accent); margin-bottom:8px;}
+.kc-label{font-family:'Space Grotesk',monospace; font-size:9.5px; font-weight:700; letter-spacing:0.08em; color:var(--accent); margin-bottom:3px;}
+.kc-text{font-size:11px; font-weight:600; color:var(--paper); line-height:1.45; word-break:keep-all;}
 .h-card .preview-btn{
   font-family:'Space Grotesk',monospace; font-size:11px; font-weight:600;
   color:var(--accent); padding:9px 0 0; cursor:pointer; width:100%;
