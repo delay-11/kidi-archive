@@ -104,7 +104,7 @@ const categoryData = {
         {name:'팬터그래프', desc:'가위 형태의 지지 구조로 키를 안정적으로 눌러주는 방식이에요. 키 높이가 낮고 노트북 키보드에 많이 쓰여요.'},
         {name:'로우프로파일', desc:'일반 키보드보다 스위치와 키캡 높이를 낮춘 형태예요. 얇고 짧은 키 이동거리가 특징이에요.'}
       ]},
-      { label:'배열', items:[
+      { label:'키보드 배열', items:[
         {name:'풀사이즈 (106/108키)', desc:'숫자패드까지 포함된 가장 기본 배열이에요.'},
         {name:'95% (95키)', desc:'풀사이즈에서 넘패드 폭만 줄여 압축한 배열이에요. 숫자패드는 유지하면서 폭은 살짝 줄일 수 있어요.'},
         {name:'TKL (87키)', desc:'숫자패드를 뺀 배열로 책상 공간을 좀 더 확보할 수 있어요.'},
@@ -151,14 +151,14 @@ const categoryData = {
     title:'커스텀',
     sections:[
       { label:'커스텀 주문', items:[
-        {name:'승화전사', desc:'열을 이용해 염료를 키캡 표면층에 스며들게 하는 방식이에요. 다양한 색상과 섬세한 이미지 표현이 가능해 캐릭터·패턴 커스텀에 잘 어울려요.', orderLink:true},
-        {name:'레이저 각인', desc:'레이저로 키캡 표면에 문자나 무늬를 새기는 방식이에요. 선명하고 깔끔한 표현이 가능하며, 심플한 이니셜이나 로고 각인에 잘 어울려요.', orderLink:true}
+        {name:'승화전사', desc:'열을 이용해 염료를 키캡 표면층에 스며들게 하는 방식이에요.<br>다양한 색상과 섬세한 이미지 표현이 가능해 캐릭터·패턴 커스텀에 잘 어울려요.', orderLink:true},
+        {name:'레이저 각인', desc:'레이저로 키캡 표면에 문자나 무늬를 새기는 방식이에요.<br>선명하고 깔끔한 표현이 가능하며, 심플한 이니셜이나 로고 각인에 잘 어울려요.', orderLink:true}
       ]},
       { label:'기성품', items:[
-        {name:'이중사출', desc:'서로 다른 색상의 플라스틱을 두 번 사출해 문자와 키캡을 만드는 방식이에요. 문자가 별도의 플라스틱으로 이루어져 오래 사용해도 쉽게 지워지지 않아요.'},
-        {name:'승화전사', desc:'열을 이용해 염료를 키캡 표면층에 스며들게 하는 방식이에요. 인쇄가 쉽게 벗겨지지 않고 다양한 색상과 패턴을 표현할 수 있어요.'},
-        {name:'UV인쇄', desc:'UV 잉크를 키캡 표면에 인쇄한 뒤 자외선으로 굳히는 방식이에요. 다양한 색상과 그라데이션 표현이 가능하지만, 표면 인쇄라 장기간 사용하면 마모될 수 있어요.'},
-        {name:'포인트키캡', desc:'키보드의 일부 키에 포인트를 주기 위해 사용하는 키캡이에요. 캐릭터나 오브제를 입체적으로 표현한 아티산 키캡부터 인쇄·레진·실리콘·금속 등 다양한 소재와 방식으로 제작돼요.', buyUrl:'https://mkt.shopping.naver.com/link/6a9521b9aeac3553bb292240'}
+        {name:'이중사출', desc:'서로 다른 색상의 플라스틱을 두 번 사출해 문자와 키캡을 만드는 방식이에요.<br>문자가 별도의 플라스틱으로 이루어져 오래 사용해도 쉽게 지워지지 않아요.'},
+        {name:'승화전사', desc:'열을 이용해 염료를 키캡 표면층에 스며들게 하는 방식이에요.<br>인쇄가 쉽게 벗겨지지 않고 다양한 색상과 패턴을 표현할 수 있어요.'},
+        {name:'UV인쇄', desc:'UV 잉크를 키캡 표면에 인쇄한 뒤 자외선으로 굳히는 방식이에요.<br>다양한 색상과 그라데이션 표현이 가능하지만, 표면 인쇄라 장기간 사용하면 마모될 수 있어요.'},
+        {name:'포인트키캡', desc:'키보드의 일부 키에 포인트를 주기 위해 사용하는 키캡이에요.<br>캐릭터나 오브제를 입체적으로 표현한 아티산 키캡부터 인쇄·레진·실리콘·금속 등 다양한 소재와 방식으로 제작돼요.', buyUrl:'https://mkt.shopping.naver.com/link/6a9521b9aeac3553bb292240'}
       ]}
     ]
   },
@@ -166,10 +166,10 @@ const categoryData = {
     title:'용품',
     sections:[
       { label:'왜 필요한가요?', items:[
-        {name:'키캡·스위치 리무버', desc:'키캡이나 스위치를 손으로 억지로 빼지 않고 안전하게 분리할 때 사용하는 도구예요. 교체나 청소를 자주 한다면 하나쯤 준비해두면 편리해요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fa68a20a72cfec88678'},
-        {name:'키보드 진열대', desc:'키보드를 세워 보관하거나 전시할 수 있는 용품이에요. 책상 공간을 효율적으로 활용하고 여러 대의 키보드를 깔끔하게 정리하기 좋아요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fb1a6c15e1319580bc0'},
-        {name:'키캡 보관함', desc:'여분 키캡이나 교체한 키캡을 종류별로 나누어 보관할 수 있는 용품이에요. 필요한 키를 찾기 쉽고 분실이나 섞임을 줄이는 데 도움이 돼요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fbd7c3acb4dfa6f3cd7'},
-        {name:'팜레스트', desc:'키보드 앞에 놓아 손목을 받쳐주는 용품이에요. 키보드 높이에 맞는 제품을 사용하면 손목이 과하게 꺾이는 것을 줄이고 보다 편안하게 타이핑할 수 있어요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fc8cc78491a7acb608f'}
+        {name:'키캡·스위치 리무버', desc:'키캡이나 스위치를 손으로 억지로 빼지 않고 안전하게 분리할 때 사용하는 도구예요.<br>교체나 청소를 자주 한다면 하나쯤 준비해두면 편리해요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fa68a20a72cfec88678'},
+        {name:'키보드 진열대', desc:'키보드를 세워 보관하거나 전시할 수 있는 용품이에요.<br>책상 공간을 효율적으로 활용하고 여러 대의 키보드를 깔끔하게 정리하기 좋아요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fb1a6c15e1319580bc0'},
+        {name:'키캡 보관함', desc:'여분 키캡이나 교체한 키캡을 종류별로 나누어 보관할 수 있는 용품이에요.<br>필요한 키를 찾기 쉽고 분실이나 섞임을 줄이는 데 도움이 돼요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fbd7c3acb4dfa6f3cd7'},
+        {name:'팜레스트', desc:'키보드 앞에 놓아 손목을 받쳐주는 용품이에요.<br>키보드 높이에 맞는 제품을 사용하면 손목이 과하게 꺾이는 것을 줄이고 보다 편안하게 타이핑할 수 있어요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fc8cc78491a7acb608f'}
       ]}
     ]
   }
@@ -193,7 +193,7 @@ function renderCategory(key){
     const isCompat = key==='keycap' && sec.label==='호환성';
     html += isCompat ? `<div class="sub-label" id="compatAnchor">${sec.label}</div>` : `<div class="sub-label">${sec.label}</div>`;
     if(sec.note){ html += `<div class="section-note">${sec.note}</div>`; }
-    const isCarousel = key==='keyboard' && (sec.label==='키보드 종류' || sec.label==='배열');
+    const isCarousel = key==='keyboard' && (sec.label==='키보드 종류' || sec.label==='키보드 배열');
     const isSwitchGrid = key==='switch' && sec.label==='타입';
     const isPhotoList = key==='keycap' && sec.label==='프로파일';
     if(isCarousel){
@@ -202,7 +202,7 @@ function renderCategory(key){
         <button class="scroll-arrow left" onclick="scrollRowBy('${rowId}',-1)" aria-label="이전"><span class="scroll-arrow-icon"></span></button>
         <div class="card-row" id="${rowId}">`;
       sec.items.forEach(it=>{
-        const cardClass = sec.label==='배열' ? 'h-card h-card-layout' : 'h-card';
+        const cardClass = sec.label==='키보드 배열' ? 'h-card h-card-layout' : 'h-card';
         html += `<div class="${cardClass}">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div></div></div>`;
       });
       html += `</div>
