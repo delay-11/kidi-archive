@@ -350,12 +350,45 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 .compat-empty-actions .btn{margin-top:0; width:100%; max-width:280px;}
 
 /* ---------- brand view (브랜드별 보기) ---------- */
-#compatBrandResults{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+#compatBrandResults{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; align-items:start;}
+.brand-col{display:flex; flex-direction:column; gap:10px; min-width:0;}
+/* 초성·알파벳 인덱스 막대 */
+.brand-index{
+  position:fixed; z-index:60; top:50%; transform:translateY(-50%);
+  right:max(4px, calc((100vw - 880px) / 2 - 34px));
+  display:flex; flex-direction:column; align-items:center;
+  height:min(620px, calc(100vh - 150px)); padding:6px 3px; border-radius:12px;
+  background:var(--topbar-bg); border:1px solid var(--line);
+  touch-action:none; user-select:none; -webkit-user-select:none; cursor:pointer;
+}
+.brand-index span{
+  flex:1 1 0; min-height:0; max-height:16px; width:18px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:10px; font-weight:700; line-height:1; color:var(--accent);
+}
+.brand-index span.empty{color:var(--paper-dim); opacity:0.45; font-weight:500;}
+.brand-group{transition:border-color 0.2s ease, box-shadow 0.2s ease;}
+.brand-group.flash{border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-dim);}
+@media (min-width:700px){ .brand-index{display:none;} }
+.brand-index-bubble{
+  position:fixed; z-index:61; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:72px; height:72px; border-radius:18px;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(20,21,26,0.78); color:#fff; font-size:34px; font-weight:700;
+  pointer-events:none;
+}
+@media (max-width:699px){
+  #compatBrandPane{padding-right:22px;}
+  .brand-index{top:calc(50% + 50px); height:min(560px, calc(100vh - 250px));}
+}
+@media (max-width:699px){
+  #compatBrandResults{display:flex; flex-direction:column; align-items:stretch;}
+  .brand-col{display:contents;}
+}
 .brand-group{
   background:var(--panel); border:1px solid var(--line); border-radius:12px;
   overflow:hidden;
 }
-.brand-group.open{grid-column:1 / -1;}
 .brand-header{
   width:100%; display:flex; align-items:center; justify-content:space-between; gap:6px;
   padding:14px 16px; background:none; border:none; color:var(--paper);
@@ -377,6 +410,7 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
   padding:11px 16px; border-top:1px solid var(--line); font-size:13px;
 }
 .brand-model-row .bm-name{color:var(--paper);}
+
 .bm-badge{
   flex-shrink:0; font-size:11px; font-weight:700; padding:4px 10px; border-radius:20px; white-space:nowrap;
 }
