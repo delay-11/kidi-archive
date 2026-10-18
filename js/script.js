@@ -26,7 +26,7 @@ photoSrc['카일 BOX V2 갈축'] = 'images/Kailh BOX V2 Brown.png';
 photoSrc['카일 마시엘로우 클릭'] = 'images/Kailh Marshmallow Click.png';
 photoSrc['카일 마시멜로우 택타일'] = 'images/Kailh Marshmallow Tactile.png';
 photoSrc['기계식'] = 'images/Mechanical.png';
-photoSrc['펜타그래프'] = 'images/Pantograph.png';
+photoSrc['팬터그래프'] = 'images/Pantograph.png';
 photoSrc['풀사이즈 (106/108키)'] = 'images/108 layout.jpg';
 photoSrc['TKL (87키)'] = 'images/TKL layout.jpg';
 photoSrc['75%'] = 'images/75 layout.jpg';
@@ -101,7 +101,7 @@ const categoryData = {
         {name:'정전용량 무접점', desc:'물리적인 접점 없이 정전용량의 변화를 감지해 입력을 인식해요. 부드러운 타건감이 특징이에요.'},
         {name:'광축', desc:'빛의 변화를 센서로 감지해 입력을 인식하는 방식이에요. 빠른 입력 구현이 가능해 게이밍 키보드에 많이 쓰여요.'},
         {name:'자석축(홀 이펙트)', desc:'자석과 센서로 키의 눌린 깊이를 감지하는 방식이에요. 입력 지점을 세밀하게 조절할 수 있어요.'},
-        {name:'펜타그래프', desc:'가위 형태의 지지 구조로 키를 안정적으로 눌러주는 방식이에요. 키 높이가 낮고 노트북 키보드에 많이 쓰여요.'},
+        {name:'팬터그래프', desc:'가위 형태의 지지 구조로 키를 안정적으로 눌러주는 방식이에요. 키 높이가 낮고 노트북 키보드에 많이 쓰여요.'},
         {name:'로우프로파일', desc:'일반 키보드보다 스위치와 키캡 높이를 낮춘 형태예요. 얇고 짧은 키 이동거리가 특징이에요.'}
       ]},
       { label:'배열', items:[
