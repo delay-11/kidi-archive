@@ -192,6 +192,7 @@ function renderCategory(key){
     if(key==='custom' && idx>0){ html += `<div class="section-divider"></div>`; }
     const isCompat = key==='keycap' && sec.label==='호환성';
     html += isCompat ? `<div class="sub-label" id="compatAnchor">${sec.label}</div>` : `<div class="sub-label">${sec.label}</div>`;
+    if(sec.note){ html += `<div class="section-note">${sec.note}</div>`; }
     const isCarousel = key==='keyboard' && (sec.label==='키보드 종류' || sec.label==='배열');
     const isSwitchGrid = key==='switch' && sec.label==='타입';
     const isPhotoList = key==='keycap' && sec.label==='프로파일';
@@ -225,7 +226,6 @@ function renderCategory(key){
         html += `<div class="compat-item">${photoSlot(it.name)}<div class="compat-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div></div></div>`;
       });
       html += `</div>`;
-      if(sec.note){ html += `<div class="section-note">${sec.note}</div>`; }
     } else if(isCompat){
       const rowId = nextRowId();
       html += `<div class="scroll-wrap">
