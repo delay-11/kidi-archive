@@ -352,6 +352,10 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 /* ---------- brand view (브랜드별 보기) ---------- */
 #compatBrandResults{display:grid; grid-template-columns:1fr 1fr; gap:10px; align-items:start;}
 .brand-col{display:flex; flex-direction:column; gap:10px; min-width:0;}
+@media (min-width:700px){
+  #compatBrandResults{display:flex; flex-direction:column; align-items:stretch;}
+  .brand-col{display:contents;}
+}
 .brand-group{
   background:var(--panel); border:1px solid var(--line); border-radius:12px;
   overflow:hidden;
