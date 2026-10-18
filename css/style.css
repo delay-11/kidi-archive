@@ -523,6 +523,53 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 .vi-spec-row span:first-child{color:var(--paper-dim);}
 .vi-spec-row span:last-child{color:var(--paper); font-weight:700; text-align:right;}
 .detail-item .d-name{font-weight:700; font-size:14.5px; margin-bottom:5px;}
+
+/* ---------- 스위치 비교하기 ---------- */
+.vi-compare{
+  font-size:10px; font-weight:600; color:var(--paper-dim);
+  border:1px dashed var(--line); border-radius:20px; padding:4px 9px; cursor:pointer;
+}
+.vi-compare.on{color:var(--paper); background:var(--accent-dim); border:1px solid var(--accent);}
+.compare-bar{
+  position:fixed; left:50%; bottom:14px; transform:translateX(-50%); z-index:80;
+  width:calc(100% - 24px); max-width:720px;
+  display:flex; align-items:center; gap:10px;
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:10px 10px 10px 12px; box-shadow:0 8px 24px rgba(0,0,0,0.12);
+}
+.cmp-chips{display:flex; flex-wrap:wrap; gap:6px; flex:1; min-width:0; align-items:center;}
+.cmp-chip{
+  font-size:11px; font-weight:600; color:var(--paper); background:var(--panel2);
+  border:1px solid var(--line); border-radius:20px; padding:5px 9px; cursor:pointer;
+}
+.cmp-chip span{margin-left:6px; color:var(--paper-dim); font-size:10px;}
+.cmp-hint{font-size:11px; color:var(--paper-dim);}
+.cmp-go{flex-shrink:0; padding:11px 14px;}
+.cmp-go:disabled{opacity:0.45; pointer-events:none;}
+.compare-sheet{
+  position:fixed; left:50%; top:50%; transform:translate(-50%,-50%); z-index:91;
+  width:calc(100% - 24px); max-width:720px; max-height:calc(100vh - 40px); overflow:auto;
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+}
+.compare-sheet .spec-modal-head{position:sticky; top:0; background:var(--panel); z-index:1;}
+.cmp-body{padding:14px;}
+.cmp-summary{
+  background:var(--accent-dim); border-radius:10px; padding:12px 14px; margin-bottom:14px;
+  font-size:12.5px; line-height:1.6; color:var(--paper); word-break:keep-all;
+}
+.cmp-summary-title{font-size:11px; font-weight:700; color:var(--accent); margin-bottom:4px;}
+.cmp-grid{display:grid; grid-template-columns:62px repeat(var(--n), minmax(0,1fr)); column-gap:8px;}
+.cmp-col-head{display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; padding-bottom:12px;}
+.cmp-col-head .d-photo{width:100%; aspect-ratio:1/1; height:auto; border-radius:10px;}
+.cmp-name{font-size:12px; font-weight:700; color:var(--paper); word-break:keep-all;}
+.cmp-type{font-size:10px; font-weight:700; border:1px solid; border-radius:8px; padding:1px 6px;}
+.cmp-label{font-size:11px; color:var(--paper-dim); padding:10px 0; border-top:1px dashed var(--line); display:flex; align-items:center;}
+.cmp-grid > .cmp-label:first-child{border-top:none;}
+.cmp-val{font-size:12px; font-weight:700; color:var(--paper); padding:8px 6px; border-top:1px dashed var(--line); text-align:center;}
+.cmp-val.diff span{background:var(--accent-dim); border-radius:4px; padding:1px 4px;}
+.cmp-bar{height:4px; background:var(--panel2); border-radius:2px; margin-top:6px; overflow:hidden;}
+.cmp-bar i{display:block; height:100%; background:var(--accent); border-radius:2px;}
+.cmp-foot{font-size:11px; color:var(--paper-dim); margin-top:12px;}
 .detail-item .d-desc{font-size:13px; color:var(--paper-dim); line-height:1.55;}
 
 /* ---------- quiz cta banner ---------- */
