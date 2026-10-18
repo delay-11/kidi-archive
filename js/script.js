@@ -23,7 +23,7 @@ photoSrc['오테뮤 라임 V3'] = 'images/Outemu Lime V3.png';
 photoSrc['TTC 아이스프로즌 V2'] = 'images/TTC Ice Frozen V2.png';
 photoSrc['카일 BOX V2 백축'] = 'images/Kailh BOX V2 White.png';
 photoSrc['카일 BOX V2 갈축'] = 'images/Kailh BOX V2 Brown.png';
-photoSrc['카일 마시엘로우 클릭'] = 'images/Kailh Marshmallow Click.png';
+photoSrc['카일 마시멜로우 클릭'] = 'images/Kailh Marshmallow Click.png';
 photoSrc['카일 마시멜로우 택타일'] = 'images/Kailh Marshmallow Tactile.png';
 photoSrc['기계식'] = 'images/Mechanical.png';
 photoSrc['팬터그래프'] = 'images/Pantograph.png';
@@ -64,7 +64,7 @@ soundSrc['오테뮤 라임 V3'] = 'audio/Outemu Lime V3.mp4';
 soundSrc['TTC 아이스프로즌 V2'] = 'audio/TTC Ice Frozen V2.mp4';
 soundSrc['카일 BOX V2 백축'] = 'audio/Kailh BOX V2 White.mp4';
 soundSrc['카일 BOX V2 갈축'] = 'audio/Kailh BOX V2 Brown.mp4';
-soundSrc['카일 마시엘로우 클릭'] = 'audio/Kailh Marshmallow Click.mp4';
+soundSrc['카일 마시멜로우 클릭'] = 'audio/Kailh Marshmallow Click.mp4';
 soundSrc['카일 마시멜로우 택타일'] = 'audio/Kailh Marshmallow Tactile.mp4';
 
 function playPreview(name){
@@ -122,7 +122,7 @@ const categoryData = {
       { label:'타입', items:[
         {name:'리니어', accent:'--linear', desc:'누르는 내내 걸림 없이 부드럽게 눌려요. 상대적으로 조용한 편이에요.', variants:['오테뮤 스위치 적축','오테뮤 피치 V3','TTC 아이스프로즌 V2']},
         {name:'택타일', accent:'--tactile', desc:'누르는 중간에 턱 걸리는 느낌이 있어요. 손끝으로 입력을 확인하기 좋아요.', variants:['오테뮤 스위치 갈축','오테뮤 라임 V3','카일 BOX V2 갈축','카일 마시멜로우 택타일']},
-        {name:'클릭', accent:'--clicky', desc:'택타일 느낌에 또렷한 클릭 소리까지 더해진 타입이에요.', variants:['오테뮤 스위치 청축','카일 마시엘로우 클릭','카일 BOX V2 백축']}
+        {name:'클릭', accent:'--clicky', desc:'택타일 느낌에 또렷한 클릭 소리까지 더해진 타입이에요.', variants:['오테뮤 스위치 청축','카일 마시멜로우 클릭','카일 BOX V2 백축']}
       ]}
     ]
   },
@@ -282,7 +282,7 @@ const SWITCH_SPECS = {
   'TTC 아이스프로즌 V2': [['타입','저소음 리니어'],['핀','3핀'],['작동압','39gf'],['구분압','43gf'],['입력 지점','2.0mm'],['총 이동거리','3.5mm']],
   '카일 BOX V2 백축': [['타입','클릭'],['핀','5핀'],['작동압','45gf'],['구분압','55gf'],['입력 지점','1.8±0.4mm'],['총 이동거리','3.6±0.3mm']],
   '카일 BOX V2 갈축': [['타입','택타일'],['핀','5핀'],['작동압','45gf'],['구분압','68gf'],['입력 지점','1.8±0.4mm'],['총 이동거리','3.6±0.3mm']],
-  '카일 마시엘로우 클릭': [['타입','클릭'],['핀','5핀'],['작동압','50±10gf'],['구분압','55±10gf'],['입력 지점','1.8±0.4mm'],['총 이동거리','3.6±0.3mm']],
+  '카일 마시멜로우 클릭': [['타입','클릭'],['핀','5핀'],['작동압','50±10gf'],['구분압','55±10gf'],['입력 지점','1.8±0.4mm'],['총 이동거리','3.6±0.3mm']],
   '카일 마시멜로우 택타일': [['타입','택타일'],['핀','5핀'],['작동압','38±10gf'],['구분압','55±10gf'],['입력 지점','2.0±0.4mm'],['총 이동거리','3.4±0.3mm']],
 };
 
