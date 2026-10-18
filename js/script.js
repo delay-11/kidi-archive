@@ -129,15 +129,15 @@ const categoryData = {
   keycap:{
     title:'키캡',
     sections:[
-      { label:'프로파일', items:[
-        {name:'CHERRY', desc:'낮고 완만한 곡선의 조각형 프로파일. 가장 대중적이에요.'},
-        {name:'OEM', desc:'CHERRY보다 살짝 높은 조각형 프로파일. 일반 완제품 키보드에 많이 쓰여요.'},
-        {name:'MAO', desc:'낮은 편의 조각형 프로파일로 고양이 실루엣이 특징이에요.'},
-        {name:'SA', desc:'손끝을 감싸는 듯한 깊고 높은 조각형 프로파일이에요.'},
-        {name:'XDA', desc:'행 구분 없이 균일한 높이의 넓적한 프로파일이에요.'},
-        {name:'CBSA', desc:'SA와 비슷하게 깊지만 조금 더 낮은 조각형 프로파일이에요.'},
-        {name:'MDA', desc:'구형(스페리컬) 형태로 행 높이가 균일한 프로파일이에요.'},
-        {name:'MOA', desc:'완만한 돔형 상단의 조각형 프로파일로, 부드럽게 도드라진 촉감이에요.'}
+      { label:'프로파일', note:'※ 높이는 제조사에 따라 차이가 있을 수 있어요.', items:[
+        {name:'CHERRY', desc:'낮고 완만한 곡선을 이루며, 행마다 높이와 각도가 달라지는 조각형 프로파일이에요.'},
+        {name:'OEM', desc:'CHERRY보다 조금 높고, 행마다 높이와 각도가 달라지는 조각형 프로파일이에요.'},
+        {name:'MAO', desc:'행마다 높이가 일정하며, 양쪽이 살짝 올라간 독특한 상단이 특징인 균일형 프로파일이에요.'},
+        {name:'SA', desc:'높고 깊게 파인 둥근 상단이 특징이며, 행마다 높이와 각도가 달라지는 조각형 프로파일이에요.'},
+        {name:'XDA', desc:'낮고 넓은 상단이 특징이며, 행마다 높이와 각도가 같은 균일형 프로파일이에요.'},
+        {name:'CBSA', desc:'SA와 비슷한 둥근 상단을 가지면서 높이는 조금 낮춘 조각형 프로파일이에요.'},
+        {name:'MDA', desc:'중간 높이의 넓고 둥근 상단이 특징이며, 행마다 높이와 각도가 달라지는 조각형 프로파일이에요.'},
+        {name:'MOA', desc:'둥글고 볼륨감 있는 상단이 특징이며, 행마다 높이와 각도가 같은 균일형 프로파일이에요.'}
       ]},
       { label:'호환성', items:[
         {step:'STEP 1', name:'스위치 모양 확인하기', desc:'대부분의 기계식·커스텀 키보드는 스위치 위가 십자(+) 모양이라 문제없이 호환돼요. 다만 정전용량 무접점(토프레)이나 로우프로파일 키보드는 스위치 모양 자체가 달라서 전용 키캡이 필요해요. 헷갈리면 키보드에 있는 키캡을 하나 제거해서 스위치 위 모양을 직접 확인하거나, 메뉴의 "호환 여부 확인하기"에서 모델명으로 검색해보세요.'},
@@ -225,6 +225,7 @@ function renderCategory(key){
         html += `<div class="compat-item">${photoSlot(it.name)}<div class="compat-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div></div></div>`;
       });
       html += `</div>`;
+      if(sec.note){ html += `<div class="section-note">${sec.note}</div>`; }
     } else if(isCompat){
       const rowId = nextRowId();
       html += `<div class="scroll-wrap">
