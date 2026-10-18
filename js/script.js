@@ -327,7 +327,7 @@ function toggleVariantPanel(typeName){
     const specFab = specRows ? `<button class="vi-spec-fab" onclick="showSpecModal('${name}')">스펙</button>` : '';
     html += `<div class="variant-item">
       <div class="vi-photo-wrap">${photoSlot(name)}${specFab}</div>
-      <div class="vi-row"><span class="d-name">${name}${quietBadge}</span><button class="vi-play" onclick="playPreview('${name}')">🔊 미리듣기</button>${specRows ? `<button class="vi-compare" data-name="${name}" onclick="toggleCompare('${name}')">＋ 비교</button>` : ''}</div>
+      <div class="vi-row"><span class="d-name">${name}${quietBadge}</span><div class="vi-actions"><button class="vi-play" onclick="playPreview('${name}')">🔊 미리듣기</button>${specRows ? `<button class="vi-compare" data-name="${name}" onclick="toggleCompare('${name}')">＋ 비교</button>` : ''}</div></div>
     </div>`;
   });
   html += `</div>`;
@@ -378,7 +378,9 @@ function syncCompareUI(){
     btn.textContent = on ? '✓ 비교 담김' : '＋ 비교';
   });
   const bar = document.getElementById('compareBar');
-  if(currentCategory !== 'switch' || !compareList.length){ bar.classList.add('hidden'); return; }
+  const show = currentCategory === 'switch' && compareList.length > 0;
+  document.getElementById('categoryView').classList.toggle('has-compare-bar', show);
+  if(!show){ bar.classList.add('hidden'); return; }
   const n = compareList.length;
   bar.innerHTML = `
     <div class="cmp-chips">${compareList.map(name=>`<button class="cmp-chip" onclick="toggleCompare('${name}')" aria-label="${name} 빼기">${name}<span>✕</span></button>`).join('')}

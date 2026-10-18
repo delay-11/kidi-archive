@@ -525,11 +525,14 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 .detail-item .d-name{font-weight:700; font-size:14.5px; margin-bottom:5px;}
 
 /* ---------- 스위치 비교하기 ---------- */
+.vi-actions{display:flex; flex-direction:column; align-items:center; gap:7px;}
+@media (min-width:700px){ .vi-actions{flex-direction:row; justify-content:center; gap:6px;} }
 .vi-compare{
   font-size:10px; font-weight:600; color:var(--paper-dim);
   border:1px dashed var(--line); border-radius:20px; padding:4px 9px; cursor:pointer;
 }
 .vi-compare.on{color:var(--paper); background:var(--accent-dim); border:1px solid var(--accent);}
+#categoryView.has-compare-bar{padding-bottom:110px;}
 .compare-bar{
   position:fixed; left:50%; bottom:14px; transform:translateX(-50%); z-index:80;
   width:calc(100% - 24px); max-width:720px;
