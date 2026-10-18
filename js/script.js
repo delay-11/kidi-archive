@@ -918,7 +918,7 @@ function renderCompatBrandView(){
 
   const brands = Object.keys(byBrand).sort(koSort);
 
-  box.innerHTML = brands.map(brand=>{
+  const groups = brands.map(brand=>{
     const models = byBrand[brand].sort((a,b)=>koSort(a.displayName, b.displayName));
     const rows = models.map(m=>`
       <div class="brand-model-row">
@@ -936,7 +936,11 @@ function renderCompatBrandView(){
         <div class="brand-models">${rows}</div>
       </div>
     `;
-  }).join('');
+  });
+  // 2열을 각각 따로 쌓아서, 펼친 브랜드가 자기 열 안에서만 아래로 늘어나게 함
+  const cols = [[], []];
+  groups.forEach((g, i)=>cols[i % 2].push(g));
+  box.innerHTML = cols.map(c=>`<div class="brand-col">${c.join('')}</div>`).join('');
 }
 
 function toggleBrandGroup(brand){
