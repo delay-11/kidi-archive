@@ -11,9 +11,9 @@ for(let i=0;i<9;i++){
    나중에 실제 촬영/구매한 사진 URL을 넣을 수 있도록 자리만 만들어둠.
    photoSrc가 있으면 그 이미지를, 없으면 placeholder를 보여줌. */
 const photoSrc = {}; // 예: photoSrc['기계식'] = 'https://.../mechanical.jpg';
-photoSrc['리무버'] = 'images/keycapswitch puller.jpg';
-photoSrc['보관함'] = 'images/Storage Box.jpg';
-photoSrc['진열대'] = 'images/Display Stand.jpg';
+photoSrc['키캡·스위치 리무버'] = 'images/keycapswitch puller.jpg';
+photoSrc['키캡 보관함'] = 'images/Storage Box.jpg';
+photoSrc['키보드 진열대'] = 'images/Display Stand.jpg';
 photoSrc['팜레스트'] = 'images/Palm Rest.jpg';
 photoSrc['오테뮤 스위치 갈축'] = 'images/Outemu Brown.png';
 photoSrc['오테뮤 스위치 적축'] = 'images/Outemu Red.png';
@@ -166,10 +166,10 @@ const categoryData = {
     title:'용품',
     sections:[
       { label:'왜 필요한가요?', items:[
-        {name:'리무버', desc:'키캡이나 스위치를 손으로 억지로 뽑지 않고 안전하게 분리할 수 있는 도구예요. 힘을 고르게 분산시켜서 부품이 상하는 걸 막아줘요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fa68a20a72cfec88678'},
-        {name:'진열대', desc:'키보드를 세워서 보기 좋게 진열할 수 있는 소품이에요. 책상 위에 깔끔하게 정리되고, 먼지도 덜 쌓여요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fb1a6c15e1319580bc0'},
-        {name:'보관함', desc:'여분 키캡이나 교체하면서 뺀 기존 키캡을 넣어서 보관할 수 있는 용품이에요. 종류별로 나눠두면 나중에 찾기도 쉽고 분실·파손도 줄어요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fbd7c3acb4dfa6f3cd7'},
-        {name:'팜레스트', desc:'키보드 앞에 놓고 손목을 받쳐주는 소품이에요. 장시간 타이핑할 때 손목 각도를 편하게 잡아줘서 손목 피로를 줄여줘요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fc8cc78491a7acb608f'}
+        {name:'키캡·스위치 리무버', desc:'키캡이나 스위치를 손으로 억지로 빼지 않고 안전하게 분리할 때 사용하는 도구예요. 교체나 청소를 자주 한다면 하나쯤 준비해두면 편리해요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fa68a20a72cfec88678'},
+        {name:'키보드 진열대', desc:'키보드를 세워 보관하거나 전시할 수 있는 용품이에요. 책상 공간을 효율적으로 활용하고 여러 대의 키보드를 깔끔하게 정리하기 좋아요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fb1a6c15e1319580bc0'},
+        {name:'키캡 보관함', desc:'여분 키캡이나 교체한 키캡을 종류별로 나누어 보관할 수 있는 용품이에요. 필요한 키를 찾기 쉽고 분실이나 섞임을 줄이는 데 도움이 돼요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fbd7c3acb4dfa6f3cd7'},
+        {name:'팜레스트', desc:'키보드 앞에 놓아 손목을 받쳐주는 용품이에요. 키보드 높이에 맞는 제품을 사용하면 손목이 과하게 꺾이는 것을 줄이고 보다 편안하게 타이핑할 수 있어요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fc8cc78491a7acb608f'}
       ]}
     ]
   }
