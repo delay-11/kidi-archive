@@ -937,10 +937,10 @@ function renderCompatBrandView(){
       </div>
     `;
   });
-  // 웹: 2열을 각각 따로 쌓아서, 펼친 브랜드가 자기 열 안에서만 아래로 늘어나게 함
+  // 웹: 3열을 각각 따로 쌓아서, 펼친 브랜드가 자기 열 안에서만 아래로 늘어나게 함
   // 모바일: 열 구분 없이 order 순서대로 1열로 보여줌 (CSS)
-  const cols = [[], []];
-  groups.forEach((g, i)=>cols[i % 2].push(g));
+  const cols = [[], [], []];
+  groups.forEach((g, i)=>cols[i % 3].push(g));
   box.innerHTML = cols.map(c=>`<div class="brand-col">${c.join('')}</div>`).join('');
   renderBrandIndex(brands);
 }

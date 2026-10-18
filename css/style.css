@@ -350,7 +350,7 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 .compat-empty-actions .btn{margin-top:0; width:100%; max-width:280px;}
 
 /* ---------- brand view (브랜드별 보기) ---------- */
-#compatBrandResults{display:grid; grid-template-columns:1fr 1fr; gap:10px; align-items:start;}
+#compatBrandResults{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; align-items:start;}
 .brand-col{display:flex; flex-direction:column; gap:10px; min-width:0;}
 /* 초성·알파벳 인덱스 막대 */
 .brand-index{
@@ -369,6 +369,7 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 .brand-index span.empty{color:var(--paper-dim); opacity:0.45; font-weight:500;}
 .brand-group{transition:border-color 0.2s ease, box-shadow 0.2s ease;}
 .brand-group.flash{border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-dim);}
+@media (min-width:700px){ .brand-index{display:none;} }
 .brand-index-bubble{
   position:fixed; z-index:61; top:50%; left:50%; transform:translate(-50%,-50%);
   width:72px; height:72px; border-radius:18px;
@@ -378,6 +379,7 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 }
 @media (max-width:699px){
   #compatBrandPane{padding-right:22px;}
+  .brand-index{top:calc(50% + 50px); height:min(560px, calc(100vh - 250px));}
 }
 @media (max-width:699px){
   #compatBrandResults{display:flex; flex-direction:column; align-items:stretch;}
