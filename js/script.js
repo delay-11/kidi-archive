@@ -27,14 +27,6 @@ photoSrc['카일 마시멜로우 클릭'] = 'images/Kailh Marshmallow Click.png'
 photoSrc['카일 마시멜로우 택타일'] = 'images/Kailh Marshmallow Tactile.png';
 photoSrc['기계식'] = 'images/Mechanical.png';
 photoSrc['팬터그래프'] = 'images/Pantograph.png';
-photoSrc['풀사이즈 (106/108키)'] = 'images/108 layout.jpg';
-photoSrc['TKL (87키)'] = 'images/TKL layout.jpg';
-photoSrc['75%'] = 'images/75 layout.jpg';
-photoSrc['65%'] = 'images/65 layout.jpg';
-photoSrc['60%'] = 'images/60 layout.jpg';
-photoSrc['40%대'] = 'images/40 layout.jpg';
-photoSrc['앨리스/스플릿'] = 'images/Alice layout.jpg';
-photoSrc['95% (95키)'] = 'images/95 layout.jpg';
 photoSrc['CHERRY'] = 'images/CHERRY.jpg';
 photoSrc['OEM'] = 'images/OEM.jpg';
 photoSrc['SA'] = 'images/SA.jpg';
@@ -105,14 +97,19 @@ const categoryData = {
         {name:'로우프로파일', desc:'일반 키보드보다 스위치와 키캡 높이를 낮춘 형태예요. 얇고 짧은 키 이동거리가 특징이에요.'}
       ]},
       { label:'키보드 배열', items:[
-        {name:'풀사이즈 (106/108키)', desc:'숫자패드까지 포함된 가장 기본 배열이에요.'},
-        {name:'95% (95키)', desc:'풀사이즈에서 넘패드 폭만 줄여 압축한 배열이에요. 숫자패드는 유지하면서 폭은 살짝 줄일 수 있어요.'},
-        {name:'TKL (87키)', desc:'숫자패드를 뺀 배열로 책상 공간을 좀 더 확보할 수 있어요.'},
-        {name:'75%', desc:'TKL에서 방향키·기능키는 유지하면서 더 좁힌 배열이에요.'},
-        {name:'65%', desc:'방향키만 남기고 기능키 줄을 없앤 컴팩트 배열이에요.'},
-        {name:'60%', desc:'방향키까지 없앤 가장 작은 표준 배열, 조합키로 대체해서 써요.'},
-        {name:'40%대', desc:'숫자 줄까지 생략한 초소형 배열이에요. 별도 세팅이 필요해요.'},
-        {name:'앨리스/스플릿', desc:'좌우가 벌어지거나 완전히 분리된 인체공학형 배열이에요.'}
+        {name:'108키 · 풀사이즈', desc:'숫자패드와 기능키까지 갖춘 풀사이즈 배열이에요.', check:'추가 기능키 위치·크기 확인'},
+        {name:'106키 · 한국형 풀사이즈', desc:'한/영·한자 키가 포함된 한국형 풀사이즈 배열이에요.', check:'한/영·한자 키와 하단열 확인'},
+        {name:'104키 · ANSI 풀사이즈', desc:'숫자패드까지 포함된 대표적인 ANSI 풀사이즈 배열이에요.', check:'Enter · Shift · Spacebar 규격 확인'},
+        {name:'98키 · 컴팩트 풀사이즈', desc:'숫자패드는 유지하면서 전체 폭을 줄인 배열이에요.', check:'우 Shift · Numpad 0 · 하단키 확인'},
+        {name:'96% · 컴팩트 풀사이즈', desc:'풀사이즈 기능을 대부분 유지한 압축형 배열이에요.', check:'우 Shift · Numpad 0 · 1U 키 확인'},
+        {name:'87키 · TKL', desc:'풀사이즈에서 숫자패드를 제외한 배열이에요.', check:'주요 특수키 규격 확인'},
+        {name:'75%', desc:'기능키와 방향키를 유지한 컴팩트 배열이에요.', check:'짧은 우 Shift · 우측 1U 키 확인'},
+        {name:'65%', desc:'기능키 줄은 생략하고 방향키는 유지한 배열이에요.', check:'짧은 우 Shift · 1U 하단키 확인'},
+        {name:'60% · 61키', desc:'기능키와 전용 방향키를 줄인 소형 배열이에요.', check:'변형 배열은 Shift · 하단열 확인'},
+        {name:'40%', desc:'숫자열까지 줄인 초소형 배열이에요.', check:'특수 modifier · Spacebar 확인'},
+        {name:'Numpad', desc:'숫자패드 부분만 따로 분리한 배열이에요.', check:'0 · + · Enter 크기 확인'},
+        {name:'Alice', desc:'양손 각도를 벌린 인체공학형 배열이에요.', check:'분할 Spacebar · B키 · Shift 확인'},
+        {name:'Split', desc:'좌우가 분리되어 배치를 조절할 수 있는 배열이에요.', check:'분할 Spacebar · 하단 특수키 구성 확인'}
       ]}
     ]
   },
@@ -120,9 +117,9 @@ const categoryData = {
     title:'스위치',
     sections:[
       { label:'타입', items:[
-        {name:'리니어', accent:'--linear', desc:'누르는 내내 걸림 없이 부드럽게 눌려요. 상대적으로 조용한 편이에요.', variants:['오테뮤 스위치 적축','오테뮤 피치 V3','TTC 아이스프로즌 V2']},
-        {name:'택타일', accent:'--tactile', desc:'누르는 중간에 턱 걸리는 느낌이 있어요. 손끝으로 입력을 확인하기 좋아요.', variants:['오테뮤 스위치 갈축','오테뮤 라임 V3','카일 BOX V2 갈축','카일 마시멜로우 택타일']},
-        {name:'클릭', accent:'--clicky', desc:'택타일 느낌에 또렷한 클릭 소리까지 더해진 타입이에요.', variants:['오테뮤 스위치 청축','카일 마시멜로우 클릭','카일 BOX V2 백축']}
+        {name:'리니어', accent:'--linear', desc:'누르는 내내 걸림 없이 부드럽게 눌려요. <br class="br-web">상대적으로 조용한 편이에요.', variants:['오테뮤 스위치 적축','오테뮤 피치 V3','TTC 아이스프로즌 V2']},
+        {name:'택타일', accent:'--tactile', desc:'누르는 중간에 턱 걸리는 느낌이 있어요. <br class="br-web">손끝으로 입력을 확인하기 좋아요.', variants:['오테뮤 스위치 갈축','오테뮤 라임 V3','카일 BOX V2 갈축','카일 마시멜로우 택타일']},
+        {name:'클릭', accent:'--clicky', desc:'택타일 느낌에 또렷한 클릭 소리까지 <br class="br-web">더해진 타입이에요.', variants:['오테뮤 스위치 청축','카일 마시멜로우 클릭','카일 BOX V2 백축']}
       ]}
     ]
   },
@@ -203,7 +200,8 @@ function renderCategory(key){
         <div class="card-row" id="${rowId}">`;
       sec.items.forEach(it=>{
         const cardClass = sec.label==='키보드 배열' ? 'h-card h-card-layout' : 'h-card';
-        html += `<div class="${cardClass}">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div></div></div>`;
+        const check = it.check ? `<div class="kc"><div class="kc-divider"></div><div class="kc-label">KEYCAP CHECK</div><div class="kc-text">${it.check}</div></div>` : '';
+        html += `<div class="${cardClass}">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
       });
       html += `</div>
         <button class="scroll-arrow right" onclick="scrollRowBy('${rowId}',1)" aria-label="다음"><span class="scroll-arrow-icon"></span></button>
@@ -327,7 +325,7 @@ function toggleVariantPanel(typeName){
     const specFab = specRows ? `<button class="vi-spec-fab" onclick="showSpecModal('${name}')">스펙</button>` : '';
     html += `<div class="variant-item">
       <div class="vi-photo-wrap">${photoSlot(name)}${specFab}</div>
-      <div class="vi-row"><span class="d-name">${name}${quietBadge}</span><button class="vi-play" onclick="playPreview('${name}')">🔊 미리듣기</button>${specRows ? `<button class="vi-compare" data-name="${name}" onclick="toggleCompare('${name}')">＋ 비교</button>` : ''}</div>
+      <div class="vi-row"><span class="d-name">${name}${quietBadge}</span><div class="vi-actions"><button class="vi-play" onclick="playPreview('${name}')">🔊 미리듣기</button>${specRows ? `<button class="vi-compare" data-name="${name}" onclick="toggleCompare('${name}')">＋ 비교</button>` : ''}</div></div>
     </div>`;
   });
   html += `</div>`;
@@ -375,15 +373,16 @@ function syncCompareUI(){
   document.querySelectorAll('.vi-compare').forEach(btn=>{
     const on = compareList.includes(btn.dataset.name);
     btn.classList.toggle('on', on);
-    btn.textContent = on ? '✓ 비교 담김' : '＋ 비교';
+    btn.textContent = on ? '✓ 비교' : '＋ 비교';
   });
   const bar = document.getElementById('compareBar');
-  if(currentCategory !== 'switch' || !compareList.length){ bar.classList.add('hidden'); return; }
+  const show = currentCategory === 'switch' && compareList.length > 0;
+  document.getElementById('categoryView').classList.toggle('has-compare-bar', show);
+  if(!show){ bar.classList.add('hidden'); return; }
   const n = compareList.length;
   bar.innerHTML = `
-    <div class="cmp-chips">${compareList.map(name=>`<button class="cmp-chip" onclick="toggleCompare('${name}')" aria-label="${name} 빼기">${name}<span>✕</span></button>`).join('')}
-      ${n < 2 ? `<span class="cmp-hint">하나 더 담으면 비교할 수 있어요</span>` : ''}</div>
-    <button class="btn primary cmp-go" onclick="openCompare()" ${n < 2 ? 'disabled' : ''}>비교하기 (${n})</button>`;
+    <div class="cmp-chips">${compareList.map(name=>`<button class="cmp-chip" onclick="toggleCompare('${name}')" aria-label="${name} 빼기">${name}<span>✕</span></button>`).join('')}</div>
+    <button class="btn primary cmp-go" onclick="openCompare()" ${n < 2 ? 'disabled' : ''}>비교하기</button>`;
   bar.classList.remove('hidden');
 }
 
@@ -425,12 +424,13 @@ function openCompare(){
       <button class="vi-play" onclick="playPreview('${n}')">🔊 미리듣기</button>
     </div>`;
   });
-  rows.filter(k=>k!=='타입').forEach(k=>{
-    grid += `<div class="cmp-label">${k}</div>`;
+  rows.filter(k=>k!=='타입').forEach((k,ri)=>{
+    const first = ri===0 ? ' first' : '';
+    grid += `<div class="cmp-label${first}">${k}</div>`;
     names.forEach((n,i)=>{
       const max = COMPARE_BAR_MAX[k];
       const bar = max ? `<div class="cmp-bar"><i style="width:${Math.min(100, specNum(n,k)/max*100)}%; background:var(${typeAccent(specOf(n,'타입'))})"></i></div>` : '';
-      grid += `<div class="cmp-val"><span>${specOf(n,k)}</span>${bar}</div>`;
+      grid += `<div class="cmp-val${first}"><span>${specOf(n,k)}</span>${bar}</div>`;
     });
   });
   grid += `</div>`;
@@ -1119,7 +1119,7 @@ function showResult(){
   const profiles = top2(scores.profile, ['OEM','CHERRY']);
   const drives = top2(scores.drive, ['기계식']);
 
-  const layoutLabel = {fullsize:'풀사이즈', tkl:'TKL', '75':'75%', '65':'65%', '60':'60%', '40':'40%대'};
+  const layoutLabel = {fullsize:'풀사이즈', tkl:'TKL', '75':'75%', '65':'65%', '60':'60%', '40':'40%'};
   const swLabel = {linear:'리니어', tactile:'택타일', clicky:'클릭'};
   const swVar = {linear:'--linear', tactile:'--tactile', clicky:'--clicky'};
 
