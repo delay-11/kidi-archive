@@ -427,12 +427,13 @@ function openCompare(){
       <button class="vi-play" onclick="playPreview('${n}')">🔊 미리듣기</button>
     </div>`;
   });
-  rows.filter(k=>k!=='타입').forEach(k=>{
-    grid += `<div class="cmp-label">${k}</div>`;
+  rows.filter(k=>k!=='타입').forEach((k,ri)=>{
+    const first = ri===0 ? ' first' : '';
+    grid += `<div class="cmp-label${first}">${k}</div>`;
     names.forEach((n,i)=>{
       const max = COMPARE_BAR_MAX[k];
       const bar = max ? `<div class="cmp-bar"><i style="width:${Math.min(100, specNum(n,k)/max*100)}%; background:var(${typeAccent(specOf(n,'타입'))})"></i></div>` : '';
-      grid += `<div class="cmp-val"><span>${specOf(n,k)}</span>${bar}</div>`;
+      grid += `<div class="cmp-val${first}"><span>${specOf(n,k)}</span>${bar}</div>`;
     });
   });
   grid += `</div>`;
