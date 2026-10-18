@@ -352,6 +352,33 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 /* ---------- brand view (브랜드별 보기) ---------- */
 #compatBrandResults{display:grid; grid-template-columns:1fr 1fr; gap:10px; align-items:start;}
 .brand-col{display:flex; flex-direction:column; gap:10px; min-width:0;}
+/* 초성·알파벳 인덱스 막대 */
+.brand-index{
+  position:fixed; z-index:60; top:50%; transform:translateY(-50%);
+  right:max(4px, calc((100vw - 880px) / 2 - 34px));
+  display:flex; flex-direction:column; align-items:center;
+  height:min(620px, calc(100vh - 150px)); padding:6px 3px; border-radius:12px;
+  background:var(--topbar-bg); border:1px solid var(--line);
+  touch-action:none; user-select:none; -webkit-user-select:none; cursor:pointer;
+}
+.brand-index span{
+  flex:1 1 0; min-height:0; max-height:16px; width:18px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:10px; font-weight:700; line-height:1; color:var(--accent);
+}
+.brand-index span.empty{color:var(--paper-dim); opacity:0.45; font-weight:500;}
+.brand-group{transition:border-color 0.2s ease, box-shadow 0.2s ease;}
+.brand-group.flash{border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-dim);}
+.brand-index-bubble{
+  position:fixed; z-index:61; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:72px; height:72px; border-radius:18px;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(20,21,26,0.78); color:#fff; font-size:34px; font-weight:700;
+  pointer-events:none;
+}
+@media (max-width:699px){
+  #compatBrandPane{padding-right:22px;}
+}
 @media (max-width:699px){
   #compatBrandResults{display:flex; flex-direction:column; align-items:stretch;}
   .brand-col{display:contents;}

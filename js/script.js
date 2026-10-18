@@ -927,7 +927,7 @@ function renderCompatBrandView(){
       </div>
     `).join('');
     return `
-      <div class="brand-group" id="brand-${brand}" style="order:${i}">
+      <div class="brand-group" id="brand-${brand}" data-initial="${brandInitial(brand)}" style="order:${i}">
         <button class="brand-header" onclick="toggleBrandGroup('${brand}')">
           <span>${brand}</span>
           <span class="brand-count">${models.length}개</span>
@@ -942,6 +942,70 @@ function renderCompatBrandView(){
   const cols = [[], []];
   groups.forEach((g, i)=>cols[i % 2].push(g));
   box.innerHTML = cols.map(c=>`<div class="brand-col">${c.join('')}</div>`).join('');
+  renderBrandIndex(brands);
+}
+
+/* ---------- 브랜드 초성·알파벳 인덱스 (연락처 앱처럼 밀어서 찾기) ---------- */
+const INDEX_KO = ['ㄱ','ㄴ','ㄷ','ㄹ','ㅁ','ㅂ','ㅅ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+const INDEX_EN = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+const CHOSEONG = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+const DOUBLE_TO_SINGLE = {'ㄲ':'ㄱ','ㄸ':'ㄷ','ㅃ':'ㅂ','ㅆ':'ㅅ','ㅉ':'ㅈ'};
+
+function brandInitial(brand){
+  const ch = brand.trim().charAt(0);
+  const code = ch.charCodeAt(0) - 0xAC00;
+  if(code >= 0 && code <= 11171){
+    const cho = CHOSEONG[Math.floor(code / 588)];
+    return DOUBLE_TO_SINGLE[cho] || cho;
+  }
+  return /[a-z]/i.test(ch) ? ch.toUpperCase() : '#';
+}
+
+function renderBrandIndex(brands){
+  const el = document.getElementById('brandIndex');
+  const have = new Set(brands.map(brandInitial));
+  el.innerHTML = [...INDEX_KO, ...INDEX_EN].map(l=>
+    `<span data-letter="${l}" class="${have.has(l) ? '' : 'empty'}">${l}</span>`
+  ).join('');
+  if(!el.dataset.bound){
+    el.dataset.bound = '1';
+    el.addEventListener('pointerdown', e=>{ el.setPointerCapture(e.pointerId); jumpToIndexAt(e); });
+    el.addEventListener('pointermove', e=>{ if(el.hasPointerCapture(e.pointerId)) jumpToIndexAt(e); });
+    const end = ()=>document.getElementById('brandIndexBubble').classList.add('hidden');
+    el.addEventListener('pointerup', end);
+    el.addEventListener('pointercancel', end);
+  }
+}
+
+function jumpToIndexAt(e){
+  e.preventDefault();
+  const spans = [...document.querySelectorAll('#brandIndex span')];
+  // 손가락 위치에서 가장 가까운 글자 찾기
+  const span = spans.reduce((best, s)=>{
+    const r = s.getBoundingClientRect();
+    const d = Math.abs(e.clientY - (r.top + r.height / 2));
+    return d < best.d ? {s, d} : best;
+  }, {s:null, d:Infinity}).s;
+  if(!span) return;
+  const letters = spans.map(s=>s.dataset.letter);
+  // 해당 글자로 시작하는 브랜드가 없으면 다음 글자로
+  let target = null;
+  for(let i = letters.indexOf(span.dataset.letter); i < letters.length && !target; i++){
+    const groups = [...document.querySelectorAll(`.brand-group[data-initial="${letters[i]}"]`)];
+    target = groups.sort((a,b)=>a.style.order - b.style.order)[0] || null;
+  }
+  const bubble = document.getElementById('brandIndexBubble');
+  bubble.textContent = span.dataset.letter;
+  bubble.classList.remove('hidden');
+  if(!target) return;
+  // 이동한 브랜드를 잠깐 강조 (목록이 짧아 스크롤이 덜 움직일 때도 위치가 보이게)
+  document.querySelectorAll('.brand-group.flash').forEach(g=>{ if(g !== target) g.classList.remove('flash'); });
+  target.classList.add('flash');
+  clearTimeout(target._flashTimer);
+  target._flashTimer = setTimeout(()=>target.classList.remove('flash'), 1200);
+  const topbar = document.querySelector('.topbar');
+  const offset = (topbar ? topbar.offsetHeight : 0) + 12;
+  window.scrollTo({top: target.getBoundingClientRect().top + window.scrollY - offset, behavior:'instant'});
 }
 
 function toggleBrandGroup(brand){
