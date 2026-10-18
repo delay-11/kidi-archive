@@ -23,7 +23,7 @@ photoSrc['오테뮤 라임 V3'] = 'images/Outemu Lime V3.png';
 photoSrc['TTC 아이스프로즌 V2'] = 'images/TTC Ice Frozen V2.png';
 photoSrc['카일 BOX V2 백축'] = 'images/Kailh BOX V2 White.png';
 photoSrc['카일 BOX V2 갈축'] = 'images/Kailh BOX V2 Brown.png';
-photoSrc['카일 마시엘로우 클릭'] = 'images/Kailh Marshmallow Click.png';
+photoSrc['카일 마시멜로우 클릭'] = 'images/Kailh Marshmallow Click.png';
 photoSrc['카일 마시멜로우 택타일'] = 'images/Kailh Marshmallow Tactile.png';
 photoSrc['기계식'] = 'images/Mechanical.png';
 photoSrc['팬터그래프'] = 'images/Pantograph.png';
@@ -64,7 +64,7 @@ soundSrc['오테뮤 라임 V3'] = 'audio/Outemu Lime V3.mp4';
 soundSrc['TTC 아이스프로즌 V2'] = 'audio/TTC Ice Frozen V2.mp4';
 soundSrc['카일 BOX V2 백축'] = 'audio/Kailh BOX V2 White.mp4';
 soundSrc['카일 BOX V2 갈축'] = 'audio/Kailh BOX V2 Brown.mp4';
-soundSrc['카일 마시엘로우 클릭'] = 'audio/Kailh Marshmallow Click.mp4';
+soundSrc['카일 마시멜로우 클릭'] = 'audio/Kailh Marshmallow Click.mp4';
 soundSrc['카일 마시멜로우 택타일'] = 'audio/Kailh Marshmallow Tactile.mp4';
 
 function playPreview(name){
@@ -122,7 +122,7 @@ const categoryData = {
       { label:'타입', items:[
         {name:'리니어', accent:'--linear', desc:'누르는 내내 걸림 없이 부드럽게 눌려요. 상대적으로 조용한 편이에요.', variants:['오테뮤 스위치 적축','오테뮤 피치 V3','TTC 아이스프로즌 V2']},
         {name:'택타일', accent:'--tactile', desc:'누르는 중간에 턱 걸리는 느낌이 있어요. 손끝으로 입력을 확인하기 좋아요.', variants:['오테뮤 스위치 갈축','오테뮤 라임 V3','카일 BOX V2 갈축','카일 마시멜로우 택타일']},
-        {name:'클릭', accent:'--clicky', desc:'택타일 느낌에 또렷한 클릭 소리까지 더해진 타입이에요.', variants:['오테뮤 스위치 청축','카일 마시엘로우 클릭','카일 BOX V2 백축']}
+        {name:'클릭', accent:'--clicky', desc:'택타일 느낌에 또렷한 클릭 소리까지 더해진 타입이에요.', variants:['오테뮤 스위치 청축','카일 마시멜로우 클릭','카일 BOX V2 백축']}
       ]}
     ]
   },
@@ -240,8 +240,8 @@ function renderCategory(key){
     } else {
       sec.items.forEach(it=>{
         const border = it.accent ? `border-left:3px solid var(${it.accent});` : '';
-        const ctaBtn = it.orderLink ? `<button class="detail-cta" onclick="goCustomOrder('${it.name}')">커스텀 바로가기 →</button>` : '';
-        const buyBtn = it.buyUrl ? `<button class="detail-cta" onclick="window.open('${it.buyUrl}', '_blank')">구매하기 →</button>` : '';
+        const ctaBtn = it.orderLink ? `<button class="detail-cta" onclick="goCustomOrder('${it.name}')">커스텀 바로가기 <span class="chev" aria-hidden="true"></span></button>` : '';
+        const buyBtn = it.buyUrl ? `<button class="detail-cta" onclick="window.open('${it.buyUrl}', '_blank')">구매하기 <span class="chev" aria-hidden="true"></span></button>` : '';
         const hasPhoto = !!photoSrc[it.name];
         const photo = hasPhoto ? photoSlot(it.name) : '';
         const itemClass = hasPhoto ? 'detail-item has-icon' : 'detail-item';
@@ -256,7 +256,10 @@ function showCategory(key){
   stopSwitchPreview();
   openVariantType = null;
   closeSpecModal();
+  closeCompare();
   renderCategory(key);
+  currentCategory = key;
+  syncCompareUI();
   document.getElementById('homeView').classList.add('hidden');
   document.getElementById('quizView').classList.add('hidden');
   document.getElementById('compatCheckView').classList.add('hidden');
@@ -279,7 +282,7 @@ const SWITCH_SPECS = {
   'TTC 아이스프로즌 V2': [['타입','저소음 리니어'],['핀','3핀'],['작동압','39gf'],['구분압','43gf'],['입력 지점','2.0mm'],['총 이동거리','3.5mm']],
   '카일 BOX V2 백축': [['타입','클릭'],['핀','5핀'],['작동압','45gf'],['구분압','55gf'],['입력 지점','1.8±0.4mm'],['총 이동거리','3.6±0.3mm']],
   '카일 BOX V2 갈축': [['타입','택타일'],['핀','5핀'],['작동압','45gf'],['구분압','68gf'],['입력 지점','1.8±0.4mm'],['총 이동거리','3.6±0.3mm']],
-  '카일 마시엘로우 클릭': [['타입','클릭'],['핀','5핀'],['작동압','50±10gf'],['구분압','55±10gf'],['입력 지점','1.8±0.4mm'],['총 이동거리','3.6±0.3mm']],
+  '카일 마시멜로우 클릭': [['타입','클릭'],['핀','5핀'],['작동압','50±10gf'],['구분압','55±10gf'],['입력 지점','1.8±0.4mm'],['총 이동거리','3.6±0.3mm']],
   '카일 마시멜로우 택타일': [['타입','택타일'],['핀','5핀'],['작동압','38±10gf'],['구분압','55±10gf'],['입력 지점','2.0±0.4mm'],['총 이동거리','3.4±0.3mm']],
 };
 
@@ -324,12 +327,13 @@ function toggleVariantPanel(typeName){
     const specFab = specRows ? `<button class="vi-spec-fab" onclick="showSpecModal('${name}')">스펙</button>` : '';
     html += `<div class="variant-item">
       <div class="vi-photo-wrap">${photoSlot(name)}${specFab}</div>
-      <div class="vi-row"><span class="d-name">${name}${quietBadge}</span><button class="vi-play" onclick="playPreview('${name}')">🔊 미리듣기</button></div>
+      <div class="vi-row"><span class="d-name">${name}${quietBadge}</span><button class="vi-play" onclick="playPreview('${name}')">🔊 미리듣기</button>${specRows ? `<button class="vi-compare" data-name="${name}" onclick="toggleCompare('${name}')">＋ 비교</button>` : ''}</div>
     </div>`;
   });
   html += `</div>`;
   panel.innerHTML = html;
   syncVariantButtons();
+  syncCompareUI();
 }
 function syncVariantButtons(){
   document.querySelectorAll('.variant-toggle').forEach(btn=>{
@@ -340,6 +344,118 @@ function syncVariantButtons(){
   });
 }
 
+/* ---------- switch compare (스위치 비교하기) ----------
+   축 종류 카드에서 "＋ 비교"로 담고, 아래 바에서 비교 화면을 열어요.
+   휴대폰은 2개, 넓은 화면은 3개까지 나란히 볼 수 있어요. */
+let currentCategory = null;
+let compareList = [];
+const COMPARE_BAR_MAX = {'작동압':80, '구분압':80, '입력 지점':4, '총 이동거리':4.5};
+const TYPE_FEEL = {'리니어':'걸림 없이 부드러워요', '택타일':'중간에 걸림이 느껴져요', '클릭':'걸림과 함께 딸깍 소리가 나요'};
+
+function compareMax(){ return window.innerWidth >= 700 ? 3 : 2; }
+function specOf(name, key){ const row = (SWITCH_SPECS[name]||[]).find(r=>r[0]===key); return row ? row[1] : '-'; }
+function specNum(name, key){ return parseFloat(specOf(name, key)); }
+function baseType(t){ return ['리니어','택타일','클릭'].find(k=>t.includes(k)) || t; }
+function typeAccent(t){ return {'리니어':'--linear','택타일':'--tactile','클릭':'--clicky'}[baseType(t)] || '--accent'; }
+
+function toggleCompare(name){
+  const i = compareList.indexOf(name);
+  if(i >= 0){
+    compareList.splice(i, 1);
+  } else {
+    if(compareList.length >= compareMax()){
+      alert(`한 번에 ${compareMax()}개까지 비교할 수 있어요. 담긴 스위치를 하나 빼주세요.`);
+      return;
+    }
+    compareList.push(name);
+  }
+  syncCompareUI();
+}
+function syncCompareUI(){
+  document.querySelectorAll('.vi-compare').forEach(btn=>{
+    const on = compareList.includes(btn.dataset.name);
+    btn.classList.toggle('on', on);
+    btn.textContent = on ? '✓ 비교 담김' : '＋ 비교';
+  });
+  const bar = document.getElementById('compareBar');
+  if(currentCategory !== 'switch' || !compareList.length){ bar.classList.add('hidden'); return; }
+  const n = compareList.length;
+  bar.innerHTML = `
+    <div class="cmp-chips">${compareList.map(name=>`<button class="cmp-chip" onclick="toggleCompare('${name}')" aria-label="${name} 빼기">${name}<span>✕</span></button>`).join('')}
+      ${n < 2 ? `<span class="cmp-hint">하나 더 담으면 비교할 수 있어요</span>` : ''}</div>
+    <button class="btn primary cmp-go" onclick="openCompare()" ${n < 2 ? 'disabled' : ''}>비교하기 (${n})</button>`;
+  bar.classList.remove('hidden');
+}
+
+function compareSummary(names){
+  const lines = [];
+  const types = names.map(n=>baseType(specOf(n,'타입')));
+  if(new Set(types).size > 1){
+    names.forEach((n,i)=>lines.push(`<b>${n}</b> ${TYPE_FEEL[types[i]]}`));
+  }
+  const facts = [];
+  const lowest = key => {
+    const vals = names.map(n=>specNum(n,key));
+    const min = Math.min(...vals);
+    if(vals.every(v=>v===min)) return null;
+    return names.filter((n,i)=>vals[i]===min);
+  };
+  const light = lowest('작동압');
+  if(light) facts.push(`제일 가벼운 축 · <b>${light.join(', ')}</b> (${specOf(light[0],'작동압')})`);
+  const fast = lowest('입력 지점');
+  if(fast) facts.push(`제일 빨리 입력되는 축 · <b>${fast.join(', ')}</b> (${specOf(fast[0],'입력 지점')})`);
+  const quiet = names.filter(n=>specOf(n,'타입').includes('저소음'));
+  if(quiet.length && quiet.length < names.length) facts.push(`조용한 축 · <b>${quiet.join(', ')}</b> (저소음)`);
+  return {lines, facts};
+}
+
+function openCompare(){
+  const names = compareList.slice(0, compareMax());
+  if(names.length < 2) return;
+  stopSwitchPreview();
+  const rows = SWITCH_SPECS[names[0]].map(r=>r[0]);
+  const cols = `style="--n:${names.length}"`;
+  let grid = `<div class="cmp-grid" ${cols}><div class="cmp-label"></div>`;
+  names.forEach(n=>{
+    const t = specOf(n,'타입');
+    grid += `<div class="cmp-col-head">
+      ${photoSlot(n)}
+      <div class="cmp-name">${n}</div>
+      <span class="cmp-type" style="color:var(${typeAccent(t)}); border-color:var(${typeAccent(t)})">${t}</span>
+      <button class="vi-play" onclick="playPreview('${n}')">🔊 미리듣기</button>
+    </div>`;
+  });
+  rows.filter(k=>k!=='타입').forEach(k=>{
+    grid += `<div class="cmp-label">${k}</div>`;
+    names.forEach((n,i)=>{
+      const max = COMPARE_BAR_MAX[k];
+      const bar = max ? `<div class="cmp-bar"><i style="width:${Math.min(100, specNum(n,k)/max*100)}%; background:var(${typeAccent(specOf(n,'타입'))})"></i></div>` : '';
+      grid += `<div class="cmp-val"><span>${specOf(n,k)}</span>${bar}</div>`;
+    });
+  });
+  grid += `</div>`;
+  const {lines, facts} = compareSummary(names);
+  const summary = lines.length || facts.length ? `<div class="cmp-summary"><div class="cmp-summary-title">한눈에 보기</div>
+        ${lines.map(l=>`<p>${l}</p>`).join('')}
+        ${facts.length ? `<div class="cmp-facts">${facts.map(l=>`<p>${l}</p>`).join('')}</div>` : ''}</div>` : '';
+  document.getElementById('compareSheet').innerHTML = `
+    <div class="spec-modal-head"><span>스위치 비교</span><button class="spec-modal-close" onclick="closeCompare()" aria-label="닫기">✕</button></div>
+    <div class="cmp-body">
+      ${summary}
+      ${grid}
+      <p class="cmp-foot">※ 막대가 길수록 무겁거나 깊게 눌려요.</p>
+    </div>`;
+  document.getElementById('compareSheet').classList.remove('hidden');
+  document.getElementById('compareBackdrop').classList.remove('hidden');
+}
+function closeCompare(){
+  const sheet = document.getElementById('compareSheet');
+  if(!sheet) return;
+  stopSwitchPreview();
+  sheet.classList.add('hidden');
+  document.getElementById('compareBackdrop').classList.add('hidden');
+}
+
 function setTopBack(show){
   document.getElementById('topBackBtn').classList.toggle('hidden', !show);
 }
@@ -347,6 +463,7 @@ function setTopBack(show){
 function goHome(){
   stopSwitchPreview();
   closeSpecModal();
+  closeCompare();
   document.getElementById('categoryView').classList.add('hidden');
   document.getElementById('quizView').classList.add('hidden');
   document.getElementById('compatCheckView').classList.add('hidden');
@@ -932,7 +1049,7 @@ function renderQuestion(){
         `).join('')}
       </div>
       <div class="quiz-nav">
-        <button onclick="prevQ()" ${current===0?'disabled':''}>← 이전</button>
+        <button onclick="prevQ()" ${current===0?'disabled':''}><span class="chev left" aria-hidden="true"></span> 이전</button>
       </div>
     </div>
   `;

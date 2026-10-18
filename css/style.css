@@ -75,9 +75,17 @@ h1,h2,h3{font-weight:800; letter-spacing:-0.01em;}
 .topbar-right{display:flex; align-items:center; gap:16px;}
 
 .top-back-btn{
-  font-size:18px; color:var(--paper); padding:0; margin-right:14px;
-  line-height:1; cursor:pointer;
+  font-size:18px; color:var(--paper); padding:0 4px; margin-right:10px;
+  line-height:1; cursor:pointer; display:inline-flex; align-items:center;
 }
+.top-back-btn .chev{width:10px; height:10px; border-width:2px;}
+/* 버튼 글자색을 따라가는 꺾쇠 화살표 (> / <) */
+.chev{
+  display:inline-block; width:6px; height:6px; vertical-align:middle;
+  border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor;
+  transform:rotate(-45deg); margin:-2px 2px 0 1px;
+}
+.chev.left{transform:rotate(135deg); margin:-2px 1px 0 2px;}
 
 .hamburger-btn{
   width:19px; height:13px; padding:0; cursor:pointer;
@@ -147,6 +155,7 @@ h1,h2,h3{font-weight:800; letter-spacing:-0.01em;}
   font-style:normal; color:var(--accent); transition:color 0.5s ease;
 }
 .hero p{color:var(--paper-dim); font-size:14.5px; word-break:keep-all;}
+@media (max-width:480px){ .hero p br{display:none;} }
 .hero-cta{
   margin-top:24px; display:flex; gap:10px; flex-wrap:wrap;
 }
@@ -241,7 +250,7 @@ section{padding:8px 20px 48px;}
 .cat-left{display:flex; flex-direction:column; gap:6px;}
 .cat-left .cat-title{margin-bottom:0;}
 .cat-sum{font-size:12.5px; color:var(--paper-dim);}
-.cat-arrow{font-size:20px; color:var(--paper-dim); flex-shrink:0;}
+.cat-arrow{width:9px; height:9px; flex-shrink:0; margin-right:4px; border-right:1.5px solid var(--paper-dim); border-bottom:1.5px solid var(--paper-dim); transform:rotate(-45deg);}
 
 /* ---------- category detail page ---------- */
 .detail-item{
@@ -514,6 +523,53 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 .vi-spec-row span:first-child{color:var(--paper-dim);}
 .vi-spec-row span:last-child{color:var(--paper); font-weight:700; text-align:right;}
 .detail-item .d-name{font-weight:700; font-size:14.5px; margin-bottom:5px;}
+
+/* ---------- 스위치 비교하기 ---------- */
+.vi-compare{
+  font-size:10px; font-weight:600; color:var(--paper-dim);
+  border:1px dashed var(--line); border-radius:20px; padding:4px 9px; cursor:pointer;
+}
+.vi-compare.on{color:var(--paper); background:var(--accent-dim); border:1px solid var(--accent);}
+.compare-bar{
+  position:fixed; left:50%; bottom:14px; transform:translateX(-50%); z-index:80;
+  width:calc(100% - 24px); max-width:720px;
+  display:flex; align-items:center; gap:10px;
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:10px 10px 10px 12px; box-shadow:0 8px 24px rgba(0,0,0,0.12);
+}
+.cmp-chips{display:flex; flex-wrap:wrap; gap:6px; flex:1; min-width:0; align-items:center;}
+.cmp-chip{
+  font-size:11px; font-weight:600; color:var(--paper); background:var(--panel2);
+  border:1px solid var(--line); border-radius:20px; padding:5px 9px; cursor:pointer;
+}
+.cmp-chip span{margin-left:6px; color:var(--paper-dim); font-size:10px;}
+.cmp-hint{font-size:11px; color:var(--paper-dim);}
+.cmp-go{flex-shrink:0; padding:11px 14px;}
+.cmp-go:disabled{opacity:0.45; pointer-events:none;}
+.compare-sheet{
+  position:fixed; left:50%; top:50%; transform:translate(-50%,-50%); z-index:91;
+  width:calc(100% - 24px); max-width:720px; max-height:calc(100vh - 40px); overflow:auto;
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+}
+.compare-sheet .spec-modal-head{position:sticky; top:0; background:var(--panel); z-index:1;}
+.cmp-body{padding:14px;}
+.cmp-summary{
+  background:var(--accent-dim); border-radius:10px; padding:12px 14px; margin-bottom:14px;
+  font-size:12.5px; line-height:1.6; color:var(--paper); word-break:keep-all;
+}
+.cmp-facts{margin-top:8px;}
+.cmp-summary-title{font-size:11px; font-weight:700; color:var(--accent); margin-bottom:4px;}
+.cmp-grid{display:grid; grid-template-columns:62px repeat(var(--n), minmax(0,1fr));}
+.cmp-col-head{display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; padding:0 4px 12px;}
+.cmp-col-head .d-photo{width:100%; aspect-ratio:1/1; height:auto; border-radius:10px;}
+.cmp-name{font-size:12px; font-weight:700; color:var(--paper); word-break:keep-all;}
+.cmp-type{font-size:10px; font-weight:700; border:1px solid; border-radius:8px; padding:1px 6px;}
+.cmp-label{font-size:11px; color:var(--paper-dim); padding:10px 0; border-top:1px solid var(--line); display:flex; align-items:center;}
+.cmp-grid > .cmp-label:first-child{border-top:none;}
+.cmp-val{font-size:12px; font-weight:700; color:var(--paper); padding:8px 10px; border-top:1px solid var(--line); text-align:center;}
+.cmp-bar{height:4px; background:var(--panel2); border-radius:2px; margin-top:6px; overflow:hidden;}
+.cmp-bar i{display:block; height:100%; background:var(--accent); border-radius:2px;}
+.cmp-foot{font-size:11px; color:var(--paper-dim); margin-top:12px;}
 .detail-item .d-desc{font-size:13px; color:var(--paper-dim); line-height:1.55;}
 
 /* ---------- quiz cta banner ---------- */
