@@ -383,9 +383,8 @@ function syncCompareUI(){
   if(!show){ bar.classList.add('hidden'); return; }
   const n = compareList.length;
   bar.innerHTML = `
-    <div class="cmp-chips">${compareList.map(name=>`<button class="cmp-chip" onclick="toggleCompare('${name}')" aria-label="${name} 빼기">${name}<span>✕</span></button>`).join('')}
-      ${n < 2 ? `<span class="cmp-hint">하나 더 담으면 비교할 수 있어요</span>` : ''}</div>
-    <button class="btn primary cmp-go" onclick="openCompare()" ${n < 2 ? 'disabled' : ''}>비교하기 (${n})</button>`;
+    <div class="cmp-chips">${compareList.map(name=>`<button class="cmp-chip" onclick="toggleCompare('${name}')" aria-label="${name} 빼기">${name}<span>✕</span></button>`).join('')}</div>
+    <button class="btn primary cmp-go" onclick="openCompare()" ${n < 2 ? 'disabled' : ''}>비교하기</button>`;
   bar.classList.remove('hidden');
 }
 
