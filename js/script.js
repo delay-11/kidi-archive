@@ -104,7 +104,7 @@ const categoryData = {
         {name:'팬터그래프', desc:'가위 형태의 지지 구조로 키를 안정적으로 눌러주는 방식이에요. 키 높이가 낮고 노트북 키보드에 많이 쓰여요.'},
         {name:'로우프로파일', desc:'일반 키보드보다 스위치와 키캡 높이를 낮춘 형태예요. 얇고 짧은 키 이동거리가 특징이에요.'}
       ]},
-      { label:'배열', items:[
+      { label:'키보드 배열', items:[
         {name:'풀사이즈 (106/108키)', desc:'숫자패드까지 포함된 가장 기본 배열이에요.'},
         {name:'95% (95키)', desc:'풀사이즈에서 넘패드 폭만 줄여 압축한 배열이에요. 숫자패드는 유지하면서 폭은 살짝 줄일 수 있어요.'},
         {name:'TKL (87키)', desc:'숫자패드를 뺀 배열로 책상 공간을 좀 더 확보할 수 있어요.'},
@@ -193,7 +193,7 @@ function renderCategory(key){
     const isCompat = key==='keycap' && sec.label==='호환성';
     html += isCompat ? `<div class="sub-label" id="compatAnchor">${sec.label}</div>` : `<div class="sub-label">${sec.label}</div>`;
     if(sec.note){ html += `<div class="section-note">${sec.note}</div>`; }
-    const isCarousel = key==='keyboard' && (sec.label==='키보드 종류' || sec.label==='배열');
+    const isCarousel = key==='keyboard' && (sec.label==='키보드 종류' || sec.label==='키보드 배열');
     const isSwitchGrid = key==='switch' && sec.label==='타입';
     const isPhotoList = key==='keycap' && sec.label==='프로파일';
     if(isCarousel){
@@ -202,7 +202,7 @@ function renderCategory(key){
         <button class="scroll-arrow left" onclick="scrollRowBy('${rowId}',-1)" aria-label="이전"><span class="scroll-arrow-icon"></span></button>
         <div class="card-row" id="${rowId}">`;
       sec.items.forEach(it=>{
-        const cardClass = sec.label==='배열' ? 'h-card h-card-layout' : 'h-card';
+        const cardClass = sec.label==='키보드 배열' ? 'h-card h-card-layout' : 'h-card';
         html += `<div class="${cardClass}">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div></div></div>`;
       });
       html += `</div>
