@@ -26,7 +26,7 @@ photoSrc['카일 BOX V2 갈축'] = 'images/Kailh BOX V2 Brown.png';
 photoSrc['카일 마시엘로우 클릭'] = 'images/Kailh Marshmallow Click.png';
 photoSrc['카일 마시멜로우 택타일'] = 'images/Kailh Marshmallow Tactile.png';
 photoSrc['기계식'] = 'images/Mechanical.png';
-photoSrc['로우프로파일(팬터그래프)'] = 'images/Pantograph.png';
+photoSrc['펜타그래프'] = 'images/Pantograph.png';
 photoSrc['풀사이즈 (106/108키)'] = 'images/108 layout.jpg';
 photoSrc['TKL (87키)'] = 'images/TKL layout.jpg';
 photoSrc['75%'] = 'images/75 layout.jpg';
@@ -96,11 +96,13 @@ const categoryData = {
     title:'키보드',
     sections:[
       { label:'키보드 종류', items:[
-        {name:'기계식', desc:'스위치를 하나씩 교체할 수 있는 구조예요. 커스텀 키보드는 대부분 이 방식이에요.'},
-        {name:'멤브레인', desc:'고무 돔이 회로 시트를 눌러 입력을 인식해요. 저가형 키보드에 가장 많이 쓰여요.'},
-        {name:'정전용량무접점', desc:'스프링과 러버돔이 결합된 구조로 부드럽고 묵직한 타건감이 특징이에요. 토프레가 대표적이에요.'},
-        {name:'광축', desc:'빛을 차단해 입력을 인식하는 방식이에요. 반응 속도가 빨라 게이밍 키보드에서 자주 써요.'},
-        {name:'로우프로파일(팬터그래프)', desc:'얇은 지지대 구조로 키 흔들림이 적어요. 노트북 키보드 대부분이 이 방식이에요.'}
+        {name:'기계식', desc:'키마다 독립된 기계식 스위치를 사용하는 방식이에요. 다양한 축과 타건감을 선택할 수 있어 커스텀 키보드에 많이 쓰여요.'},
+        {name:'멤브레인', desc:'고무 돔이 회로 시트를 눌러 입력을 인식하는 방식이에요. 구조가 단순하고 일반 키보드에 많이 쓰여요.'},
+        {name:'정전용량 무접점', desc:'물리적인 접점 없이 정전용량의 변화를 감지해 입력을 인식해요. 부드러운 타건감이 특징이에요.'},
+        {name:'광축', desc:'빛의 변화를 센서로 감지해 입력을 인식하는 방식이에요. 빠른 입력 구현이 가능해 게이밍 키보드에 많이 쓰여요.'},
+        {name:'자석축(홀 이펙트)', desc:'자석과 센서로 키의 눌린 깊이를 감지하는 방식이에요. 입력 지점을 세밀하게 조절할 수 있어요.'},
+        {name:'펜타그래프', desc:'가위 형태의 지지 구조로 키를 안정적으로 눌러주는 방식이에요. 키 높이가 낮고 노트북 키보드에 많이 쓰여요.'},
+        {name:'로우프로파일', desc:'일반 키보드보다 스위치와 키캡 높이를 낮춘 형태예요. 얇고 짧은 키 이동거리가 특징이에요.'}
       ]},
       { label:'배열', items:[
         {name:'풀사이즈 (106/108키)', desc:'숫자패드까지 포함된 가장 기본 배열이에요.'},
@@ -876,7 +878,7 @@ const questions = [
     title:'키보드 입문 정도는요?',
     options:[
       {label:'이번이 처음이에요', effects:{drive:{'기계식':2}}},
-      {label:'이미 하나 이상 써봤어요', effects:{drive:{'기계식':1, '광축':1, '정전용량무접점':1}}}
+      {label:'이미 하나 이상 써봤어요', effects:{drive:{'기계식':1, '광축':1, '정전용량 무접점':1}}}
     ]
   }
 ];
