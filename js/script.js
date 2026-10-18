@@ -375,7 +375,7 @@ function syncCompareUI(){
   document.querySelectorAll('.vi-compare').forEach(btn=>{
     const on = compareList.includes(btn.dataset.name);
     btn.classList.toggle('on', on);
-    btn.textContent = on ? '✓ 비교 담김' : '＋ 비교';
+    btn.textContent = on ? '✓ 비교' : '＋ 비교';
   });
   const bar = document.getElementById('compareBar');
   const show = currentCategory === 'switch' && compareList.length > 0;
