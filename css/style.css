@@ -444,7 +444,7 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 }
 .switch-card .sc-body{display:flex; flex-direction:column; flex:1;}
 .switch-card .d-name{font-weight:700; font-size:13px; margin-bottom:6px;}
-.switch-card .d-desc{font-size:10.5px; line-height:1.5; color:var(--paper-dim); margin-bottom:12px; flex:1;}
+.switch-card .d-desc{font-size:10.5px; line-height:1.5; color:var(--paper-dim); margin-bottom:12px; flex:1; word-break:keep-all;}
 .variant-toggle{
   font-family:'Space Grotesk',monospace; font-size:10.5px; font-weight:600;
   color:var(--paper-dim); padding:8px 0 0; cursor:pointer; width:100%;
