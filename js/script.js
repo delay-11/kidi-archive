@@ -122,7 +122,7 @@ const categoryData = {
       { label:'타입', items:[
         {name:'리니어', accent:'--linear', desc:'누르는 내내 걸림 없이 부드럽게 눌려요. <br class="br-web">상대적으로 조용한 편이에요.', variants:['오테뮤 스위치 적축','오테뮤 피치 V3','TTC 아이스프로즌 V2']},
         {name:'택타일', accent:'--tactile', desc:'누르는 중간에 턱 걸리는 느낌이 있어요. <br class="br-web">손끝으로 입력을 확인하기 좋아요.', variants:['오테뮤 스위치 갈축','오테뮤 라임 V3','카일 BOX V2 갈축','카일 마시멜로우 택타일']},
-        {name:'클릭', accent:'--clicky', desc:'택타일 느낌에 <br class="br-web">또렷한 클릭 소리까지 더해진 타입이에요.', variants:['오테뮤 스위치 청축','카일 마시멜로우 클릭','카일 BOX V2 백축']}
+        {name:'클릭', accent:'--clicky', desc:'택타일 느낌에 또렷한 클릭 소리까지 <br class="br-web">더해진 타입이에요.', variants:['오테뮤 스위치 청축','카일 마시멜로우 클릭','카일 BOX V2 백축']}
       ]}
     ]
   },
