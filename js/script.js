@@ -11,9 +11,9 @@ for(let i=0;i<9;i++){
    나중에 실제 촬영/구매한 사진 URL을 넣을 수 있도록 자리만 만들어둠.
    photoSrc가 있으면 그 이미지를, 없으면 placeholder를 보여줌. */
 const photoSrc = {}; // 예: photoSrc['기계식'] = 'https://.../mechanical.jpg';
-photoSrc['리무버'] = 'images/keycapswitch puller.jpg';
-photoSrc['보관함'] = 'images/Storage Box.jpg';
-photoSrc['진열대'] = 'images/Display Stand.jpg';
+photoSrc['키캡·스위치 리무버'] = 'images/keycapswitch puller.jpg';
+photoSrc['키캡 보관함'] = 'images/Storage Box.jpg';
+photoSrc['키보드 진열대'] = 'images/Display Stand.jpg';
 photoSrc['팜레스트'] = 'images/Palm Rest.jpg';
 photoSrc['오테뮤 스위치 갈축'] = 'images/Outemu Brown.png';
 photoSrc['오테뮤 스위치 적축'] = 'images/Outemu Red.png';
@@ -26,7 +26,7 @@ photoSrc['카일 BOX V2 갈축'] = 'images/Kailh BOX V2 Brown.png';
 photoSrc['카일 마시엘로우 클릭'] = 'images/Kailh Marshmallow Click.png';
 photoSrc['카일 마시멜로우 택타일'] = 'images/Kailh Marshmallow Tactile.png';
 photoSrc['기계식'] = 'images/Mechanical.png';
-photoSrc['로우프로파일(팬터그래프)'] = 'images/Pantograph.png';
+photoSrc['팬터그래프'] = 'images/Pantograph.png';
 photoSrc['풀사이즈 (106/108키)'] = 'images/108 layout.jpg';
 photoSrc['TKL (87키)'] = 'images/TKL layout.jpg';
 photoSrc['75%'] = 'images/75 layout.jpg';
@@ -96,11 +96,13 @@ const categoryData = {
     title:'키보드',
     sections:[
       { label:'키보드 종류', items:[
-        {name:'기계식', desc:'스위치를 하나씩 교체할 수 있는 구조예요. 커스텀 키보드는 대부분 이 방식이에요.'},
-        {name:'멤브레인', desc:'고무 돔이 회로 시트를 눌러 입력을 인식해요. 저가형 키보드에 가장 많이 쓰여요.'},
-        {name:'정전용량무접점', desc:'스프링과 러버돔이 결합된 구조로 부드럽고 묵직한 타건감이 특징이에요. 토프레가 대표적이에요.'},
-        {name:'광축', desc:'빛을 차단해 입력을 인식하는 방식이에요. 반응 속도가 빨라 게이밍 키보드에서 자주 써요.'},
-        {name:'로우프로파일(팬터그래프)', desc:'얇은 지지대 구조로 키 흔들림이 적어요. 노트북 키보드 대부분이 이 방식이에요.'}
+        {name:'기계식', desc:'키마다 독립된 기계식 스위치를 사용하는 방식이에요. 다양한 축과 타건감을 선택할 수 있어 커스텀 키보드에 많이 쓰여요.'},
+        {name:'멤브레인', desc:'고무 돔이 회로 시트를 눌러 입력을 인식하는 방식이에요. 구조가 단순하고 일반 키보드에 많이 쓰여요.'},
+        {name:'정전용량 무접점', desc:'물리적인 접점 없이 정전용량의 변화를 감지해 입력을 인식해요. 부드러운 타건감이 특징이에요.'},
+        {name:'광축', desc:'빛의 변화를 센서로 감지해 입력을 인식하는 방식이에요. 빠른 입력 구현이 가능해 게이밍 키보드에 많이 쓰여요.'},
+        {name:'자석축(홀 이펙트)', desc:'자석과 센서로 키의 눌린 깊이를 감지하는 방식이에요. 입력 지점을 세밀하게 조절할 수 있어요.'},
+        {name:'팬터그래프', desc:'가위 형태의 지지 구조로 키를 안정적으로 눌러주는 방식이에요. 키 높이가 낮고 노트북 키보드에 많이 쓰여요.'},
+        {name:'로우프로파일', desc:'일반 키보드보다 스위치와 키캡 높이를 낮춘 형태예요. 얇고 짧은 키 이동거리가 특징이에요.'}
       ]},
       { label:'배열', items:[
         {name:'풀사이즈 (106/108키)', desc:'숫자패드까지 포함된 가장 기본 배열이에요.'},
@@ -127,21 +129,21 @@ const categoryData = {
   keycap:{
     title:'키캡',
     sections:[
-      { label:'프로파일', items:[
-        {name:'CHERRY', desc:'낮고 완만한 곡선의 조각형 프로파일. 가장 대중적이에요.'},
-        {name:'OEM', desc:'CHERRY보다 살짝 높은 조각형 프로파일. 일반 완제품 키보드에 많이 쓰여요.'},
-        {name:'MAO', desc:'낮은 편의 조각형 프로파일로 고양이 실루엣이 특징이에요.'},
-        {name:'SA', desc:'손끝을 감싸는 듯한 깊고 높은 조각형 프로파일이에요.'},
-        {name:'XDA', desc:'행 구분 없이 균일한 높이의 넓적한 프로파일이에요.'},
-        {name:'CBSA', desc:'SA와 비슷하게 깊지만 조금 더 낮은 조각형 프로파일이에요.'},
-        {name:'MDA', desc:'구형(스페리컬) 형태로 행 높이가 균일한 프로파일이에요.'},
-        {name:'MOA', desc:'완만한 돔형 상단의 조각형 프로파일로, 부드럽게 도드라진 촉감이에요.'}
+      { label:'프로파일', note:'※ 높이는 제조사에 따라 차이가 있을 수 있어요.', items:[
+        {name:'CHERRY', desc:'낮고 완만한 곡선을 이루며, 행마다 높이와 각도가 달라지는 조각형 프로파일이에요.'},
+        {name:'OEM', desc:'CHERRY보다 조금 높고, 행마다 높이와 각도가 달라지는 조각형 프로파일이에요.'},
+        {name:'MAO', desc:'행마다 높이가 일정하며, 양쪽이 살짝 올라간 독특한 상단이 특징인 균일형 프로파일이에요.'},
+        {name:'SA', desc:'높고 깊게 파인 둥근 상단이 특징이며, 행마다 높이와 각도가 달라지는 조각형 프로파일이에요.'},
+        {name:'XDA', desc:'낮고 넓은 상단이 특징이며, 행마다 높이와 각도가 같은 균일형 프로파일이에요.'},
+        {name:'CBSA', desc:'SA와 비슷한 둥근 상단을 가지면서 높이는 조금 낮춘 조각형 프로파일이에요.'},
+        {name:'MDA', desc:'중간 높이의 넓고 둥근 상단이 특징이며, 행마다 높이와 각도가 달라지는 조각형 프로파일이에요.'},
+        {name:'MOA', desc:'둥글고 볼륨감 있는 상단이 특징이며, 행마다 높이와 각도가 같은 균일형 프로파일이에요.'}
       ]},
       { label:'호환성', items:[
-        {step:'STEP 1', name:'스위치 모양 확인하기', desc:'대부분의 기계식·커스텀 키보드는 스위치 위가 십자(+) 모양이라 문제없이 호환돼요. 다만 정전용량 무접점(토프레)이나 로우프로파일 키보드는 스위치 모양 자체가 달라서 전용 키캡이 필요해요. 헷갈리면 키보드에 있는 키캡을 하나 제거해서 스위치 위 모양을 직접 확인하거나, 메뉴의 "호환 여부 확인하기"에서 모델명으로 검색해보세요.'},
-        {step:'STEP 2', name:'특수 키 사이즈 재보기', desc:'Shift · Ctrl · Enter · 스페이스바 같은 키는 제조사·배열마다 길이가 조금씩 달라요. 상세페이지나 매뉴얼에서 내 키보드의 사이즈를 확인하고, 구매하려는 세트에 그 사이즈가 포함돼 있는지 함께 체크하세요.'},
-        {step:'STEP 3', name:'ISO / ANSI 배열 맞추기', desc:'엔터키가 일자형이면 ANSI, ㄱ자로 꺾여 있으면 ISO예요. 세트 상세페이지에서 어떤 배열용인지 확인하고 내 키보드와 같은 배열인지 맞춰보세요.'},
-        {step:'STEP 4', name:'로우프로파일 여부 체크하기', desc:'노트북이나 로우프로파일(저프로파일) 키보드는 스위치 자체가 낮게 설계돼 있어서 일반 키캡이 물리적으로 맞지 않아요. 구매 전 "로우프로파일 전용" 표시가 있는 세트인지 꼭 확인하세요.'}
+        {step:'STEP 1', name:'스위치 모양 확인하기', desc:'대부분의 기계식·커스텀 키보드는 <mark class="hl">십자(+) 형태의 MX 계열 스템</mark>을 사용해요. 정전용량 무접점이나 일부 로우프로파일 키보드는 체결 구조가 달라 전용 키캡이 필요할 수 있어요. 헷갈리면 키캡을 하나 빼 스위치 모양을 직접 확인하거나, 모델명으로 호환 여부를 확인해보세요.'},
+        {step:'STEP 2', name:'특수 키 크기(U) 확인하기', desc:'Shift · Ctrl · Enter · 스페이스바 같은 키는 제조사와 배열에 따라 크기가 달라요. 일반 문자키 1개의 너비를 1U라고 하며, 1.25U · 1.75U · 2.25U · 2.75U · 6.25U처럼 다양한 규격이 있어요. <mark class="hl">내 키보드의 키 크기와 구매하려는 세트의 구성품을 함께 확인</mark>해주세요.'},
+        {step:'STEP 3', name:'ANSI / ISO 배열 확인하기', desc:'<mark class="hl">ANSI는 가로형 Enter와 긴 왼쪽 Shift</mark>를, <mark class="hl">ISO는 세로로 큰 Enter와 짧은 왼쪽 Shift</mark>를 사용해요. 구매하려는 키캡 세트가 내 키보드 배열을 지원하는지 확인해주세요.'},
+        {step:'STEP 4', name:'로우프로파일 여부 확인하기', desc:'로우프로파일 키보드는 일반 키보드보다 <mark class="hl">스위치와 키캡 높이가 낮아요.</mark> 제품에 따라 체결 구조와 키캡 규격이 달라 일반 키캡과 호환되지 않을 수 있으니, 구매 전 <mark class="hl">로우프로파일 전용 여부를 확인</mark>해주세요.'}
       ]}
     ]
   },
@@ -149,14 +151,14 @@ const categoryData = {
     title:'커스텀',
     sections:[
       { label:'커스텀 주문', items:[
-        {name:'승화전사', desc:'염료를 키캡 안쪽까지 스며들게 하는 방식이에요. 화려한 컬러와 매끄러운 인쇄가 강점이고, 키캡 본연의 매끄러운 촉감이 그대로 남아있어요. 반영구적이라 화려한 캐릭터·패턴 커스텀에 잘 어울려요.', orderLink:true},
-        {name:'레이저 각인', desc:'레이저로 표면을 직접 새기는 방식이에요. 날카로운 선과 깔끔한 로고·심볼 표현이 강점이고, 미세하게 파여있는 입체감이 느껴져요. 반영구적이라 심플한 이니셜이나 기업 로고 각인에 잘 어울려요.', orderLink:true}
+        {name:'승화전사', desc:'열을 이용해 염료를 키캡 표면층에 스며들게 하는 방식이에요. 다양한 색상과 섬세한 이미지 표현이 가능해 캐릭터·패턴 커스텀에 잘 어울려요.', orderLink:true},
+        {name:'레이저 각인', desc:'레이저로 키캡 표면에 문자나 무늬를 새기는 방식이에요. 선명하고 깔끔한 표현이 가능하며, 심플한 이니셜이나 로고 각인에 잘 어울려요.', orderLink:true}
       ]},
       { label:'기성품', items:[
-        {name:'이중사출', desc:'서로 다른 색 플라스틱을 두 번 겹쳐 사출하는 방식이에요. 글자 자체가 다른 색 플라스틱이라 닳아서 지워지거나 번지는 일이 없어요. 다만 색 조합이 보통 2가지 정도로 제한적이에요.'},
-        {name:'염료승화', desc:'열로 염료를 소재 안까지 스며들게 하는 인쇄 방식이에요. 잉크가 표면이 아니라 안쪽에 스며드는 거라 벗겨지지 않고 반영구적으로 유지돼요. 다만 밝은색 소재에서 표현이 잘 나와요.'},
-        {name:'UV인쇄', desc:'UV프린터로 표면에 직접 인쇄하고 자외선으로 굳히는 방식이에요. 색상·그라데이션 표현이 자유로운 대신, 잉크가 표면 위에 얹히는 방식이라 오래 쓰면 미세하게 마모될 수 있어요.'},
-        {name:'포인트키캡', desc:'키보드의 일부 키에 포인트를 주기 위해 사용하는 낱개 키캡이에요. 그중에서도 캐릭터나 오브제를 입체적으로 표현한 아티산 키캡이 대표적이며, 이외에도 일반 인쇄 키캡부터 레진·실리콘·금속 등 다양한 소재와 제작 방식의 키캡이 있어요.', buyUrl:'https://mkt.shopping.naver.com/link/6a9521b9aeac3553bb292240'}
+        {name:'이중사출', desc:'서로 다른 색상의 플라스틱을 두 번 사출해 문자와 키캡을 만드는 방식이에요. 문자가 별도의 플라스틱으로 이루어져 오래 사용해도 쉽게 지워지지 않아요.'},
+        {name:'승화전사', desc:'열을 이용해 염료를 키캡 표면층에 스며들게 하는 방식이에요. 인쇄가 쉽게 벗겨지지 않고 다양한 색상과 패턴을 표현할 수 있어요.'},
+        {name:'UV인쇄', desc:'UV 잉크를 키캡 표면에 인쇄한 뒤 자외선으로 굳히는 방식이에요. 다양한 색상과 그라데이션 표현이 가능하지만, 표면 인쇄라 장기간 사용하면 마모될 수 있어요.'},
+        {name:'포인트키캡', desc:'키보드의 일부 키에 포인트를 주기 위해 사용하는 키캡이에요. 캐릭터나 오브제를 입체적으로 표현한 아티산 키캡부터 인쇄·레진·실리콘·금속 등 다양한 소재와 방식으로 제작돼요.', buyUrl:'https://mkt.shopping.naver.com/link/6a9521b9aeac3553bb292240'}
       ]}
     ]
   },
@@ -164,10 +166,10 @@ const categoryData = {
     title:'용품',
     sections:[
       { label:'왜 필요한가요?', items:[
-        {name:'리무버', desc:'키캡이나 스위치를 손으로 억지로 뽑지 않고 안전하게 분리할 수 있는 도구예요. 힘을 고르게 분산시켜서 부품이 상하는 걸 막아줘요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fa68a20a72cfec88678'},
-        {name:'진열대', desc:'키보드를 세워서 보기 좋게 진열할 수 있는 소품이에요. 책상 위에 깔끔하게 정리되고, 먼지도 덜 쌓여요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fb1a6c15e1319580bc0'},
-        {name:'보관함', desc:'여분 키캡이나 교체하면서 뺀 기존 키캡을 넣어서 보관할 수 있는 용품이에요. 종류별로 나눠두면 나중에 찾기도 쉽고 분실·파손도 줄어요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fbd7c3acb4dfa6f3cd7'},
-        {name:'팜레스트', desc:'키보드 앞에 놓고 손목을 받쳐주는 소품이에요. 장시간 타이핑할 때 손목 각도를 편하게 잡아줘서 손목 피로를 줄여줘요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fc8cc78491a7acb608f'}
+        {name:'키캡·스위치 리무버', desc:'키캡이나 스위치를 손으로 억지로 빼지 않고 안전하게 분리할 때 사용하는 도구예요. 교체나 청소를 자주 한다면 하나쯤 준비해두면 편리해요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fa68a20a72cfec88678'},
+        {name:'키보드 진열대', desc:'키보드를 세워 보관하거나 전시할 수 있는 용품이에요. 책상 공간을 효율적으로 활용하고 여러 대의 키보드를 깔끔하게 정리하기 좋아요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fb1a6c15e1319580bc0'},
+        {name:'키캡 보관함', desc:'여분 키캡이나 교체한 키캡을 종류별로 나누어 보관할 수 있는 용품이에요. 필요한 키를 찾기 쉽고 분실이나 섞임을 줄이는 데 도움이 돼요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fbd7c3acb4dfa6f3cd7'},
+        {name:'팜레스트', desc:'키보드 앞에 놓아 손목을 받쳐주는 용품이에요. 키보드 높이에 맞는 제품을 사용하면 손목이 과하게 꺾이는 것을 줄이고 보다 편안하게 타이핑할 수 있어요.', buyUrl:'https://mkt.shopping.naver.com/link/6aa36fc8cc78491a7acb608f'}
       ]}
     ]
   }
@@ -190,6 +192,7 @@ function renderCategory(key){
     if(key==='custom' && idx>0){ html += `<div class="section-divider"></div>`; }
     const isCompat = key==='keycap' && sec.label==='호환성';
     html += isCompat ? `<div class="sub-label" id="compatAnchor">${sec.label}</div>` : `<div class="sub-label">${sec.label}</div>`;
+    if(sec.note){ html += `<div class="section-note">${sec.note}</div>`; }
     const isCarousel = key==='keyboard' && (sec.label==='키보드 종류' || sec.label==='배열');
     const isSwitchGrid = key==='switch' && sec.label==='타입';
     const isPhotoList = key==='keycap' && sec.label==='프로파일';
@@ -876,7 +879,7 @@ const questions = [
     title:'키보드 입문 정도는요?',
     options:[
       {label:'이번이 처음이에요', effects:{drive:{'기계식':2}}},
-      {label:'이미 하나 이상 써봤어요', effects:{drive:{'기계식':1, '광축':1, '정전용량무접점':1}}}
+      {label:'이미 하나 이상 써봤어요', effects:{drive:{'기계식':1, '광축':1, '정전용량 무접점':1}}}
     ]
   }
 ];
