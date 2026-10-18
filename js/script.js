@@ -350,7 +350,7 @@ function syncVariantButtons(){
 let currentCategory = null;
 let compareList = [];
 const COMPARE_BAR_MAX = {'작동압':80, '구분압':80, '입력 지점':4, '총 이동거리':4.5};
-const TYPE_FEEL = {'리니어':'걸림 없이 부드럽게', '택타일':'중간에 걸림이 느껴지게', '클릭':'걸림과 함께 딸깍 소리가 나게'};
+const TYPE_FEEL = {'리니어':'걸림 없이 부드러워요', '택타일':'중간에 걸림이 느껴져요', '클릭':'걸림과 함께 딸깍 소리가 나요'};
 
 function compareMax(){ return window.innerWidth >= 700 ? 3 : 2; }
 function specOf(name, key){ const row = (SWITCH_SPECS[name]||[]).find(r=>r[0]===key); return row ? row[1] : '-'; }
@@ -387,35 +387,26 @@ function syncCompareUI(){
   bar.classList.remove('hidden');
 }
 
-/* 받침 여부에 맞춰 조사 붙이기 (예: 적축은 / 백축을 / V2예요) */
-function hasBatchim(word){
-  const ch = word.trim().slice(-1);
-  const code = ch.charCodeAt(0) - 0xAC00;
-  if(code >= 0 && code <= 11171) return code % 28 !== 0;
-  return '013678'.includes(ch) || /[lmnr]/i.test(ch);
-}
-function josa(word, withB, withoutB){ return word + (hasBatchim(word) ? withB : withoutB); }
-
 function compareSummary(names){
   const lines = [];
   const types = names.map(n=>baseType(specOf(n,'타입')));
   if(new Set(types).size > 1){
-    lines.push(names.map((n,i)=>`<b>${josa(n,'</b>은','</b>는')} ${TYPE_FEEL[types[i]]}`).join(', ') + ' 눌려요.');
+    names.forEach((n,i)=>lines.push(`<b>${n}</b> ${TYPE_FEEL[types[i]]}`));
   }
-  const pick = (key, label, unit) => {
+  const facts = [];
+  const lowest = key => {
     const vals = names.map(n=>specNum(n,key));
     const min = Math.min(...vals);
-    if(vals.every(v=>v===min)){ lines.push(`${josa(label,'은','는')} 모두 ${specOf(names[0],key)}로 같아요.`); return; }
-    const who = names.filter((n,i)=>vals[i]===min);
-    return who;
+    if(vals.every(v=>v===min)) return null;
+    return names.filter((n,i)=>vals[i]===min);
   };
-  const light = pick('작동압','작동압','gf');
-  if(light) lines.push(`가장 가볍게 눌리는 건 <b>${josa(light.join(', '),'</b>이에요','</b>예요')}. (작동압 ${specNum(light[0],'작동압')}gf)`);
-  const fast = pick('입력 지점','입력 지점','mm');
-  if(fast) lines.push(`가장 얕게 눌러도 입력되는 건 <b>${josa(fast.join(', '),'</b>이에요','</b>예요')}. (입력 지점 ${specNum(fast[0],'입력 지점')}mm)`);
+  const light = lowest('작동압');
+  if(light) facts.push(`제일 가벼운 축 · <b>${light.join(', ')}</b> (${specOf(light[0],'작동압')})`);
+  const fast = lowest('입력 지점');
+  if(fast) facts.push(`제일 빨리 입력되는 축 · <b>${fast.join(', ')}</b> (${specOf(fast[0],'입력 지점')})`);
   const quiet = names.filter(n=>specOf(n,'타입').includes('저소음'));
-  if(quiet.length && quiet.length < names.length) lines.push(`조용한 걸 원하면 <b>${josa(quiet.join(', '),'</b>을','</b>를')} 추천해요. (저소음)`);
-  return lines;
+  if(quiet.length && quiet.length < names.length) facts.push(`조용한 축 · <b>${quiet.join(', ')}</b> (저소음)`);
+  return {lines, facts};
 }
 
 function openCompare(){
@@ -435,23 +426,24 @@ function openCompare(){
     </div>`;
   });
   rows.filter(k=>k!=='타입').forEach(k=>{
-    const vals = names.map(n=>specOf(n,k));
-    const diff = new Set(vals).size > 1;
     grid += `<div class="cmp-label">${k}</div>`;
     names.forEach((n,i)=>{
       const max = COMPARE_BAR_MAX[k];
       const bar = max ? `<div class="cmp-bar"><i style="width:${Math.min(100, specNum(n,k)/max*100)}%"></i></div>` : '';
-      grid += `<div class="cmp-val${diff ? ' diff' : ''}"><span>${vals[i]}</span>${bar}</div>`;
+      grid += `<div class="cmp-val"><span>${specOf(n,k)}</span>${bar}</div>`;
     });
   });
   grid += `</div>`;
-  const summary = compareSummary(names);
+  const {lines, facts} = compareSummary(names);
+  const summary = lines.length || facts.length ? `<div class="cmp-summary"><div class="cmp-summary-title">한눈에 보기</div>
+        ${lines.map(l=>`<p>${l}</p>`).join('')}
+        ${facts.length ? `<div class="cmp-facts">${facts.map(l=>`<p>${l}</p>`).join('')}</div>` : ''}</div>` : '';
   document.getElementById('compareSheet').innerHTML = `
     <div class="spec-modal-head"><span>스위치 비교</span><button class="spec-modal-close" onclick="closeCompare()" aria-label="닫기">✕</button></div>
     <div class="cmp-body">
-      ${summary.length ? `<div class="cmp-summary"><div class="cmp-summary-title">한눈에 보기</div>${summary.map(l=>`<p>${l}</p>`).join('')}</div>` : ''}
+      ${summary}
       ${grid}
-      <p class="cmp-foot">※ 색이 칠해진 칸은 스위치끼리 값이 다른 항목이에요. 막대가 길수록 무겁거나 깊어요.</p>
+      <p class="cmp-foot">※ 막대가 길수록 무겁거나 깊게 눌려요.</p>
     </div>`;
   document.getElementById('compareSheet').classList.remove('hidden');
   document.getElementById('compareBackdrop').classList.remove('hidden');

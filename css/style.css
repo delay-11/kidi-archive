@@ -557,6 +557,7 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
   background:var(--accent-dim); border-radius:10px; padding:12px 14px; margin-bottom:14px;
   font-size:12.5px; line-height:1.6; color:var(--paper); word-break:keep-all;
 }
+.cmp-facts{margin-top:6px; padding-top:6px; border-top:1px dashed rgba(0,0,0,0.08);}
 .cmp-summary-title{font-size:11px; font-weight:700; color:var(--accent); margin-bottom:4px;}
 .cmp-grid{display:grid; grid-template-columns:62px repeat(var(--n), minmax(0,1fr)); column-gap:8px;}
 .cmp-col-head{display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; padding-bottom:12px;}
@@ -566,7 +567,6 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 .cmp-label{font-size:11px; color:var(--paper-dim); padding:10px 0; border-top:1px dashed var(--line); display:flex; align-items:center;}
 .cmp-grid > .cmp-label:first-child{border-top:none;}
 .cmp-val{font-size:12px; font-weight:700; color:var(--paper); padding:8px 6px; border-top:1px dashed var(--line); text-align:center;}
-.cmp-val.diff span{background:var(--accent-dim); border-radius:4px; padding:1px 4px;}
 .cmp-bar{height:4px; background:var(--panel2); border-radius:2px; margin-top:6px; overflow:hidden;}
 .cmp-bar i{display:block; height:100%; background:var(--accent); border-radius:2px;}
 .cmp-foot{font-size:11px; color:var(--paper-dim); margin-top:12px;}
