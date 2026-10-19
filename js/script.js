@@ -35,6 +35,18 @@ photoSrc['CBSA'] = 'images/CBSA.jpg';
 photoSrc['MDA'] = 'images/MDA.jpg';
 photoSrc['MOA'] = 'images/MOA.jpg';
 photoSrc['MAO'] = 'images/MAO.jpg';
+photoSrc['108키 · 풀사이즈'] = 'images/108 layout.png';
+photoSrc['106키 · 한국형 풀사이즈'] = 'images/106 layout.png';
+photoSrc['104키 · ANSI 풀사이즈'] = 'images/104 layout.png';
+photoSrc['98키 · 컴팩트 풀사이즈'] = 'images/98 layout.png';
+photoSrc['96% · 컴팩트 풀사이즈'] = 'images/96 layout.png';
+photoSrc['87키 · TKL'] = 'images/TKL layout.png';
+photoSrc['75%'] = 'images/75 layout.png';
+photoSrc['65%'] = 'images/65 layout.png';
+photoSrc['60% · 61키'] = 'images/60 layout.png';
+photoSrc['40%'] = 'images/40 layout.png';
+photoSrc['Numpad'] = 'images/Numpad layout.png';
+photoSrc['Alice'] = 'images/Alice layout.png';
 
 function photoSlot(name){
   const src = photoSrc[name];
