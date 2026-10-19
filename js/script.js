@@ -35,6 +35,7 @@ photoSrc['CBSA'] = 'images/CBSA.jpg';
 photoSrc['MDA'] = 'images/MDA.jpg';
 photoSrc['MOA'] = 'images/MOA.jpg';
 photoSrc['MAO'] = 'images/MAO.jpg';
+photoSrc['104키 · ANSI 풀사이즈'] = 'images/104 layout.png';
 
 function photoSlot(name){
   const src = photoSrc[name];

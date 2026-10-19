@@ -459,6 +459,7 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 }
 /* 배열 사진: 가로로 넓은 키보드 사진이라 잘리지 않고 전체가 다 보이게(contain) */
 .h-card-layout .d-photo{background:#ffffff;}
+@media (prefers-color-scheme: dark){ .h-card-layout .d-photo:not(.placeholder){background:#000000;} }
 .h-card-layout .d-photo img{object-fit:contain; padding:6px;}
 .h-card .h-body{padding:11px 12px 14px;}
 .h-card .d-name{font-weight:700; font-size:13.5px; margin-bottom:5px; word-break:keep-all;}
