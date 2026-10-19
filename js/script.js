@@ -39,6 +39,10 @@ photoSrc['108키 · 풀사이즈'] = 'images/108 layout.png';
 photoSrc['106키 · 한국형 풀사이즈'] = 'images/106 layout.png';
 photoSrc['104키 · ANSI 풀사이즈'] = 'images/104 layout.png';
 photoSrc['87키 · TKL'] = 'images/TKL layout.png';
+photoSrc['75%'] = 'images/75 layout.png';
+photoSrc['65%'] = 'images/65 layout.png';
+photoSrc['60% · 61키'] = 'images/60 layout.png';
+photoSrc['40%'] = 'images/40 layout.png';
 photoSrc['Alice'] = 'images/Alice layout.png';
 
 function photoSlot(name){
