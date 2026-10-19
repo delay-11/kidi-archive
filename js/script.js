@@ -676,6 +676,7 @@ const keyboardCompatDB = {
   'AULA HERO 84HE': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 히어로 84he']},
   'AULA F108': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f108']},
   'AULA AG75': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 ag75']},
+  'AULA S75 Pro': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 s75 pro', '독거미 s75 pro']},
 
   /* ---------- GEEKSTAR(긱스타) ---------- */
   'GEEKSTAR GKG108': {brand:'GEEKSTAR(긱스타)', verdict:'ok', reason:OK_REASON, alias:['긱스타 gkg108']},
