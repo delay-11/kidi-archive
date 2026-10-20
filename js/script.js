@@ -202,7 +202,8 @@ function renderCategory(key){
     const isCompat = key==='keycap' && sec.label==='호환성';
     html += isCompat ? `<div class="sub-label" id="compatAnchor">${sec.label}</div>` : `<div class="sub-label">${sec.label}</div>`;
     if(sec.note){ html += `<div class="section-note">${sec.note}</div>`; }
-    const isCarousel = key==='keyboard' && (sec.label==='키보드 종류' || sec.label==='키보드 배열');
+    const isCarousel = key==='keyboard' && sec.label==='키보드 종류';
+    const isLayoutGrid = key==='keyboard' && sec.label==='키보드 배열';
     const isSwitchGrid = key==='switch' && sec.label==='타입';
     const isPhotoList = key==='keycap' && sec.label==='프로파일';
     if(isCarousel){
@@ -218,6 +219,14 @@ function renderCategory(key){
       html += `</div>
         <button class="scroll-arrow right" onclick="scrollRowBy('${rowId}',1)" aria-label="다음"><span class="scroll-arrow-icon"></span></button>
       </div>`;
+    } else if(isLayoutGrid){
+      // 배열은 종류가 많아서 넘기는 대신 한눈에 보이게 그리드로
+      html += `<div class="layout-grid">`;
+      sec.items.forEach(it=>{
+        const check = it.check ? `<div class="kc"><div class="kc-divider"></div><div class="kc-label">KEYCAP CHECK</div><div class="kc-text">${it.check}</div></div>` : '';
+        html += `<div class="h-card h-card-layout">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
+      });
+      html += `</div>`;
     } else if(isSwitchGrid){
       html += `<div class="switch-grid">`;
       sec.items.forEach(it=>{
