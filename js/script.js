@@ -35,6 +35,11 @@ photoSrc['CBSA'] = 'images/CBSA.jpg';
 photoSrc['MDA'] = 'images/MDA.jpg';
 photoSrc['MOA'] = 'images/MOA.jpg';
 photoSrc['MAO'] = 'images/MAO.jpg';
+photoSrc['96% · 컴팩트 풀사이즈'] = 'images/96 layout.svg';
+photoSrc['75%'] = 'images/75 layout.svg';
+photoSrc['65%'] = 'images/65 layout.svg';
+photoSrc['60% · 61키'] = 'images/60 layout.svg';
+photoSrc['40%'] = 'images/40 layout.svg';
 
 function photoSlot(name){
   const src = photoSrc[name];
