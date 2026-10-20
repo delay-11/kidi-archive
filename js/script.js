@@ -40,10 +40,13 @@ photoSrc['106키 · 한국형 풀사이즈'] = 'images/106 layout.svg';
 photoSrc['104키 · ANSI 풀사이즈'] = 'images/104 layout.svg';
 photoSrc['98키 · 컴팩트 풀사이즈'] = 'images/98 layout.svg';
 photoSrc['96% · 컴팩트 풀사이즈'] = 'images/96 layout.svg';
+photoSrc['87키 · TKL'] = 'images/TKL layout.svg';
 photoSrc['75%'] = 'images/75 layout.svg';
 photoSrc['65%'] = 'images/65 layout.svg';
 photoSrc['60% · 61키'] = 'images/60 layout.svg';
 photoSrc['40%'] = 'images/40 layout.svg';
+photoSrc['Numpad'] = 'images/Numpad layout.svg';
+photoSrc['Alice'] = 'images/Alice layout.svg';
 
 function photoSlot(name){
   const src = photoSrc[name];
