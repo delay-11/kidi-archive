@@ -701,6 +701,7 @@ const keyboardCompatDB = {
 
   /* ---------- GEEKSTAR(긱스타) ---------- */
   'GEEKSTAR GKG108': {brand:'GEEKSTAR(긱스타)', verdict:'ok', reason:OK_REASON, alias:['긱스타 gkg108']},
+  'GEEKSTAR GKG108R': {brand:'GEEKSTAR(긱스타)', verdict:'ok', reason:OK_REASON, alias:['긱스타 gkg108r']},
   'GEEKSTAR GKG87': {brand:'GEEKSTAR(긱스타)', verdict:'ok', reason:OK_REASON, alias:['긱스타 gkg87']},
   'GEEKSTAR JK08': {brand:'GEEKSTAR(긱스타)', verdict:'ok', reason:OK_REASON, alias:['긱스타 jk08']},
   'GEEKSTAR 파운데이션': {brand:'GEEKSTAR(긱스타)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['긱스타 파운데이션']},
