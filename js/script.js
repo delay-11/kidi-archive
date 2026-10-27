@@ -758,6 +758,7 @@ const keyboardCompatDB = {
   /* ---------- Razer ---------- */
   'Razer BlackWidow V4 75': {brand:'Razer(레이저)', verdict:'ok', reason:OK_REASON, alias:['레이저 블랙위도우 v4 75']},
   'Razer BlackWidow V4 Tenkeyless HyperSpeed': {brand:'Razer(레이저)', verdict:'ok', reason:OK_REASON, alias:['레이저 블랙위도우 v4 텐키리스 하이퍼스피드']},
+  'Razer Huntsman V3 Pro 8KHz': {brand:'Razer(레이저)', verdict:'ok', reason:OK_REASON, alias:['레이저 헌츠맨 v3 pro 8khz']},
 
   /* ---------- GDEVIL(지데빌) ---------- */
   'GDEVIL G917 SCUD': {brand:'GDEVIL(지데빌)', verdict:'ok', reason:OK_REASON, alias:['지데빌 g917 scud']},
