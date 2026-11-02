@@ -732,6 +732,7 @@ const keyboardCompatDB = {
 
   /* ---------- YUNZII ---------- */
   'YUNZII X71': {brand:'YUNZII(윤지)', verdict:'ok', reason:OK_REASON, alias:['윤지 x71']},
+  'YUNZII X98': {brand:'YUNZII(윤지)', verdict:'ok', reason:OK_REASON, alias:['윤지 x98']},
 
   /* ---------- Wooting(우팅) ---------- */
   'Wooting 60HE': {brand:'Wooting(우팅)', verdict:'ok', reason:OK_REASON, alias:['우팅 60he']},
