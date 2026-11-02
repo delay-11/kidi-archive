@@ -673,6 +673,7 @@ const keyboardCompatDB = {
   'ABKO AG75W': {brand:'ABKO(앱코)', verdict:'ok', reason:OK_REASON, alias:['앱코 ag75w']},
   'ABKO K660': {brand:'ABKO(앱코)', verdict:'warn', reason:'기계식이지만 모델별로 조금씩 달라 구매 전 확인이 필요해요.', alias:['앱코 k660']},
   'ABKO MK108': {brand:'ABKO(앱코)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['앱코 mk108']},
+  'ABKO CK580': {brand:'ABKO(앱코)', verdict:'ok', reason:OK_REASON, alias:['앱코 ck580']},
   'ABKO MK98': {brand:'ABKO(앱코)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['앱코 mk98']},
   'ABKO AK10': {brand:'ABKO(앱코)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['앱코 ak10']},
   'ABKO WKM40': {brand:'ABKO(앱코)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['앱코 wkm40']},
@@ -683,6 +684,7 @@ const keyboardCompatDB = {
   'ABKO K150': {brand:'ABKO(앱코)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['앱코 k150']},
   'ABKO MK87': {brand:'ABKO(앱코)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['앱코 mk87']},
   'ABKO KM400': {brand:'ABKO(앱코)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['앱코 km400']},
+  'ABKO KN01C': {brand:'ABKO(앱코)', verdict:'ok', reason:OK_REASON, alias:['앱코 kn01c']},
   'ABKO COX 엠프리스': {brand:'ABKO(앱코)', verdict:'ok', reason:OK_REASON, alias:['앱코 cox 엠프리스']},
 
   /* ---------- AULA(독거미) ---------- */
@@ -697,6 +699,7 @@ const keyboardCompatDB = {
   'AULA HERO 84HE': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 히어로 84he']},
   'AULA F108': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 f108']},
   'AULA AG75': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 ag75']},
+  'AULA MK108': {brand:'AULA(독거미)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['아울라 mk108']},
   'AULA S75 Pro': {brand:'AULA(독거미)', verdict:'ok', reason:OK_REASON, alias:['아울라 s75 pro', '독거미 s75 pro']},
 
   /* ---------- GEEKSTAR(긱스타) ---------- */
@@ -708,6 +711,7 @@ const keyboardCompatDB = {
   'GEEKSTAR GK108FE': {brand:'GEEKSTAR(긱스타)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['긱스타 gk108fe']},
   'GEEKSTAR GK02': {brand:'GEEKSTAR(긱스타)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['긱스타 gk02']},
   'GEEKSTAR GK01': {brand:'GEEKSTAR(긱스타)', verdict:'no', reason:'멤브레인 방식이라 스위치 모양이 달라요.', alias:['긱스타 gk01']},
+  'GEEKSTAR GKG108R': {brand:'GEEKSTAR(긱스타)', verdict:'ok', reason:OK_REASON, alias:['긱스타 gkg108r']},
 
   /* ---------- Rainy (WOB) ---------- */
   'Rainy75': {brand:'Rainy(레이니)', verdict:'ok', reason:OK_REASON, alias:['레이니75']},
@@ -718,6 +722,7 @@ const keyboardCompatDB = {
   'PREFLOW MCHOSE Ace68': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 mchose ace68']},
   'PREFLOW Archon REAL HX': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 아콘 real hx', '프리플로우 archon real hx']},
   'PREFLOW Archon M1 PRO 2': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 아콘 m1 pro 2', '프리플로우 archon m1 pro 2']},
+  'PREFLOW Archon M1 PRO 2 MAX': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 아콘 m1 pro 2 max', '프리플로우 archon m1 pro 2 max']},
 
   /* ---------- Dareu ---------- */
   'Dareu COOL68 8K': {brand:'DAREU(다얼유)', verdict:'ok', reason:OK_REASON, alias:['다얼유 cool68 8k']},
@@ -733,6 +738,7 @@ const keyboardCompatDB = {
 
   /* ---------- SWAGKEY ---------- */
   'SWAGKEY QK80MK2': {brand:'SWAGKEY(스웨그키)', verdict:'ok', reason:OK_REASON, alias:['스웨그키 qk80mk2']},
+  'SWAGKEY NAJA68 래피드트리거 자석축 8K': {brand:'SWAGKEY(스웨그키)', verdict:'ok', reason:OK_REASON, alias:['스웨그키 naja68 래피드트리거 자석축 8k']},
 
   /* ---------- VARO ---------- */
   'VARO V104': {brand:'VARO(바로)', verdict:'ok', reason:OK_REASON, alias:['바로 v104']},
@@ -754,6 +760,7 @@ const keyboardCompatDB = {
 
   /* ---------- Gravastar(그라바스타) ---------- */
   'Gravastar Mercury K98 Pro': {brand:'Gravastar(그라바스타)', verdict:'ok', reason:OK_REASON, alias:['그라바스타 머큐리 k98 pro']},
+  'Gravastar V60 Pro': {brand:'Gravastar(그라바스타)', verdict:'ok', reason:OK_REASON, alias:['그라바스타 v60pro', '그라바스타 v60 pro']},
 
   /* ---------- Razer ---------- */
   'Razer BlackWidow V4 75': {brand:'Razer(레이저)', verdict:'ok', reason:OK_REASON, alias:['레이저 블랙위도우 v4 75']},
