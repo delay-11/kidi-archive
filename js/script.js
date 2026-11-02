@@ -803,7 +803,10 @@ const keyboardCompatDB = {
   'Womier SK61 HE': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 sk61 he']},
   'Womier Q61 Pro': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 q61 pro']},
   'Womier WK61': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 wk61']},
-  'Womier SK30': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 sk30']}
+  'Womier SK30': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 sk30']},
+
+  /* ---------- Gigabyte(기가바이트) ---------- */
+  'Gigabyte AORUS K7': {brand:'Gigabyte(기가바이트)', verdict:'ok', reason:OK_REASON, alias:['기가바이트 aorus k7', '기가바이트 어로스 k7']}
 };
 
 function startCompatCheck(){
