@@ -723,6 +723,7 @@ const keyboardCompatDB = {
   'PREFLOW Archon REAL HX': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 아콘 real hx', '프리플로우 archon real hx']},
   'PREFLOW Archon M1 PRO 2': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 아콘 m1 pro 2', '프리플로우 archon m1 pro 2']},
   'PREFLOW Archon M1 PRO 2 MAX': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 아콘 m1 pro 2 max', '프리플로우 archon m1 pro 2 max']},
+  'PREFLOW Archon FX ULTRA': {brand:'PREFLOW(프리플로우)', verdict:'ok', reason:OK_REASON, alias:['프리플로우 아콘 fx ultra', '프리플로우 archon fx ultra']},
 
   /* ---------- Dareu ---------- */
   'Dareu COOL68 8K': {brand:'DAREU(다얼유)', verdict:'ok', reason:OK_REASON, alias:['다얼유 cool68 8k']},
