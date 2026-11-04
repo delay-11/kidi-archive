@@ -808,7 +808,10 @@ const keyboardCompatDB = {
   'Womier SK30': {brand:'Womier(우미어)', verdict:'ok', reason:OK_REASON, alias:['우미어 sk30']},
 
   /* ---------- Gigabyte(기가바이트) ---------- */
-  'Gigabyte AORUS K7': {brand:'Gigabyte(기가바이트)', verdict:'ok', reason:OK_REASON, alias:['기가바이트 aorus k7', '기가바이트 어로스 k7']}
+  'Gigabyte AORUS K7': {brand:'Gigabyte(기가바이트)', verdict:'ok', reason:OK_REASON, alias:['기가바이트 aorus k7', '기가바이트 어로스 k7']},
+
+  /* ---------- Thinkway(씽크웨이) ---------- */
+  'Thinkway 토체프101': {brand:'Thinkway(씽크웨이)', verdict:'ok', reason:OK_REASON, alias:['씽크웨이 토체프101', '씽크웨이 토체프 101']}
 };
 
 function startCompatCheck(){
