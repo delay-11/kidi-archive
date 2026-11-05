@@ -531,6 +531,11 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
   border:1px solid var(--tactile); border-radius:8px; padding:1px 5px;
   margin-left:5px; vertical-align:middle;
 }
+.vi-dust{
+  display:inline-block; font-size:9px; font-weight:700; color:var(--accent);
+  border:1px solid var(--accent); border-radius:8px; padding:1px 5px;
+  margin-left:5px; vertical-align:middle;
+}
 .vi-play{
   font-family:'Space Grotesk',monospace; font-size:10px; font-weight:600;
   color:var(--accent); border:1px solid var(--line); border-radius:20px;
