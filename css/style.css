@@ -554,7 +554,9 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
   position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:90;
 }
 .spec-modal{
-  position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+  /* translate(-50%) 중앙 정렬은 소수점 좌표에 그려져서 뒤 사진 경계가 1px 선처럼 비쳐 보임
+     → 위치는 snapToPixel()이 정수 px로 잡아줌 (아래 top/left는 JS 실행 전 기본값) */
+  position:fixed; top:50%; left:50%; isolation:isolate;
   z-index:91; width:240px; max-width:80vw;
   background:var(--panel); border:1px solid var(--line); border-radius:14px;
   overflow:hidden;
@@ -603,7 +605,7 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 .cmp-go{flex-shrink:0; padding:11px 14px;}
 .cmp-go:disabled{opacity:0.45; pointer-events:none;}
 .compare-sheet{
-  position:fixed; left:50%; top:50%; transform:translate(-50%,-50%); z-index:91;
+  position:fixed; top:50%; left:50%; isolation:isolate; z-index:91;
   width:calc(100% - 24px); max-width:720px; max-height:calc(100vh - 40px); overflow:auto;
   background:var(--panel); border:1px solid var(--line); border-radius:14px;
 }

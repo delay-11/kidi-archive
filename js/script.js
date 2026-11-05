@@ -320,6 +320,20 @@ function showSpecModal(name){
   `;
   modal.classList.remove('hidden');
   document.getElementById('specModalBackdrop').classList.remove('hidden');
+  snapToPixel(modal);
+}
+/* 팝업을 화면 가운데 정수 px 좌표에 놓기.
+   translate(-50%,-50%)로 두면 높이가 266.5px처럼 반픽셀일 때 소수점 위치에 그려져서
+   윈도우 배율 화면에서 뒤 사진 경계가 팝업 안에 세로선처럼 비쳐 보였음. */
+window.addEventListener('resize', ()=>{
+  ['specModal','compareSheet'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el && !el.classList.contains('hidden')) snapToPixel(el);
+  });
+});
+function snapToPixel(el){
+  el.style.left = Math.round((window.innerWidth - el.offsetWidth) / 2) + 'px';
+  el.style.top = Math.max(0, Math.round((window.innerHeight - el.getBoundingClientRect().height) / 2)) + 'px';
 }
 function closeSpecModal(){
   document.getElementById('specModal').classList.add('hidden');
@@ -468,6 +482,7 @@ function openCompare(){
     </div>`;
   document.getElementById('compareSheet').classList.remove('hidden');
   document.getElementById('compareBackdrop').classList.remove('hidden');
+  snapToPixel(document.getElementById('compareSheet'));
 }
 function closeCompare(){
   const sheet = document.getElementById('compareSheet');
