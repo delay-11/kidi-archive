@@ -25,6 +25,12 @@ photoSrc['카일 BOX V2 백축'] = 'images/Kailh BOX V2 White.png';
 photoSrc['카일 BOX V2 갈축'] = 'images/Kailh BOX V2 Brown.png';
 photoSrc['카일 마시멜로우 클릭'] = 'images/Kailh Marshmallow Click.png';
 photoSrc['카일 마시멜로우 택타일'] = 'images/Kailh Marshmallow Tactile.png';
+photoSrc['오테뮤 더스트프루프 블루'] = 'images/Outemu Dustproof Blue.png';
+photoSrc['HMX 마티니'] = 'images/HMX Martini.png';
+photoSrc['워미어 민트 블리자드'] = 'images/Mint Blizzard.png';
+photoSrc['워미어 로즈 위스퍼'] = 'images/Rose Whisper.png';
+photoSrc['워미어 스카이'] = 'images/Womier Sky.png';
+photoSrc['워미어 커피'] = 'images/Womier Coffee.png';
 photoSrc['기계식'] = 'images/Mechanical.png';
 photoSrc['팬터그래프'] = 'images/Pantograph.png';
 photoSrc['CHERRY'] = 'images/CHERRY.jpg';
@@ -70,6 +76,12 @@ soundSrc['카일 BOX V2 백축'] = 'audio/Kailh BOX V2 White.mp4';
 soundSrc['카일 BOX V2 갈축'] = 'audio/Kailh BOX V2 Brown.mp4';
 soundSrc['카일 마시멜로우 클릭'] = 'audio/Kailh Marshmallow Click.mp4';
 soundSrc['카일 마시멜로우 택타일'] = 'audio/Kailh Marshmallow Tactile.mp4';
+soundSrc['오테뮤 더스트프루프 블루'] = 'audio/Outemu Dustproof Blue.mp4';
+soundSrc['HMX 마티니'] = 'audio/HMX Martini.mp4';
+soundSrc['워미어 민트 블리자드'] = 'audio/Mint Blizzard.mp4';
+soundSrc['워미어 로즈 위스퍼'] = 'audio/Rose Whisper.mp4';
+soundSrc['워미어 스카이'] = 'audio/Womier Sky.mp4';
+soundSrc['워미어 커피'] = 'audio/Womier Coffee.mp4';
 
 function playPreview(name){
   const src = soundSrc[name];
@@ -129,9 +141,9 @@ const categoryData = {
     title:'스위치',
     sections:[
       { label:'타입', items:[
-        {name:'리니어', accent:'--linear', desc:'누르는 내내 걸림 없이 부드럽게 눌려요. <br class="br-web">상대적으로 조용한 편이에요.', variants:['오테뮤 스위치 적축','오테뮤 피치 V3','TTC 아이스프로즌 V2']},
+        {name:'리니어', accent:'--linear', desc:'누르는 내내 걸림 없이 부드럽게 눌려요. <br class="br-web">상대적으로 조용한 편이에요.', variants:['오테뮤 스위치 적축','오테뮤 피치 V3','TTC 아이스프로즌 V2','HMX 마티니','워미어 민트 블리자드','워미어 로즈 위스퍼','워미어 스카이','워미어 커피']},
         {name:'택타일', accent:'--tactile', desc:'누르는 중간에 턱 걸리는 느낌이 있어요. <br class="br-web">손끝으로 입력을 확인하기 좋아요.', variants:['오테뮤 스위치 갈축','오테뮤 라임 V3','카일 BOX V2 갈축','카일 마시멜로우 택타일']},
-        {name:'클릭', accent:'--clicky', desc:'택타일 느낌에 또렷한 클릭 소리까지 <br class="br-web">더해진 타입이에요.', variants:['오테뮤 스위치 청축','카일 마시멜로우 클릭','카일 BOX V2 백축']}
+        {name:'클릭', accent:'--clicky', desc:'택타일 느낌에 또렷한 클릭 소리까지 <br class="br-web">더해진 타입이에요.', variants:['오테뮤 스위치 청축','카일 마시멜로우 클릭','카일 BOX V2 백축','오테뮤 더스트프루프 블루']}
       ]}
     ]
   },
@@ -303,6 +315,12 @@ const SWITCH_SPECS = {
   '카일 BOX V2 갈축': [['타입','택타일'],['핀','5핀'],['작동압','45gf'],['구분압','68gf'],['입력 지점','1.8±0.4mm'],['총 이동거리','3.6±0.3mm']],
   '카일 마시멜로우 클릭': [['타입','클릭'],['핀','5핀'],['작동압','50±10gf'],['구분압','55±10gf'],['입력 지점','1.8±0.4mm'],['총 이동거리','3.6±0.3mm']],
   '카일 마시멜로우 택타일': [['타입','택타일'],['핀','5핀'],['작동압','38±10gf'],['구분압','55±10gf'],['입력 지점','2.0±0.4mm'],['총 이동거리','3.4±0.3mm']],
+  '오테뮤 더스트프루프 블루': [['타입','클릭'],['핀','3핀'],['작동압','50±10gf'],['구분압','60gf'],['입력 지점','2.2±0.6mm'],['총 이동거리','4.0mm']],
+  'HMX 마티니': [['타입','리니어'],['핀','5핀'],['작동압','42±5gf'],['구분압','48±5gf'],['입력 지점','-'],['총 이동거리','4.0±0.2mm']],
+  '워미어 민트 블리자드': [['타입','리니어'],['핀','5핀'],['작동압','42±5gf'],['구분압','50±5gf'],['입력 지점','2.0±0.5mm'],['총 이동거리','3.80±0.3mm']],
+  '워미어 로즈 위스퍼': [['타입','리니어'],['핀','5핀'],['작동압','42±5gf'],['구분압','50±5gf'],['입력 지점','2.0±0.5mm'],['총 이동거리','3.80±0.3mm']],
+  '워미어 스카이': [['타입','리니어'],['핀','3핀'],['작동압','47±5gf'],['구분압','-'],['입력 지점','2.0±0.5mm'],['총 이동거리','3.80±0.3mm']],
+  '워미어 커피': [['타입','리니어'],['핀','3핀'],['작동압','40±5gf'],['구분압','-'],['입력 지점','2.0±0.5mm'],['총 이동거리','3.80±0.3mm']],
 };
 
 function showSpecModal(name){
