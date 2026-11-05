@@ -15,9 +15,9 @@ photoSrc['키캡·스위치 리무버'] = 'images/keycapswitch puller.jpg';
 photoSrc['키캡 보관함'] = 'images/Storage Box.jpg';
 photoSrc['키보드 진열대'] = 'images/Display Stand.jpg';
 photoSrc['팜레스트'] = 'images/Palm Rest.jpg';
-photoSrc['오테뮤 스위치 갈축'] = 'images/Outemu Brown.png';
-photoSrc['오테뮤 스위치 적축'] = 'images/Outemu Red.png';
-photoSrc['오테뮤 스위치 청축'] = 'images/Outemu Blue.png';
+photoSrc['오테뮤 갈축'] = 'images/Outemu Brown.png';
+photoSrc['오테뮤 적축'] = 'images/Outemu Red.png';
+photoSrc['오테뮤 청축'] = 'images/Outemu Blue.png';
 photoSrc['오테뮤 피치 V3'] = 'images/Outemu Peach V3.png';
 photoSrc['오테뮤 라임 V3'] = 'images/Outemu Lime V3.png';
 photoSrc['TTC 아이스프로즌 V2'] = 'images/TTC Ice Frozen V2.png';
@@ -66,9 +66,9 @@ function photoSlot(name){
    실제 타건음 오디오 파일이 준비되면 soundSrc에 연결해서 재생하면 됨.
    지금은 자리만 만들어두고 눌러도 준비중 안내만 표시. */
 const soundSrc = {}; // 예: soundSrc['리니어'] = 'https://.../linear.mp3';
-soundSrc['오테뮤 스위치 갈축'] = 'audio/Outemu Brown.mp4';
-soundSrc['오테뮤 스위치 적축'] = 'audio/Outemu Red.mp4';
-soundSrc['오테뮤 스위치 청축'] = 'audio/Outemu Blue.mp4';
+soundSrc['오테뮤 갈축'] = 'audio/Outemu Brown.mp4';
+soundSrc['오테뮤 적축'] = 'audio/Outemu Red.mp4';
+soundSrc['오테뮤 청축'] = 'audio/Outemu Blue.mp4';
 soundSrc['오테뮤 피치 V3'] = 'audio/Outemu Peach V3.mp4';
 soundSrc['오테뮤 라임 V3'] = 'audio/Outemu Lime V3.mp4';
 soundSrc['TTC 아이스프로즌 V2'] = 'audio/TTC Ice Frozen V2.mp4';
@@ -141,9 +141,9 @@ const categoryData = {
     title:'스위치',
     sections:[
       { label:'타입', items:[
-        {name:'리니어', accent:'--linear', desc:'누르는 내내 걸림 없이 부드럽게 눌려요. <br class="br-web">상대적으로 조용한 편이에요.', variants:['오테뮤 스위치 적축','오테뮤 피치 V3','TTC 아이스프로즌 V2','HMX 마티니','우미어 민트 블리자드','우미어 로즈 위스퍼','우미어 스카이','우미어 커피']},
-        {name:'택타일', accent:'--tactile', desc:'누르는 중간에 턱 걸리는 느낌이 있어요. <br class="br-web">손끝으로 입력을 확인하기 좋아요.', variants:['오테뮤 스위치 갈축','오테뮤 라임 V3','카일 BOX V2 갈축','카일 마시멜로우 택타일']},
-        {name:'클릭', accent:'--clicky', desc:'택타일 느낌에 또렷한 클릭 소리까지 <br class="br-web">더해진 타입이에요.', variants:['오테뮤 스위치 청축','카일 마시멜로우 클릭','카일 BOX V2 백축','오테뮤 청축 (방진축)']}
+        {name:'리니어', accent:'--linear', desc:'누르는 내내 걸림 없이 부드럽게 눌려요. <br class="br-web">상대적으로 조용한 편이에요.', variants:['오테뮤 적축','오테뮤 피치 V3','TTC 아이스프로즌 V2','HMX 마티니','우미어 민트 블리자드','우미어 로즈 위스퍼','우미어 스카이','우미어 커피']},
+        {name:'택타일', accent:'--tactile', desc:'누르는 중간에 턱 걸리는 느낌이 있어요. <br class="br-web">손끝으로 입력을 확인하기 좋아요.', variants:['오테뮤 갈축','오테뮤 라임 V3','카일 BOX V2 갈축','카일 마시멜로우 택타일']},
+        {name:'클릭', accent:'--clicky', desc:'택타일 느낌에 또렷한 클릭 소리까지 <br class="br-web">더해진 타입이에요.', variants:['오테뮤 청축','카일 마시멜로우 클릭','카일 BOX V2 백축','오테뮤 청축 (방진축)']}
       ]}
     ]
   },
@@ -305,9 +305,9 @@ function showCategory(key){
 let openVariantType = null;
 /* ---------- 축 종류별 상세 스펙 (엑셀 자료 기준) ---------- */
 const SWITCH_SPECS = {
-  '오테뮤 스위치 갈축': [['타입','택타일'],['핀','3핀'],['작동압','45±10gf'],['구분압','65gf'],['입력 지점','2.0±0.6mm'],['총 이동거리','4.0mm']],
-  '오테뮤 스위치 적축': [['타입','리니어'],['핀','3핀'],['작동압','45±10gf'],['구분압','60gf'],['입력 지점','2.0±0.6mm'],['총 이동거리','4.0mm']],
-  '오테뮤 스위치 청축': [['타입','클릭'],['핀','3핀'],['작동압','50±10gf'],['구분압','60gf'],['입력 지점','2.2±0.6mm'],['총 이동거리','4.0mm']],
+  '오테뮤 갈축': [['타입','택타일'],['핀','3핀'],['작동압','45±10gf'],['구분압','65gf'],['입력 지점','2.0±0.6mm'],['총 이동거리','4.0mm']],
+  '오테뮤 적축': [['타입','리니어'],['핀','3핀'],['작동압','45±10gf'],['구분압','60gf'],['입력 지점','2.0±0.6mm'],['총 이동거리','4.0mm']],
+  '오테뮤 청축': [['타입','클릭'],['핀','3핀'],['작동압','50±10gf'],['구분압','60gf'],['입력 지점','2.2±0.6mm'],['총 이동거리','4.0mm']],
   '오테뮤 피치 V3': [['타입','저소음 리니어'],['핀','5핀'],['작동압','40±10gf'],['구분압','50±10gf'],['입력 지점','2.0±0.6mm'],['총 이동거리','3.3mm']],
   '오테뮤 라임 V3': [['타입','저소음 택타일'],['핀','5핀'],['작동압','35±10gf'],['구분압','50±10gf'],['입력 지점','1.8±0.6mm'],['총 이동거리','3.3mm']],
   'TTC 아이스프로즌 V2': [['타입','저소음 리니어'],['핀','3핀'],['작동압','39gf'],['구분압','43gf'],['입력 지점','2.0mm'],['총 이동거리','3.5mm']],
