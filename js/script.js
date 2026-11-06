@@ -1,11 +1,3 @@
-/* ---------- hero decorative keys ---------- */
-const heroKeys = document.getElementById('heroKeys');
-for(let i=0;i<9;i++){
-  const k = document.createElement('div');
-  k.className = 'key' + (i===3?' on':'');
-  heroKeys.appendChild(k);
-}
-
 /* ---------- keyboard detail photo slots ----------
    실사 이미지는 저작권 문제로 임의로 가져올 수 없어서,
    나중에 실제 촬영/구매한 사진 URL을 넣을 수 있도록 자리만 만들어둠.
@@ -560,15 +552,22 @@ function routeFromHash(){
 window.addEventListener('popstate', routeFromHash);
 
 /* ---------- hamburger menu ---------- */
+/* 닫힌 메뉴는 inert로 Tab·화면 낭독기에서 빠지게 함 */
+function setMenuOpen(open){
+  const menu = document.getElementById('navMenu');
+  const btn = document.querySelector('.hamburger-btn');
+  menu.classList.toggle('open', open);
+  document.getElementById('menuBackdrop').classList.toggle('open', open);
+  btn.classList.toggle('open', open);
+  menu.inert = !open;
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if(open){ const first = menu.querySelector('.nav-item'); if(first) first.focus({preventScroll:true}); }
+}
 function toggleMenu(){
-  document.getElementById('navMenu').classList.toggle('open');
-  document.getElementById('menuBackdrop').classList.toggle('open');
-  document.querySelector('.hamburger-btn').classList.toggle('open');
+  setMenuOpen(!document.getElementById('navMenu').classList.contains('open'));
 }
 function closeMenu(){
-  document.getElementById('navMenu').classList.remove('open');
-  document.getElementById('menuBackdrop').classList.remove('open');
-  document.querySelector('.hamburger-btn').classList.remove('open');
+  setMenuOpen(false);
 }
 function navGo(dest){
   closeMenu();
