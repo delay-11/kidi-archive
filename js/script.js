@@ -1,11 +1,3 @@
-/* ---------- hero decorative keys ---------- */
-const heroKeys = document.getElementById('heroKeys');
-for(let i=0;i<9;i++){
-  const k = document.createElement('div');
-  k.className = 'key' + (i===3?' on':'');
-  heroKeys.appendChild(k);
-}
-
 /* ---------- keyboard detail photo slots ----------
    실사 이미지는 저작권 문제로 임의로 가져올 수 없어서,
    나중에 실제 촬영/구매한 사진 URL을 넣을 수 있도록 자리만 만들어둠.
@@ -57,7 +49,7 @@ photoSrc['Alice'] = 'images/Alice layout.svg';
 function photoSlot(name){
   const src = photoSrc[name];
   if(src){
-    return `<div class="d-photo"><img src="${src}" alt="${name}"/></div>`;
+    return `<div class="d-photo"><img src="${src}" alt="${name}" loading="lazy" decoding="async"/></div>`;
   }
   return `<div class="d-photo placeholder"><span>사진<br>준비 중</span></div>`;
 }
@@ -82,6 +74,9 @@ soundSrc['우미어 민트 블리자드'] = 'audio/Mint Blizzard.mp4';
 soundSrc['우미어 로즈 위스퍼'] = 'audio/Rose Whisper.mp4';
 soundSrc['우미어 스카이'] = 'audio/Womier Sky.mp4';
 soundSrc['우미어 커피'] = 'audio/Womier Coffee.mp4';
+
+/* 미리듣기 버튼 아이콘 (이모지 대신 글자색을 따르는 SVG) */
+const ICON_SPEAKER = '<svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
 
 function playPreview(name){
   const src = soundSrc[name];
@@ -123,17 +118,17 @@ const categoryData = {
       { label:'키보드 배열', items:[
         {name:'108키 · 풀사이즈', desc:'숫자패드와 기능키까지 갖춘 풀사이즈 배열이에요.', check:'추가 기능키 위치·크기 확인'},
         {name:'106키 · 한국형 풀사이즈', desc:'한/영·한자 키가 포함된 한국형 풀사이즈 배열이에요.', check:'한/영·한자 키와 하단열 확인'},
-        {name:'104키 · ANSI 풀사이즈', desc:'숫자패드까지 포함된 대표적인 ANSI 풀사이즈 배열이에요.', check:'Enter · Shift · Spacebar 규격 확인'},
-        {name:'98키 · 컴팩트 풀사이즈', desc:'숫자패드는 유지하면서 전체 폭을 줄인 배열이에요.', check:'우 Shift · Numpad 0 · 하단키 확인'},
-        {name:'96% · 컴팩트 풀사이즈', desc:'풀사이즈 기능을 대부분 유지한 압축형 배열이에요.', check:'우 Shift · Numpad 0 · 1U 키 확인'},
+        {name:'104키 · ANSI 풀사이즈', desc:'숫자패드까지 포함된 대표적인 ANSI 풀사이즈 배열이에요.', check:'Enter, Shift, 스페이스바 규격 확인'},
+        {name:'98키 · 컴팩트 풀사이즈', desc:'숫자패드는 유지하면서 전체 폭을 줄인 배열이에요.', check:'오른쪽 Shift, 숫자패드 0, 하단키 확인'},
+        {name:'96% · 컴팩트 풀사이즈', desc:'풀사이즈 기능을 대부분 유지한 압축형 배열이에요.', check:'오른쪽 Shift, 숫자패드 0, 1U 키 확인'},
         {name:'87키 · TKL', desc:'풀사이즈에서 숫자패드를 제외한 배열이에요.', check:'주요 특수키 규격 확인'},
-        {name:'75%', desc:'기능키와 방향키를 유지한 컴팩트 배열이에요.', check:'짧은 우 Shift · 우측 1U 키 확인'},
-        {name:'65%', desc:'기능키 줄은 생략하고 방향키는 유지한 배열이에요.', check:'짧은 우 Shift · 1U 하단키 확인'},
-        {name:'60% · 61키', desc:'기능키와 전용 방향키를 줄인 소형 배열이에요.', check:'변형 배열은 Shift · 하단열 확인'},
-        {name:'40%', desc:'숫자열까지 줄인 초소형 배열이에요.', check:'특수 modifier · Spacebar 확인'},
-        {name:'Numpad', desc:'숫자패드 부분만 따로 분리한 배열이에요.', check:'0 · + · Enter 크기 확인'},
-        {name:'Alice', desc:'양손 각도를 벌린 인체공학형 배열이에요.', check:'분할 Spacebar · B키 · Shift 확인'},
-        {name:'Split', desc:'좌우가 분리되어 배치를 조절할 수 있는 배열이에요.', check:'분할 Spacebar · 하단 특수키 구성 확인'}
+        {name:'75%', desc:'기능키와 방향키를 유지한 컴팩트 배열이에요.', check:'짧은 오른쪽 Shift, 오른쪽 1U 키 확인'},
+        {name:'65%', desc:'기능키 줄은 생략하고 방향키는 유지한 배열이에요.', check:'짧은 오른쪽 Shift, 1U 하단키 확인'},
+        {name:'60% · 61키', desc:'기능키와 전용 방향키를 줄인 소형 배열이에요.', check:'변형 배열이면 Shift와 하단열 확인'},
+        {name:'40%', desc:'숫자열까지 줄인 초소형 배열이에요.', check:'특수 modifier 키와 스페이스바 확인'},
+        {name:'Numpad', desc:'숫자패드 부분만 따로 분리한 배열이에요.', check:'0, +, Enter 키 크기 확인'},
+        {name:'Alice', desc:'양손 각도를 벌린 인체공학형 배열이에요.', check:'분할 스페이스바, B키, Shift 확인'},
+        {name:'Split', desc:'좌우가 분리되어 배치를 조절할 수 있는 배열이에요.', check:'분할 스페이스바와 하단 특수키 구성 확인'}
       ]}
     ]
   },
@@ -161,10 +156,10 @@ const categoryData = {
         {name:'MOA', desc:'둥글고 볼륨감 있는 상단이 특징이며, 행마다 높이와 각도가 같은 균일형 프로파일이에요.'}
       ]},
       { label:'호환성', items:[
-        {step:'STEP 1', name:'스위치 모양 확인하기', desc:'대부분의 기계식·커스텀 키보드는 <mark class="hl">십자(+) 형태의 MX 계열 스템</mark>을 사용해요. 정전용량 무접점이나 일부 로우프로파일 키보드는 체결 구조가 달라 전용 키캡이 필요할 수 있어요. 헷갈리면 키캡을 하나 빼 스위치 모양을 직접 확인하거나, 모델명으로 호환 여부를 확인해보세요.'},
-        {step:'STEP 2', name:'특수 키 크기(U) 확인하기', desc:'Shift · Ctrl · Enter · 스페이스바 같은 키는 제조사와 배열에 따라 크기가 달라요. 일반 문자키 1개의 너비를 1U라고 하며, 1.25U · 1.75U · 2.25U · 2.75U · 6.25U처럼 다양한 규격이 있어요. <mark class="hl">내 키보드의 키 크기와 구매하려는 세트의 구성품을 함께 확인</mark>해주세요.'},
-        {step:'STEP 3', name:'ANSI / ISO 배열 확인하기', desc:'<mark class="hl">ANSI는 가로형 Enter와 긴 왼쪽 Shift</mark>를, <mark class="hl">ISO는 세로로 큰 Enter와 짧은 왼쪽 Shift</mark>를 사용해요. 구매하려는 키캡 세트가 내 키보드 배열을 지원하는지 확인해주세요.'},
-        {step:'STEP 4', name:'로우프로파일 여부 확인하기', desc:'로우프로파일 키보드는 일반 키보드보다 <mark class="hl">스위치와 키캡 높이가 낮아요.</mark> 제품에 따라 체결 구조와 키캡 규격이 달라 일반 키캡과 호환되지 않을 수 있으니, 구매 전 <mark class="hl">로우프로파일 전용 여부를 확인</mark>해주세요.'}
+        {step:'1단계', name:'스위치 모양 확인하기', desc:'대부분의 기계식·커스텀 키보드는 <mark class="hl">십자(+) 형태의 MX 계열 스템</mark>을 사용해요. 정전용량 무접점이나 일부 로우프로파일 키보드는 체결 구조가 달라 전용 키캡이 필요할 수 있어요. 헷갈리면 키캡을 하나 빼 스위치 모양을 직접 확인하거나, 모델명으로 호환 여부를 확인해보세요.'},
+        {step:'2단계', name:'특수 키 크기(U) 확인하기', desc:'Shift, Ctrl, Enter, 스페이스바 같은 키는 제조사와 배열에 따라 크기가 달라요. 일반 문자키 1개의 너비를 1U라고 하며, 1.25U, 1.75U, 2.25U, 2.75U, 6.25U처럼 다양한 규격이 있어요. <mark class="hl">내 키보드의 키 크기와 구매하려는 세트의 구성품을 함께 확인</mark>해주세요.'},
+        {step:'3단계', name:'ANSI / ISO 배열 확인하기', desc:'<mark class="hl">ANSI는 가로형 Enter와 긴 왼쪽 Shift</mark>를, <mark class="hl">ISO는 세로로 큰 Enter와 짧은 왼쪽 Shift</mark>를 사용해요. 구매하려는 키캡 세트가 내 키보드 배열을 지원하는지 확인해주세요.'},
+        {step:'4단계', name:'로우프로파일 여부 확인하기', desc:'로우프로파일 키보드는 일반 키보드보다 <mark class="hl">스위치와 키캡 높이가 낮아요.</mark> 제품에 따라 체결 구조와 키캡 규격이 달라 일반 키캡과 호환되지 않을 수 있으니, 구매 전 <mark class="hl">로우프로파일 전용 여부를 확인</mark>해주세요.'}
       ]}
     ]
   },
@@ -203,16 +198,17 @@ function scrollRowBy(id, dir){
   const el = document.getElementById(id);
   if(!el) return;
   const amount = Math.max(el.clientWidth * 0.8, 200);
-  el.scrollBy({left: dir * amount, behavior:'smooth'});
+  const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  el.scrollBy({left: dir * amount, behavior: smooth ? 'smooth' : 'auto'});
 }
 
 function renderCategory(key){
   const data = categoryData[key];
-  let html = `<div class="eyebrow" style="margin-bottom:8px;">CATEGORY</div><h2 style="font-size:22px; margin-bottom:20px;">${data.title}</h2>`;
+  let html = `<h1 class="category-title">${data.title}</h1>`;
   data.sections.forEach((sec, idx)=>{
     if(key==='custom' && idx>0){ html += `<div class="section-divider"></div>`; }
     const isCompat = key==='keycap' && sec.label==='호환성';
-    html += isCompat ? `<div class="sub-label" id="compatAnchor">${sec.label}</div>` : `<div class="sub-label">${sec.label}</div>`;
+    html += isCompat ? `<h2 class="sub-label" id="compatAnchor">${sec.label}</h2>` : `<h2 class="sub-label">${sec.label}</h2>`;
     if(sec.note){ html += `<div class="section-note">${sec.note}</div>`; }
     const isCarousel = key==='keyboard' && sec.label==='키보드 종류';
     const isLayoutGrid = key==='keyboard' && sec.label==='키보드 배열';
@@ -225,8 +221,8 @@ function renderCategory(key){
         <div class="card-row" id="${rowId}">`;
       sec.items.forEach(it=>{
         const cardClass = sec.label==='키보드 배열' ? 'h-card h-card-layout' : 'h-card';
-        const check = it.check ? `<div class="kc"><div class="kc-divider"></div><div class="kc-label">KEYCAP CHECK</div><div class="kc-text">${it.check}</div></div>` : '';
-        html += `<div class="${cardClass}">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
+        const check = it.check ? `<div class="kc"><p class="kc-text"><span class="kc-label">키캡 확인</span> ${it.check}</p></div>` : '';
+        html += `<div class="${cardClass}" data-item="${it.name}">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
       });
       html += `</div>
         <button class="scroll-arrow right" onclick="scrollRowBy('${rowId}',1)" aria-label="다음"><span class="scroll-arrow-icon"></span></button>
@@ -235,8 +231,8 @@ function renderCategory(key){
       // 배열은 종류가 많아서 넘기는 대신 한눈에 보이게 그리드로
       html += `<div class="layout-grid">`;
       sec.items.forEach(it=>{
-        const check = it.check ? `<div class="kc"><div class="kc-divider"></div><div class="kc-label">KEYCAP CHECK</div><div class="kc-text">${it.check}</div></div>` : '';
-        html += `<div class="h-card h-card-layout">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
+        const check = it.check ? `<div class="kc"><p class="kc-text"><span class="kc-label">키캡 확인</span> ${it.check}</p></div>` : '';
+        html += `<div class="h-card h-card-layout" data-item="${it.name}">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
       });
       html += `</div>`;
     } else if(isSwitchGrid){
@@ -254,7 +250,7 @@ function renderCategory(key){
     } else if(isPhotoList){
       html += `<div class="profile-list">`;
       sec.items.forEach(it=>{
-        html += `<div class="compat-item">${photoSlot(it.name)}<div class="compat-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div></div></div>`;
+        html += `<div class="compat-item" data-item="${it.name}">${photoSlot(it.name)}<div class="compat-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div></div></div>`;
       });
       html += `</div>`;
     } else if(isCompat){
@@ -271,8 +267,11 @@ function renderCategory(key){
     } else {
       sec.items.forEach(it=>{
         const border = it.accent ? `border-left:3px solid var(${it.accent});` : '';
-        const ctaBtn = it.orderLink ? `<button class="detail-cta" onclick="goCustomOrder('${it.name}')">커스텀 바로가기 <span class="chev" aria-hidden="true"></span></button>` : '';
-        const buyBtn = it.buyUrl ? `<button class="detail-cta" onclick="window.open('${it.buyUrl}', '_blank')">구매하기 <span class="chev" aria-hidden="true"></span></button>` : '';
+        const orderUrl = it.orderLink ? CUSTOM_ORDER_URLS[it.name] : '';
+        const ctaBtn = !it.orderLink ? '' : orderUrl
+          ? `<a class="detail-cta" href="${orderUrl}" target="_blank" rel="noopener">커스텀 바로가기 <span class="chev" aria-hidden="true"></span></a>`
+          : `<button class="detail-cta" onclick="goCustomOrder('${it.name}')">커스텀 바로가기 <span class="chev" aria-hidden="true"></span></button>`;
+        const buyBtn = it.buyUrl ? `<a class="detail-cta" href="${it.buyUrl}" target="_blank" rel="noopener">구매하기 <span class="chev" aria-hidden="true"></span></a>` : '';
         const hasPhoto = !!photoSrc[it.name];
         const photo = hasPhoto ? photoSlot(it.name) : '';
         const itemClass = hasPhoto ? 'detail-item has-icon' : 'detail-item';
@@ -329,8 +328,8 @@ function showSpecModal(name){
   const modal = document.getElementById('specModal');
   modal.innerHTML = `
     <div class="spec-modal-head">
-      <span>${name}</span>
-      <button class="spec-modal-close" onclick="closeSpecModal()">✕</button>
+      <span id="specModalTitle" translate="no">${name}</span>
+      <button class="spec-modal-close" onclick="closeSpecModal()" aria-label="닫기">✕</button>
     </div>
     <div class="spec-modal-body">
       ${rows.map(([k,v])=>`<div class="vi-spec-row"><span>${k}</span><span>${v}</span></div>`).join('')}
@@ -339,6 +338,7 @@ function showSpecModal(name){
   modal.classList.remove('hidden');
   document.getElementById('specModalBackdrop').classList.remove('hidden');
   snapToPixel(modal);
+  openDialog(modal, closeSpecModal);
 }
 /* 팝업을 화면 가운데 정수 px 좌표에 놓기.
    translate(-50%,-50%)로 두면 높이가 266.5px처럼 반픽셀일 때 소수점 위치에 그려져서
@@ -354,9 +354,41 @@ function snapToPixel(el){
   el.style.top = Math.max(0, Math.round((window.innerHeight - el.getBoundingClientRect().height) / 2)) + 'px';
 }
 function closeSpecModal(){
-  document.getElementById('specModal').classList.add('hidden');
+  const modal = document.getElementById('specModal');
+  modal.classList.add('hidden');
   document.getElementById('specModalBackdrop').classList.add('hidden');
+  releaseDialog(modal);
 }
+
+/* ---------- 팝업·메뉴 공통: Esc로 닫기, 포커스를 안으로 옮기고 닫으면 되돌리기, Tab 가두기 ---------- */
+const dialogStack = [];
+const FOCUSABLE = 'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])';
+function openDialog(el, closeFn, focusEl){
+  if(dialogStack.some(d=>d.el===el)) return;
+  dialogStack.push({el, closeFn, opener: document.activeElement});
+  const target = focusEl || el.querySelector(FOCUSABLE) || el;
+  target.focus({preventScroll:true});
+}
+function releaseDialog(el){
+  const i = dialogStack.findIndex(d=>d.el===el);
+  if(i < 0) return;
+  const [d] = dialogStack.splice(i, 1);
+  if(d.opener && d.opener !== document.body && document.contains(d.opener) && d.opener.offsetParent !== null){
+    d.opener.focus({preventScroll:true});
+  }
+}
+document.addEventListener('keydown', e=>{
+  const top = dialogStack[dialogStack.length - 1];
+  if(!top) return;
+  if(e.key === 'Escape'){ e.preventDefault(); top.closeFn(); return; }
+  if(e.key !== 'Tab') return;
+  const items = [...top.el.querySelectorAll(FOCUSABLE)].filter(x=>x.offsetParent !== null);
+  if(!items.length) return;
+  const first = items[0], last = items[items.length - 1];
+  if(!top.el.contains(document.activeElement)){ e.preventDefault(); first.focus(); }
+  else if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+  else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+});
 
 function toggleVariantPanel(typeName){
   const panel = document.getElementById('variantPanel');
@@ -370,7 +402,7 @@ function toggleVariantPanel(typeName){
   }
   openVariantType = typeName;
   const typeItem = categoryData.switch.sections[0].items.find(it=>it.name===typeName);
-  let html = `<div class="sub-label">${typeName} 축 종류</div><div class="preview-tip">🎧 미리듣기는 이어폰으로 들으면 더 선명해요</div><div class="variant-list">`;
+  let html = `<h2 class="sub-label">${typeName} 축 종류</h2><div class="preview-tip">미리듣기는 이어폰으로 들으면 더 선명해요</div><div class="variant-list">`;
   (typeItem.variants||[]).forEach(name=>{
     const specRows = SWITCH_SPECS[name];
     const isQuiet = specRows && specRows[0][1].includes('저소음');
@@ -381,7 +413,7 @@ function toggleVariantPanel(typeName){
     const specFab = specRows ? `<button class="vi-spec-fab" onclick="showSpecModal('${name}')">스펙</button>` : '';
     html += `<div class="variant-item">
       <div class="vi-photo-wrap">${photoSlot(name)}${specFab}</div>
-      <div class="vi-row"><span class="d-name">${displayName}${quietBadge}${dustBadge}</span><div class="vi-actions"><button class="vi-play" onclick="playPreview('${name}')">🔊 미리듣기</button>${specRows ? `<button class="vi-compare" data-name="${name}" onclick="toggleCompare('${name}')">＋ 비교</button>` : ''}</div></div>
+      <div class="vi-row"><span class="d-name" translate="no">${displayName}${quietBadge}${dustBadge}</span><div class="vi-actions"><button class="vi-play" onclick="playPreview('${name}')">${ICON_SPEAKER}미리듣기</button>${specRows ? `<button class="vi-compare" data-name="${name}" onclick="toggleCompare('${name}')">＋ 비교</button>` : ''}</div></div>
     </div>`;
   });
   html += `</div>`;
@@ -475,9 +507,9 @@ function openCompare(){
     const t = specOf(n,'타입');
     grid += `<div class="cmp-col-head">
       ${photoSlot(n)}
-      <div class="cmp-name">${n}</div>
+      <div class="cmp-name" translate="no">${n}</div>
       <span class="cmp-type" style="color:var(${typeAccent(t)}); border-color:var(${typeAccent(t)})">${t}</span>
-      <button class="vi-play" onclick="playPreview('${n}')">🔊 미리듣기</button>
+      <button class="vi-play" onclick="playPreview('${n}')">${ICON_SPEAKER}미리듣기</button>
     </div>`;
   });
   rows.filter(k=>k!=='타입').forEach((k,ri)=>{
@@ -504,6 +536,7 @@ function openCompare(){
   document.getElementById('compareSheet').classList.remove('hidden');
   document.getElementById('compareBackdrop').classList.remove('hidden');
   snapToPixel(document.getElementById('compareSheet'));
+  openDialog(document.getElementById('compareSheet'), closeCompare);
 }
 function closeCompare(){
   const sheet = document.getElementById('compareSheet');
@@ -511,6 +544,7 @@ function closeCompare(){
   stopSwitchPreview();
   sheet.classList.add('hidden');
   document.getElementById('compareBackdrop').classList.add('hidden');
+  releaseDialog(sheet);
 }
 
 function setTopBack(show){
@@ -560,16 +594,32 @@ function routeFromHash(){
 window.addEventListener('popstate', routeFromHash);
 
 /* ---------- hamburger menu ---------- */
+/* 닫힌 메뉴는 inert로 Tab·화면 낭독기에서 빠지게 함 */
+function setMenuOpen(open){
+  const menu = document.getElementById('navMenu');
+  const btn = document.querySelector('.hamburger-btn');
+  menu.classList.toggle('open', open);
+  document.getElementById('menuBackdrop').classList.toggle('open', open);
+  btn.classList.toggle('open', open);
+  menu.inert = !open;
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if(open){ openDialog(menu, closeMenu); } else { releaseDialog(menu); }
+}
 function toggleMenu(){
-  document.getElementById('navMenu').classList.toggle('open');
-  document.getElementById('menuBackdrop').classList.toggle('open');
-  document.querySelector('.hamburger-btn').classList.toggle('open');
+  setMenuOpen(!document.getElementById('navMenu').classList.contains('open'));
 }
 function closeMenu(){
-  document.getElementById('navMenu').classList.remove('open');
-  document.getElementById('menuBackdrop').classList.remove('open');
-  document.querySelector('.hamburger-btn').classList.remove('open');
+  setMenuOpen(false);
 }
+document.addEventListener('click', e=>{
+  const a = e.target.closest('a[data-route], a[data-jump-kind]');
+  if(!a) return;
+  if(e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  e.preventDefault();
+  if(a.dataset.jumpKind){ goToResultItem(a.dataset.jumpKind, a.dataset.jumpValue); return; }
+  navGo(a.dataset.route);
+});
+
 function navGo(dest){
   closeMenu();
   if(dest==='home'){ goHome(); }
@@ -866,7 +916,10 @@ function startCompatCheck(){
   setCompatMode('search');
   document.getElementById('compatSearchInput').value = '';
   renderCompatSearch('');
-  setTimeout(()=>document.getElementById('compatSearchInput').focus(), 200);
+  // 휴대폰에서는 화면 키보드가 갑자기 올라오지 않게, 마우스 환경에서만 자동 포커스
+  if(window.matchMedia('(pointer: fine)').matches){
+    setTimeout(()=>document.getElementById('compatSearchInput').focus(), 200);
+  }
 }
 
 const VERDICT_META = {
@@ -888,11 +941,10 @@ function koSort(a, b){
   return a.localeCompare(b, 'ko');
 }
 
-/* ---------- 문의 채널 설정 ----------
-   네이버 톡톡 링크가 확정되면 아래 따옴표 안에 넣으세요.
-   예: const TALKTALK_URL = 'https://talk.naver.com/ct/abcdef';
-   비어있으면 요청 내용은 브라우저에 임시 저장돼요. */
-const TALKTALK_URL = 'https://talk.naver.com/WCDSZF';
+/* ---------- 문의 채널 (네이버 톡톡) ----------
+   주소는 index.html 상단의 "문의하기" 링크(id="topEyebrow") 한 곳에서만 관리해요.
+   주소를 바꿀 때는 index.html의 그 href만 고치면 모델 등록 요청에도 같이 적용돼요. */
+const TALKTALK_URL = (document.getElementById('topEyebrow') || {}).href || '';
 
 /* ---------- 키캡 커스텀 주문 링크 설정 ----------
    항목 이름별로 실제 주문 페이지 URL을 넣어두면 버튼 누를 때 그 링크로 연결돼요.
@@ -907,38 +959,65 @@ function goCustomOrder(name){
   if(url){
     window.open(url, '_blank');
   } else {
-    alert(`"${name}" 커스텀 주문 페이지를 준비 중이에요. 조금만 기다려주세요!`);
+    alert(`“${name}” 커스텀 주문 페이지를 준비 중이에요. 조금만 기다려주세요!`);
   }
 }
 
-/* ---------- 모델 등록 요청 ---------- */
+/* ---------- 클립보드 복사: 성공 여부를 돌려줌 ---------- */
+function copyText(text){
+  const fallback = ()=>{
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    let ok = false;
+    try{ ok = document.execCommand('copy'); }catch(e){ ok = false; }
+    ta.remove();
+    return ok;
+  };
+  if(navigator.clipboard && window.isSecureContext){
+    return navigator.clipboard.writeText(text).then(()=>true, ()=>fallback());
+  }
+  return Promise.resolve(fallback());
+}
+
+/* ---------- 모델 등록 요청 ----------
+   복사 → 톡톡 열기 → 결과를 검색 결과 자리에 남겨서, 톡톡에서 돌아와도 안내가 보이게 함 */
 function requestModelAdd(name){
   if(!name) return;
-  if(TALKTALK_URL){
-    const msg = `[KIDI ARCHIVE] 모델 등록 요청: ${name}`;
-    try{ navigator.clipboard.writeText(msg); }catch(e){}
-    alert(`요청 문구가 복사됐어요:\n"${msg}"\n\n톡톡 대화창에 붙여넣어 보내주세요!`);
-    window.open(TALKTALK_URL, '_blank');
-  } else {
+  const box = document.querySelector('.compat-empty-actions');
+  if(!TALKTALK_URL){
     alert('등록 요청 접수 채널을 준비 중이에요. 조금만 기다려주세요!');
+    return;
   }
+  const msg = `[KIDI ARCHIVE] 모델 등록 요청: ${name}`;
+  copyText(msg).then(copied=>{
+    const win = window.open(TALKTALK_URL, '_blank');
+    if(win){ try{ win.opener = null; }catch(e){} }
+    const safeMsg = escapeHtml(msg);
+    const openLink = `<a class="btn" href="${escapeHtml(TALKTALK_URL)}" target="_blank" rel="noopener">톡톡 열기</a>`;
+    const html = copied
+      ? `<p class="request-status ok" role="status">요청 문구를 복사했어요. 톡톡 대화창에 붙여넣어 보내주세요.</p>`
+      : `<p class="request-status warn" role="status">문구를 자동으로 복사하지 못했어요. 톡톡 대화창에 아래 문구를 직접 입력해주세요.</p>
+         <p class="request-msg" translate="no">${safeMsg}</p>`;
+    if(box){
+      box.querySelectorAll('.request-status, .request-msg, .request-open').forEach(el=>el.remove());
+      box.insertAdjacentHTML('beforeend', html + (win ? '' : `<div class="request-open">${openLink}</div>`));
+    }
+  });
 }
 
-/* ---------- 일반 문의하기 (톡톡) ---------- */
-function openInquiry(){
-  if(TALKTALK_URL){
-    window.open(TALKTALK_URL, '_blank');
-  } else {
-    alert('문의 채널 연결 준비 중이에요. 조금만 기다려주세요!');
-  }
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 }
 
 function renderCompatSearch(query){
   const box = document.getElementById('compatSearchResults');
   const q = query.trim().toLowerCase();
 
+  const status = document.getElementById('compatStatus');
   if(!q){
-    box.innerHTML = `<div class="compat-empty">키보드 브랜드를 입력해주세요.</div>`;
+    box.innerHTML = `<div class="compat-empty">제품명이나 브랜드를 입력해주세요.</div>`;
+    if(status) status.textContent = '';
     return;
   }
 
@@ -951,25 +1030,27 @@ function renderCompatSearch(query){
     .sort(koSort);
 
   if(matches.length === 0){
-    const escaped = query.trim().replace(/'/g, "\\'");
+    const safe = escapeHtml(query.trim());
+    if(status) status.textContent = '검색 결과가 없어요. 등록 요청을 보낼 수 있어요.';
     box.innerHTML = `<div class="compat-empty">
       아직 데이터가 없는 모델이에요.
       <div class="compat-empty-actions">
-        <button class="btn primary" onclick="requestModelAdd('${escaped}')">"${query.trim()}" 등록 요청하기</button>
+        <button class="btn primary" data-model="${safe}" onclick="requestModelAdd(this.dataset.model)">“${safe}” 등록 요청하기</button>
       </div>
     </div>`;
     return;
   }
 
-  box.innerHTML = matches.map(name=>{
+  const rows = matches.map(name=>{
     const data = keyboardCompatDB[name];
     const v = VERDICT_META[data.verdict];
-    return `<div class="compat-result-card">
-      <div class="compat-result-name">${name}</div>
-      <div class="compat-verdict ${data.verdict}">${v.label}</div>
-      <div class="compat-result-reason">${data.reason}</div>
-    </div>`;
+    return `<li class="compat-result-row">
+      <div class="cr-main"><span class="compat-result-name" translate="no">${name}</span><span class="bm-badge ${data.verdict}">${v.label}</span></div>
+      <p class="compat-result-reason">${data.reason}</p>
+    </li>`;
   }).join('');
+  box.innerHTML = `<p class="compat-count">${matches.length}개 모델</p><ul class="compat-result-list">${rows}</ul>`;
+  if(status) status.textContent = `${matches.length}개 모델을 찾았어요.`;
 }
 
 /* ---------- 브랜드별 보기 ---------- */
@@ -979,6 +1060,8 @@ function setCompatMode(mode){
   document.getElementById('compatBrandPane').classList.toggle('hidden', isSearch);
   document.getElementById('tabSearch').classList.toggle('active', isSearch);
   document.getElementById('tabBrand').classList.toggle('active', !isSearch);
+  document.getElementById('tabSearch').setAttribute('aria-pressed', isSearch ? 'true' : 'false');
+  document.getElementById('tabBrand').setAttribute('aria-pressed', isSearch ? 'false' : 'true');
   if(!isSearch) renderCompatBrandView();
 }
 
@@ -999,7 +1082,7 @@ function renderCompatBrandView(){
     const models = byBrand[brand].sort((a,b)=>koSort(a.displayName, b.displayName));
     const rows = models.map(m=>`
       <div class="brand-model-row">
-        <span class="bm-name">${m.displayName}</span>
+        <span class="bm-name" translate="no">${m.displayName}</span>
         <span class="bm-badge ${m.verdict}">${VERDICT_META[m.verdict].label}</span>
       </div>
     `).join('');
@@ -1178,17 +1261,17 @@ function resetQuiz(){
   window.scrollTo(0,0);
 }
 
-function renderQuestion(){
+function renderQuestion(moveFocus){
   const q = questions[current];
   const wrap = document.getElementById('questionsWrap');
   const filledDots = Array.from({length:questions.length}, (_,i)=>
     `<div class="dot ${i<=current?'filled':''}"></div>`).join('');
+  const progressLabel = `${questions.length}개 질문 중 ${current+1}번째`;
 
   wrap.innerHTML = `
-    <div class="progress">${filledDots}</div>
+    <div class="progress" role="progressbar" aria-label="${progressLabel}" aria-valuemin="1" aria-valuemax="${questions.length}" aria-valuenow="${current+1}">${filledDots}</div>
     <div class="q-card">
-      <div class="eyebrow q-eyebrow">${q.eyebrow}</div>
-      <div class="q-title">${q.title}</div>
+      <h1 class="q-title" id="qTitle" tabindex="-1">${q.title}</h1>
       <div id="optsWrap">
         ${q.options.map((o,i)=>`
           <button class="opt ${answers[q.id]===i?'selected':''}" onclick="selectOpt(${i})">${o.label}</button>
@@ -1199,6 +1282,7 @@ function renderQuestion(){
       </div>
     </div>
   `;
+  if(moveFocus){ const t = document.getElementById('qTitle'); if(t) t.focus({preventScroll:true}); }
 }
 
 function computeScores(){
@@ -1219,18 +1303,19 @@ function selectOpt(i){
   const q = questions[current];
   answers[q.id] = i;
   renderQuestion(); // instant highlight
+  const picked = document.querySelectorAll('#optsWrap .opt')[i]; if(picked) picked.focus({preventScroll:true});
   setTimeout(()=>{
     computeScores();
     if(current < questions.length-1){
       current++;
-      renderQuestion();
+      renderQuestion(true);
     } else {
       showResult();
     }
   }, 280);
 }
 
-function prevQ(){ if(current>0){ current--; renderQuestion(); } }
+function prevQ(){ if(current>0){ current--; renderQuestion(true); } }
 
 function top2(obj, fallbackList){
   let entries = Object.entries(obj);
@@ -1277,24 +1362,58 @@ function showResult(){
     lastResult = { drive, layout, sw: swLabel[sw], profile };
     return `
       <div class="result-card">
-        <div class="result-rank">✨ 최적의 조합</div>
         <div class="result-grid">
-          <div class="result-item"><div class="label">키보드 종류</div><div class="value">${drive}</div></div>
-          <div class="result-item"><div class="label">배열</div><div class="value">${layout}</div></div>
-          <div class="result-item"><div class="label">스위치</div><div class="value" style="color:var(${swVar[sw]})">${swLabel[sw]}</div></div>
-          <div class="result-item"><div class="label">프로파일</div><div class="value">${profile}</div></div>
+          <div class="result-item"><div class="label">키보드 종류</div>${resultLink('drive', drive, drive, '키보드')}</div>
+          <div class="result-item"><div class="label">배열</div>${resultLink('layout', layout, layout, '키보드')}</div>
+          <div class="result-item"><div class="label">스위치</div>${resultLink('sw', swLabel[sw], swLabel[sw], '스위치', swVar[sw])}</div>
+          <div class="result-item"><div class="label">프로파일</div>${resultLink('profile', profile, profile, '키캡')}</div>
         </div>
         <div class="profile-viz">
           ${photoSlot(profile)}
         </div>
       </div>
+      <p class="result-hint">항목을 누르면 자세한 설명으로 이동해요.</p>
     `;
   }).join('');
 
   document.getElementById('resultCards').innerHTML = cards;
+  const rt = document.getElementById('resultTitle'); if(rt) rt.focus({preventScroll:true});
 }
 
 let lastResult = null;
+
+/* ---------- 결과 항목 → 카테고리 이동 ---------- */
+function resultLink(kind, value, text, where, colorVar){
+  const style = colorVar ? ` style="color:var(${colorVar})"` : '';
+  const cat = {drive:'keyboard', layout:'keyboard', sw:'switch', profile:'keycap'}[kind];
+  return `<a class="value value-link"${style} href="#${cat}" data-jump-kind="${kind}" data-jump-value="${escapeHtml(value)}" aria-label="${text}, ${where} 화면에서 자세히 보기">${text}<span class="chev" aria-hidden="true"></span></a>`;
+}
+// 결과에 쓰는 이름 → 카테고리 화면의 카드 이름
+const RESULT_LAYOUT_ITEM = {'풀사이즈':'108키 · 풀사이즈', 'TKL':'87키 · TKL', '60%':'60% · 61키'};
+function goToResultItem(kind, value){
+  const cat = {drive:'keyboard', layout:'keyboard', sw:'switch', profile:'keycap'}[kind];
+  if(!cat) return;
+  showCategory(cat);
+  let el = null;
+  if(kind === 'sw'){
+    toggleVariantPanel(value);
+    const toggle = document.querySelector(`.variant-toggle[data-type="${value}"]`);
+    el = toggle ? toggle.closest('.switch-card') : null;
+  } else {
+    const name = kind === 'layout' ? (RESULT_LAYOUT_ITEM[value] || value) : value;
+    el = [...document.querySelectorAll('#categoryContent [data-item]')].find(e=>e.dataset.item === name) || null;
+  }
+  if(!el) return;
+  const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  requestAnimationFrame(()=>{
+    el.scrollIntoView({block:'center', inline:'center', behavior: smooth ? 'smooth' : 'auto'});
+    el.setAttribute('tabindex', '-1');
+    el.focus({preventScroll:true});
+    el.classList.add('jump-flash');
+    clearTimeout(el._flashTimer);
+    el._flashTimer = setTimeout(()=>el.classList.remove('jump-flash'), 1800);
+  });
+}
 
 let html2canvasLoadPromise = null;
 function loadHtml2Canvas(){
