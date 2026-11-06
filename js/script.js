@@ -611,6 +611,15 @@ function toggleMenu(){
 function closeMenu(){
   setMenuOpen(false);
 }
+document.addEventListener('click', e=>{
+  const a = e.target.closest('a[data-route], a[data-jump-kind]');
+  if(!a) return;
+  if(e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  e.preventDefault();
+  if(a.dataset.jumpKind){ goToResultItem(a.dataset.jumpKind, a.dataset.jumpValue); return; }
+  navGo(a.dataset.route);
+});
+
 function navGo(dest){
   closeMenu();
   if(dest==='home'){ goHome(); }
@@ -932,11 +941,10 @@ function koSort(a, b){
   return a.localeCompare(b, 'ko');
 }
 
-/* ---------- 문의 채널 설정 ----------
-   네이버 톡톡 링크가 확정되면 아래 따옴표 안에 넣으세요.
-   예: const TALKTALK_URL = 'https://talk.naver.com/ct/abcdef';
-   비어있으면 요청 내용은 브라우저에 임시 저장돼요. */
-const TALKTALK_URL = 'https://talk.naver.com/WCDSZF';
+/* ---------- 문의 채널 (네이버 톡톡) ----------
+   주소는 index.html 상단의 "문의하기" 링크(id="topEyebrow") 한 곳에서만 관리해요.
+   주소를 바꿀 때는 index.html의 그 href만 고치면 모델 등록 요청에도 같이 적용돼요. */
+const TALKTALK_URL = (document.getElementById('topEyebrow') || {}).href || '';
 
 /* ---------- 키캡 커스텀 주문 링크 설정 ----------
    항목 이름별로 실제 주문 페이지 URL을 넣어두면 버튼 누를 때 그 링크로 연결돼요.
@@ -955,26 +963,47 @@ function goCustomOrder(name){
   }
 }
 
-/* ---------- 모델 등록 요청 ---------- */
-function requestModelAdd(name){
-  if(!name) return;
-  if(TALKTALK_URL){
-    const msg = `[KIDI ARCHIVE] 모델 등록 요청: ${name}`;
-    try{ navigator.clipboard.writeText(msg); }catch(e){}
-    alert(`요청 문구가 복사됐어요:\n“${msg}”\n\n톡톡 대화창에 붙여넣어 보내주세요!`);
-    window.open(TALKTALK_URL, '_blank');
-  } else {
-    alert('등록 요청 접수 채널을 준비 중이에요. 조금만 기다려주세요!');
+/* ---------- 클립보드 복사: 성공 여부를 돌려줌 ---------- */
+function copyText(text){
+  const fallback = ()=>{
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    let ok = false;
+    try{ ok = document.execCommand('copy'); }catch(e){ ok = false; }
+    ta.remove();
+    return ok;
+  };
+  if(navigator.clipboard && window.isSecureContext){
+    return navigator.clipboard.writeText(text).then(()=>true, ()=>fallback());
   }
+  return Promise.resolve(fallback());
 }
 
-/* ---------- 일반 문의하기 (톡톡) ---------- */
-function openInquiry(){
-  if(TALKTALK_URL){
-    window.open(TALKTALK_URL, '_blank');
-  } else {
-    alert('문의 채널 연결 준비 중이에요. 조금만 기다려주세요!');
+/* ---------- 모델 등록 요청 ----------
+   복사 → 톡톡 열기 → 결과를 검색 결과 자리에 남겨서, 톡톡에서 돌아와도 안내가 보이게 함 */
+function requestModelAdd(name){
+  if(!name) return;
+  const box = document.querySelector('.compat-empty-actions');
+  if(!TALKTALK_URL){
+    alert('등록 요청 접수 채널을 준비 중이에요. 조금만 기다려주세요!');
+    return;
   }
+  const msg = `[KIDI ARCHIVE] 모델 등록 요청: ${name}`;
+  copyText(msg).then(copied=>{
+    const win = window.open(TALKTALK_URL, '_blank');
+    if(win){ try{ win.opener = null; }catch(e){} }
+    const safeMsg = escapeHtml(msg);
+    const openLink = `<a class="btn" href="${escapeHtml(TALKTALK_URL)}" target="_blank" rel="noopener">톡톡 열기</a>`;
+    const html = copied
+      ? `<p class="request-status ok" role="status">요청 문구를 복사했어요. 톡톡 대화창에 붙여넣어 보내주세요.</p>`
+      : `<p class="request-status warn" role="status">문구를 자동으로 복사하지 못했어요. 톡톡 대화창에 아래 문구를 직접 입력해주세요.</p>
+         <p class="request-msg" translate="no">${safeMsg}</p>`;
+    if(box){
+      box.querySelectorAll('.request-status, .request-msg, .request-open').forEach(el=>el.remove());
+      box.insertAdjacentHTML('beforeend', html + (win ? '' : `<div class="request-open">${openLink}</div>`));
+    }
+  });
 }
 
 function escapeHtml(s){
@@ -1356,8 +1385,8 @@ let lastResult = null;
 /* ---------- 결과 항목 → 카테고리 이동 ---------- */
 function resultLink(kind, value, text, where, colorVar){
   const style = colorVar ? ` style="color:var(${colorVar})"` : '';
-  const v = String(value).replace(/'/g, "\\'");
-  return `<button class="value value-link"${style} onclick="goToResultItem('${kind}','${v}')" aria-label="${text}, ${where} 화면에서 자세히 보기">${text}<span class="chev" aria-hidden="true"></span></button>`;
+  const cat = {drive:'keyboard', layout:'keyboard', sw:'switch', profile:'keycap'}[kind];
+  return `<a class="value value-link"${style} href="#${cat}" data-jump-kind="${kind}" data-jump-value="${escapeHtml(value)}" aria-label="${text}, ${where} 화면에서 자세히 보기">${text}<span class="chev" aria-hidden="true"></span></a>`;
 }
 // 결과에 쓰는 이름 → 카테고리 화면의 카드 이름
 const RESULT_LAYOUT_ITEM = {'풀사이즈':'108키 · 풀사이즈', 'TKL':'87키 · TKL', '60%':'60% · 61키'};

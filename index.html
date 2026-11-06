@@ -22,7 +22,7 @@
 
 <div class="topbar">
   <button id="topBackBtn" class="top-back-btn hidden" onclick="goHome()" aria-label="홈으로"><span class="chev left" aria-hidden="true"></span></button>
-  <button class="logo" onclick="goHome()" aria-label="KIDI ARCHIVE 홈으로" translate="no">KIDI<span aria-hidden="true">/</span>ARCHIVE</button>
+  <a class="logo" href="#" data-route="home" aria-label="KIDI ARCHIVE 홈으로" translate="no">KIDI<span aria-hidden="true">/</span>ARCHIVE</a>
   <div class="topbar-right">
     <a class="topbar-inquiry" id="topEyebrow" href="https://talk.naver.com/WCDSZF" target="_blank" rel="noopener">문의하기</a>
     <button class="hamburger-btn" onclick="toggleMenu()" aria-label="메뉴" aria-expanded="false" aria-controls="navMenu">
@@ -33,14 +33,14 @@
 
 <div id="menuBackdrop" class="menu-backdrop" onclick="closeMenu()"></div>
 <nav id="navMenu" class="nav-menu" aria-label="전체 메뉴" inert>
-  <button class="nav-item" onclick="navGo('home')">홈</button>
-  <button class="nav-item" onclick="navGo('keyboard')">키보드</button>
-  <button class="nav-item" onclick="navGo('switch')">스위치</button>
-  <button class="nav-item" onclick="navGo('keycap')">키캡</button>
-  <button class="nav-item" onclick="navGo('custom')">커스텀</button>
-  <button class="nav-item" onclick="navGo('accessories')">용품</button>
-  <button class="nav-item nav-accent nav-accent-lead" onclick="navGo('quiz')">나에게 맞는 조합 찾기 <span class="chev" aria-hidden="true"></span></button>
-  <button class="nav-item nav-accent nav-compat" onclick="navGo('compat')">호환 가능 여부 확인하기 <span class="chev" aria-hidden="true"></span></button>
+  <a class="nav-item" href="#" data-route="home">홈</a>
+  <a class="nav-item" href="#keyboard" data-route="keyboard">키보드</a>
+  <a class="nav-item" href="#switch" data-route="switch">스위치</a>
+  <a class="nav-item" href="#keycap" data-route="keycap">키캡</a>
+  <a class="nav-item" href="#custom" data-route="custom">커스텀</a>
+  <a class="nav-item" href="#accessories" data-route="accessories">용품</a>
+  <a class="nav-item nav-accent nav-accent-lead" href="#quiz" data-route="quiz">나에게 맞는 조합 찾기 <span class="chev" aria-hidden="true"></span></a>
+  <a class="nav-item nav-accent nav-compat" href="#compat" data-route="compat">호환 가능 여부 확인하기 <span class="chev" aria-hidden="true"></span></a>
 </nav>
 
 <!-- ===== SPEC MODAL (축 스펙 팝업) ===== -->
@@ -57,8 +57,8 @@
     <h1>이게 뭔지 몰라도<br>여기서 다 찾아봐요</h1>
     <p>배열, 스위치, 프로파일까지 처음 보는 용어를 쉽게 정리했어요.</p>
     <div class="hero-cta">
-      <button class="btn primary" onclick="startQuiz()">나에게 맞는 조합 찾기 <span class="chev" aria-hidden="true"></span></button>
-      <button class="btn compat-btn" onclick="startCompatCheck()">호환 여부 확인하기 <span class="chev" aria-hidden="true"></span></button>
+      <a class="btn primary" href="#quiz" data-route="quiz">나에게 맞는 조합 찾기 <span class="chev" aria-hidden="true"></span></a>
+      <a class="btn compat-btn" href="#compat" data-route="compat">호환 여부 확인하기 <span class="chev" aria-hidden="true"></span></a>
     </div>
   </div>
 
@@ -68,40 +68,40 @@
     </div>
 
     <div class="cat-grid">
-    <button class="cat-card cat-link" onclick="showCategory('keyboard')">
+    <a class="cat-card cat-link" href="#keyboard" data-route="keyboard">
       <div class="cat-left">
         <div class="cat-title"><h3>키보드</h3></div>
       </div>
       <span class="cat-arrow" aria-hidden="true"></span>
-    </button>
+    </a>
 
-    <button class="cat-card cat-link" onclick="showCategory('switch')">
+    <a class="cat-card cat-link" href="#switch" data-route="switch">
       <div class="cat-left">
         <div class="cat-title"><h3>스위치</h3></div>
       </div>
       <span class="cat-arrow" aria-hidden="true"></span>
-    </button>
+    </a>
 
-    <button class="cat-card cat-link" onclick="showCategory('keycap')">
+    <a class="cat-card cat-link" href="#keycap" data-route="keycap">
       <div class="cat-left">
         <div class="cat-title"><h3>키캡</h3></div>
       </div>
       <span class="cat-arrow" aria-hidden="true"></span>
-    </button>
+    </a>
 
-    <button class="cat-card cat-link" onclick="showCategory('custom')">
+    <a class="cat-card cat-link" href="#custom" data-route="custom">
       <div class="cat-left">
         <div class="cat-title"><h3>커스텀</h3></div>
       </div>
       <span class="cat-arrow" aria-hidden="true"></span>
-    </button>
+    </a>
 
-    <button class="cat-card cat-link" onclick="showCategory('accessories')">
+    <a class="cat-card cat-link" href="#accessories" data-route="accessories">
       <div class="cat-left">
         <div class="cat-title"><h3>용품</h3></div>
       </div>
       <span class="cat-arrow" aria-hidden="true"></span>
-    </button>
+    </a>
     </div>
   </section>
 

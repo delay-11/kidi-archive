@@ -5,6 +5,7 @@
 /* Hallmark · reworded "키보드 처음 사고 키캡 바꿔보려는데 용어부터 막막할 때 — 배열, 스위치, 프로파일까지 쉽게 정리했어요." to "배열, 스위치, 프로파일까지 처음 보는 용어를 쉽게 정리했어요." · 19 names the dash */
 /* Hallmark · reworded "내 키보드의 제품명을 검색해보세요" to "호환 가능 여부 확인하기" · the heading now matches the menu label and fits both the search and brand tabs */
 /* Hallmark · dropped compatSearchInput, openInquiry · the search field is the same input, now named q with type search; the inquiry button became a real link to the same talk.naver.com page */
+/* Hallmark · dropped navGo, showCategory, startQuiz, startCompatCheck · the menu, category cards and hero buttons became real links (href plus data-route) handled by one click listener, so new-tab opening works */
 /* Hallmark · dismissed 41 · these panels inherit --paper, which swaps with --panel in dark mode, and --topbar-bg is a surface not a label */
 /* Hallmark · dismissed 19 · the footer copyright line is the owner's legal text and stays verbatim */
 /* 기본값(라이트) — prefers-color-scheme을 지원하지 않거나 설정이 없는 환경의 기본 테마 */
@@ -102,7 +103,7 @@ h1,h2,h3{font-weight:800; letter-spacing:-0.01em;}
   background:var(--topbar-bg);
   border-bottom:1px solid var(--line);
 }
-.logo{font-family:var(--font-display); font-weight:700; font-size:15px; letter-spacing:0.02em; cursor:pointer; padding:12px 0; margin:-12px 0;}
+.logo{font-family:var(--font-display); font-weight:700; font-size:15px; letter-spacing:0.02em; cursor:pointer; padding:12px 0; margin:-12px 0; color:var(--paper); text-decoration:none;}
 .logo span{color:var(--accent); transition:color 0.5s ease;}
 .topbar-right{display:flex; align-items:center; gap:16px;}
 
@@ -149,6 +150,7 @@ h1,h2,h3{font-weight:800; letter-spacing:-0.01em;}
 }
 .nav-menu.open{transform:translateX(0); visibility:visible; transition:transform 0.3s ease, visibility 0s;}
 .nav-item{
+  text-decoration:none;
   font-size:16px; font-weight:700; color:var(--paper);
   text-align:left; padding:15px 4px; cursor:pointer;
   border-bottom:1px solid var(--line);
@@ -263,6 +265,7 @@ section{padding:8px 20px 48px;}
 
 /* ---------- category link cards (navigate to detail page) ---------- */
 .cat-link{
+  text-decoration:none;
   width:100%; display:flex; align-items:center; justify-content:space-between; gap:14px;
   background:var(--panel); border:1px solid var(--line); border-radius:12px;
   padding:14px 18px; margin-bottom:12px;
@@ -376,6 +379,10 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 .compat-empty .btn{margin-top:14px;}
 .compat-empty-actions{display:flex; flex-direction:column; gap:8px; align-items:center; margin-top:16px;}
 .compat-empty-actions .btn{margin-top:0; width:100%; max-width:280px;}
+.request-status{font-size:14px; color:var(--paper); margin-top:6px;}
+.request-status.ok{color:var(--ok-ink);}
+.request-status.warn{color:var(--warn-ink);}
+.request-msg{font-size:14px; color:var(--paper); padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:var(--panel); user-select:all; overflow-wrap:anywhere;}
 
 /* ---------- brand view (브랜드별 보기) ---------- */
 #compatBrandResults{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; align-items:start;}
