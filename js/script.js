@@ -203,11 +203,11 @@ function scrollRowBy(id, dir){
 
 function renderCategory(key){
   const data = categoryData[key];
-  let html = `<h2 class="category-title">${data.title}</h2>`;
+  let html = `<h1 class="category-title">${data.title}</h1>`;
   data.sections.forEach((sec, idx)=>{
     if(key==='custom' && idx>0){ html += `<div class="section-divider"></div>`; }
     const isCompat = key==='keycap' && sec.label==='호환성';
-    html += isCompat ? `<div class="sub-label" id="compatAnchor">${sec.label}</div>` : `<div class="sub-label">${sec.label}</div>`;
+    html += isCompat ? `<h2 class="sub-label" id="compatAnchor">${sec.label}</h2>` : `<h2 class="sub-label">${sec.label}</h2>`;
     if(sec.note){ html += `<div class="section-note">${sec.note}</div>`; }
     const isCarousel = key==='keyboard' && sec.label==='키보드 종류';
     const isLayoutGrid = key==='keyboard' && sec.label==='키보드 배열';
@@ -266,8 +266,11 @@ function renderCategory(key){
     } else {
       sec.items.forEach(it=>{
         const border = it.accent ? `border-left:3px solid var(${it.accent});` : '';
-        const ctaBtn = it.orderLink ? `<button class="detail-cta" onclick="goCustomOrder('${it.name}')">커스텀 바로가기 <span class="chev" aria-hidden="true"></span></button>` : '';
-        const buyBtn = it.buyUrl ? `<button class="detail-cta" onclick="window.open('${it.buyUrl}', '_blank')">구매하기 <span class="chev" aria-hidden="true"></span></button>` : '';
+        const orderUrl = it.orderLink ? CUSTOM_ORDER_URLS[it.name] : '';
+        const ctaBtn = !it.orderLink ? '' : orderUrl
+          ? `<a class="detail-cta" href="${orderUrl}" target="_blank" rel="noopener">커스텀 바로가기 <span class="chev" aria-hidden="true"></span></a>`
+          : `<button class="detail-cta" onclick="goCustomOrder('${it.name}')">커스텀 바로가기 <span class="chev" aria-hidden="true"></span></button>`;
+        const buyBtn = it.buyUrl ? `<a class="detail-cta" href="${it.buyUrl}" target="_blank" rel="noopener">구매하기 <span class="chev" aria-hidden="true"></span></a>` : '';
         const hasPhoto = !!photoSrc[it.name];
         const photo = hasPhoto ? photoSlot(it.name) : '';
         const itemClass = hasPhoto ? 'detail-item has-icon' : 'detail-item';
@@ -398,7 +401,7 @@ function toggleVariantPanel(typeName){
   }
   openVariantType = typeName;
   const typeItem = categoryData.switch.sections[0].items.find(it=>it.name===typeName);
-  let html = `<div class="sub-label">${typeName} 축 종류</div><div class="preview-tip">미리듣기는 이어폰으로 들으면 더 선명해요</div><div class="variant-list">`;
+  let html = `<h2 class="sub-label">${typeName} 축 종류</h2><div class="preview-tip">미리듣기는 이어폰으로 들으면 더 선명해요</div><div class="variant-list">`;
   (typeItem.variants||[]).forEach(name=>{
     const specRows = SWITCH_SPECS[name];
     const isQuiet = specRows && specRows[0][1].includes('저소음');
@@ -903,7 +906,10 @@ function startCompatCheck(){
   setCompatMode('search');
   document.getElementById('compatSearchInput').value = '';
   renderCompatSearch('');
-  setTimeout(()=>document.getElementById('compatSearchInput').focus(), 200);
+  // 휴대폰에서는 화면 키보드가 갑자기 올라오지 않게, 마우스 환경에서만 자동 포커스
+  if(window.matchMedia('(pointer: fine)').matches){
+    setTimeout(()=>document.getElementById('compatSearchInput').focus(), 200);
+  }
 }
 
 const VERDICT_META = {
@@ -978,8 +984,10 @@ function renderCompatSearch(query){
   const box = document.getElementById('compatSearchResults');
   const q = query.trim().toLowerCase();
 
+  const status = document.getElementById('compatStatus');
   if(!q){
     box.innerHTML = `<div class="compat-empty">제품명이나 브랜드를 입력해주세요.</div>`;
+    if(status) status.textContent = '';
     return;
   }
 
@@ -993,6 +1001,7 @@ function renderCompatSearch(query){
 
   if(matches.length === 0){
     const safe = escapeHtml(query.trim());
+    if(status) status.textContent = '검색 결과가 없어요. 등록 요청을 보낼 수 있어요.';
     box.innerHTML = `<div class="compat-empty">
       아직 데이터가 없는 모델이에요.
       <div class="compat-empty-actions">
@@ -1011,6 +1020,7 @@ function renderCompatSearch(query){
     </li>`;
   }).join('');
   box.innerHTML = `<p class="compat-count">${matches.length}개 모델</p><ul class="compat-result-list">${rows}</ul>`;
+  if(status) status.textContent = `${matches.length}개 모델을 찾았어요.`;
 }
 
 /* ---------- 브랜드별 보기 ---------- */
@@ -1231,7 +1241,7 @@ function renderQuestion(moveFocus){
   wrap.innerHTML = `
     <div class="progress" role="progressbar" aria-label="${progressLabel}" aria-valuemin="1" aria-valuemax="${questions.length}" aria-valuenow="${current+1}">${filledDots}</div>
     <div class="q-card">
-      <h2 class="q-title" id="qTitle" tabindex="-1">${q.title}</h2>
+      <h1 class="q-title" id="qTitle" tabindex="-1">${q.title}</h1>
       <div id="optsWrap">
         ${q.options.map((o,i)=>`
           <button class="opt ${answers[q.id]===i?'selected':''}" onclick="selectOpt(${i})">${o.label}</button>

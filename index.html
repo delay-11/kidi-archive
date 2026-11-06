@@ -21,7 +21,7 @@
   <button id="topBackBtn" class="top-back-btn hidden" onclick="goHome()" aria-label="홈으로"><span class="chev left" aria-hidden="true"></span></button>
   <button class="logo" onclick="goHome()" aria-label="KIDI ARCHIVE 홈으로">KIDI<span aria-hidden="true">/</span>ARCHIVE</button>
   <div class="topbar-right">
-    <button class="topbar-inquiry" id="topEyebrow" onclick="openInquiry()">문의하기</button>
+    <a class="topbar-inquiry" id="topEyebrow" href="https://talk.naver.com/WCDSZF" target="_blank" rel="noopener">문의하기</a>
     <button class="hamburger-btn" onclick="toggleMenu()" aria-label="메뉴" aria-expanded="false" aria-controls="navMenu">
       <span></span><span></span><span></span>
     </button>
@@ -132,7 +132,7 @@
       <div id="questionsWrap"></div>
 
       <div id="resultWrap" class="hidden">
-        <h2 id="resultTitle" tabindex="-1" class="view-title">이 조합, 한번 보세요</h2>
+        <h1 id="resultTitle" tabindex="-1" class="view-title">이 조합, 한번 보세요</h1>
         <div id="resultCards"></div>
         <div class="result-actions">
           <button class="btn" onclick="saveResultImage()">이미지로 저장</button>
@@ -148,7 +148,7 @@
 <div id="compatCheckView" class="hidden">
   <section style="padding-top:24px;">
     <div class="quiz-wrap">
-      <h2 class="view-title">호환 가능 여부 확인하기</h2>
+      <h1 class="view-title">호환 가능 여부 확인하기</h1>
 
       <div class="compat-tabs">
         <button id="tabSearch" class="compat-tab active" aria-pressed="true" onclick="setCompatMode('search')">제품명으로 검색</button>
@@ -159,19 +159,22 @@
         <input
           id="compatSearchInput"
           class="compat-search-input"
-          type="text"
-          inputmode="search"
-          placeholder="예: Keychron K8, 레오폴드"
+          type="search"
+          name="q"
+          enterkeyhint="search"
+          spellcheck="false"
+          placeholder="예: Keychron K8, 레오폴드…"
           aria-label="키보드 제품명이나 브랜드"
           autocomplete="off"
           oninput="renderCompatSearch(this.value)"
         >
+        <p id="compatStatus" class="sr-only" role="status"></p>
         <div id="compatSearchResults" style="margin-top:16px;"></div>
       </div>
 
       <div id="compatBrandPane" class="hidden">
         <div id="compatBrandResults"></div>
-        <div id="brandIndex" class="brand-index" aria-label="초성·알파벳으로 브랜드 찾기"></div>
+        <div id="brandIndex" class="brand-index" aria-hidden="true"></div>
         <div id="brandIndexBubble" class="brand-index-bubble hidden"></div>
       </div>
     </div>
