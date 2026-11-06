@@ -49,7 +49,7 @@ photoSrc['Alice'] = 'images/Alice layout.svg';
 function photoSlot(name){
   const src = photoSrc[name];
   if(src){
-    return `<div class="d-photo"><img src="${src}" alt="${name}"/></div>`;
+    return `<div class="d-photo"><img src="${src}" alt="${name}" loading="lazy" decoding="async"/></div>`;
   }
   return `<div class="d-photo placeholder"><span>사진<br>준비 중</span></div>`;
 }
@@ -198,7 +198,8 @@ function scrollRowBy(id, dir){
   const el = document.getElementById(id);
   if(!el) return;
   const amount = Math.max(el.clientWidth * 0.8, 200);
-  el.scrollBy({left: dir * amount, behavior:'smooth'});
+  const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  el.scrollBy({left: dir * amount, behavior: smooth ? 'smooth' : 'auto'});
 }
 
 function renderCategory(key){
@@ -412,7 +413,7 @@ function toggleVariantPanel(typeName){
     const specFab = specRows ? `<button class="vi-spec-fab" onclick="showSpecModal('${name}')">스펙</button>` : '';
     html += `<div class="variant-item">
       <div class="vi-photo-wrap">${photoSlot(name)}${specFab}</div>
-      <div class="vi-row"><span class="d-name">${displayName}${quietBadge}${dustBadge}</span><div class="vi-actions"><button class="vi-play" onclick="playPreview('${name}')">${ICON_SPEAKER}미리듣기</button>${specRows ? `<button class="vi-compare" data-name="${name}" onclick="toggleCompare('${name}')">＋ 비교</button>` : ''}</div></div>
+      <div class="vi-row"><span class="d-name" translate="no">${displayName}${quietBadge}${dustBadge}</span><div class="vi-actions"><button class="vi-play" onclick="playPreview('${name}')">${ICON_SPEAKER}미리듣기</button>${specRows ? `<button class="vi-compare" data-name="${name}" onclick="toggleCompare('${name}')">＋ 비교</button>` : ''}</div></div>
     </div>`;
   });
   html += `</div>`;
@@ -506,7 +507,7 @@ function openCompare(){
     const t = specOf(n,'타입');
     grid += `<div class="cmp-col-head">
       ${photoSlot(n)}
-      <div class="cmp-name">${n}</div>
+      <div class="cmp-name" translate="no">${n}</div>
       <span class="cmp-type" style="color:var(${typeAccent(t)}); border-color:var(${typeAccent(t)})">${t}</span>
       <button class="vi-play" onclick="playPreview('${n}')">${ICON_SPEAKER}미리듣기</button>
     </div>`;
@@ -950,7 +951,7 @@ function goCustomOrder(name){
   if(url){
     window.open(url, '_blank');
   } else {
-    alert(`"${name}" 커스텀 주문 페이지를 준비 중이에요. 조금만 기다려주세요!`);
+    alert(`“${name}” 커스텀 주문 페이지를 준비 중이에요. 조금만 기다려주세요!`);
   }
 }
 
@@ -960,7 +961,7 @@ function requestModelAdd(name){
   if(TALKTALK_URL){
     const msg = `[KIDI ARCHIVE] 모델 등록 요청: ${name}`;
     try{ navigator.clipboard.writeText(msg); }catch(e){}
-    alert(`요청 문구가 복사됐어요:\n"${msg}"\n\n톡톡 대화창에 붙여넣어 보내주세요!`);
+    alert(`요청 문구가 복사됐어요:\n“${msg}”\n\n톡톡 대화창에 붙여넣어 보내주세요!`);
     window.open(TALKTALK_URL, '_blank');
   } else {
     alert('등록 요청 접수 채널을 준비 중이에요. 조금만 기다려주세요!');
@@ -1015,7 +1016,7 @@ function renderCompatSearch(query){
     const data = keyboardCompatDB[name];
     const v = VERDICT_META[data.verdict];
     return `<li class="compat-result-row">
-      <div class="cr-main"><span class="compat-result-name">${name}</span><span class="bm-badge ${data.verdict}">${v.label}</span></div>
+      <div class="cr-main"><span class="compat-result-name" translate="no">${name}</span><span class="bm-badge ${data.verdict}">${v.label}</span></div>
       <p class="compat-result-reason">${data.reason}</p>
     </li>`;
   }).join('');
@@ -1052,7 +1053,7 @@ function renderCompatBrandView(){
     const models = byBrand[brand].sort((a,b)=>koSort(a.displayName, b.displayName));
     const rows = models.map(m=>`
       <div class="brand-model-row">
-        <span class="bm-name">${m.displayName}</span>
+        <span class="bm-name" translate="no">${m.displayName}</span>
         <span class="bm-badge ${m.verdict}">${VERDICT_META[m.verdict].label}</span>
       </div>
     `).join('');

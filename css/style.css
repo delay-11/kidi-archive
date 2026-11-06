@@ -138,6 +138,7 @@ h1,h2,h3{font-weight:800; letter-spacing:-0.01em;}
 .menu-backdrop.open{opacity:1; pointer-events:auto;}
 
 .nav-menu{
+  overflow-y:auto; overscroll-behavior:contain;
   position:fixed; top:0; right:0; z-index:60;
   width:78%; max-width:300px; height:100%;
   background:var(--panel); border-left:1px solid var(--line);
@@ -430,13 +431,13 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
   margin-top:-4px;
 }
 .brand-group.open .brand-chevron{transform:rotate(225deg); border-color:var(--accent); margin-top:2px;}
-.brand-models{max-height:0; overflow:hidden; transition:max-height 0.25s ease;}
+.brand-models{max-height:0; overflow:hidden;}
 .brand-group.open .brand-models{max-height:2000px;}
 .brand-model-row{
   display:flex; align-items:center; justify-content:space-between; gap:10px;
   padding:11px 16px; border-top:1px solid var(--line); font-size:13px;
 }
-.brand-model-row .bm-name{color:var(--paper);}
+.brand-model-row .bm-name{color:var(--paper); min-width:0; overflow-wrap:anywhere;}
 
 .bm-badge{
   flex-shrink:0; font-size:12px; font-weight:700; padding:4px 10px; border-radius:20px; white-space:nowrap;
@@ -656,7 +657,7 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 }
 /* 헤더는 고정, 본문만 스크롤 (sticky 대신 flex: 상단바와 sticky가 겹치지 않게) */
 .compare-sheet .spec-modal-head{flex:none; background:var(--panel);}
-.compare-sheet .cmp-body{overflow:auto; min-height:0;}
+.compare-sheet .cmp-body{overflow:auto; min-height:0; overscroll-behavior:contain;}
 .cmp-body{padding:14px;}
 .cmp-summary{
   background:var(--accent-dim); border-radius:10px; padding:12px 14px; margin-bottom:14px;
@@ -779,6 +780,23 @@ footer{padding:30px 20px 50px; color:var(--paper-dim); font-size:12px;}
 .topbar-inquiry:active{opacity:0.7;}
 
 .hidden, [hidden]{display:none !important;}
+/* ---------- 숫자 비교는 자릿수 폭을 맞춤 ---------- */
+.cmp-val, .vi-spec-row span:last-child, .brand-count, .compat-count, .result-item .value{font-variant-numeric:tabular-nums;}
+
+/* ---------- 터치: 두 번 탭 확대 지연 없애기, 탭 하이라이트는 :active 상태로 대신 ---------- */
+a, button, input, [role="button"]{touch-action:manipulation;}
+html{-webkit-tap-highlight-color:transparent;}
+
+/* ---------- 마우스를 올렸을 때 반응 (터치 기기에서는 적용 안 함) ---------- */
+@media (hover:hover){
+  .btn.primary:hover, .detail-cta:hover{filter:brightness(0.96);}
+  .btn.compat-btn:hover, .btn:not(.primary):not(.compat-btn):hover{border-color:var(--paper-dim);}
+  .cat-link:hover, .opt:hover, .compat-tab:hover, .brand-group:hover{border-color:var(--paper-dim);}
+  .nav-item:hover, .brand-header:hover > span:first-child, .topbar-inquiry:hover, .logo:hover{text-decoration:underline; text-underline-offset:3px;}
+  .vi-play:hover, .vi-compare:hover, .cmp-chip:hover, .scroll-arrow:hover{border-color:var(--paper-dim);}
+  .quiz-nav button:not(:disabled):hover{color:var(--paper);}
+}
+
 /* ---------- 미리듣기 아이콘 ---------- */
 .vi-play{display:inline-flex; align-items:center; gap:4px;}
 .vi-play .ico{flex:none;}
