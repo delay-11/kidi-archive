@@ -75,6 +75,9 @@ soundSrc['우미어 로즈 위스퍼'] = 'audio/Rose Whisper.mp4';
 soundSrc['우미어 스카이'] = 'audio/Womier Sky.mp4';
 soundSrc['우미어 커피'] = 'audio/Womier Coffee.mp4';
 
+/* 미리듣기 버튼 아이콘 (이모지 대신 글자색을 따르는 SVG) */
+const ICON_SPEAKER = '<svg class="ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+
 function playPreview(name){
   const src = soundSrc[name];
   if(src){
@@ -322,7 +325,7 @@ function showSpecModal(name){
   modal.innerHTML = `
     <div class="spec-modal-head">
       <span>${name}</span>
-      <button class="spec-modal-close" onclick="closeSpecModal()">✕</button>
+      <button class="spec-modal-close" onclick="closeSpecModal()" aria-label="닫기">✕</button>
     </div>
     <div class="spec-modal-body">
       ${rows.map(([k,v])=>`<div class="vi-spec-row"><span>${k}</span><span>${v}</span></div>`).join('')}
@@ -362,7 +365,7 @@ function toggleVariantPanel(typeName){
   }
   openVariantType = typeName;
   const typeItem = categoryData.switch.sections[0].items.find(it=>it.name===typeName);
-  let html = `<div class="sub-label">${typeName} 축 종류</div><div class="preview-tip">🎧 미리듣기는 이어폰으로 들으면 더 선명해요</div><div class="variant-list">`;
+  let html = `<div class="sub-label">${typeName} 축 종류</div><div class="preview-tip">미리듣기는 이어폰으로 들으면 더 선명해요</div><div class="variant-list">`;
   (typeItem.variants||[]).forEach(name=>{
     const specRows = SWITCH_SPECS[name];
     const isQuiet = specRows && specRows[0][1].includes('저소음');
@@ -373,7 +376,7 @@ function toggleVariantPanel(typeName){
     const specFab = specRows ? `<button class="vi-spec-fab" onclick="showSpecModal('${name}')">스펙</button>` : '';
     html += `<div class="variant-item">
       <div class="vi-photo-wrap">${photoSlot(name)}${specFab}</div>
-      <div class="vi-row"><span class="d-name">${displayName}${quietBadge}${dustBadge}</span><div class="vi-actions"><button class="vi-play" onclick="playPreview('${name}')">🔊 미리듣기</button>${specRows ? `<button class="vi-compare" data-name="${name}" onclick="toggleCompare('${name}')">＋ 비교</button>` : ''}</div></div>
+      <div class="vi-row"><span class="d-name">${displayName}${quietBadge}${dustBadge}</span><div class="vi-actions"><button class="vi-play" onclick="playPreview('${name}')">${ICON_SPEAKER}미리듣기</button>${specRows ? `<button class="vi-compare" data-name="${name}" onclick="toggleCompare('${name}')">＋ 비교</button>` : ''}</div></div>
     </div>`;
   });
   html += `</div>`;
@@ -469,7 +472,7 @@ function openCompare(){
       ${photoSlot(n)}
       <div class="cmp-name">${n}</div>
       <span class="cmp-type" style="color:var(${typeAccent(t)}); border-color:var(${typeAccent(t)})">${t}</span>
-      <button class="vi-play" onclick="playPreview('${n}')">🔊 미리듣기</button>
+      <button class="vi-play" onclick="playPreview('${n}')">${ICON_SPEAKER}미리듣기</button>
     </div>`;
   });
   rows.filter(k=>k!=='타입').forEach((k,ri)=>{
@@ -1276,7 +1279,7 @@ function showResult(){
     lastResult = { drive, layout, sw: swLabel[sw], profile };
     return `
       <div class="result-card">
-        <div class="result-rank">✨ 최적의 조합</div>
+        <div class="result-rank">최적의 조합</div>
         <div class="result-grid">
           <div class="result-item"><div class="label">키보드 종류</div><div class="value">${drive}</div></div>
           <div class="result-item"><div class="label">배열</div><div class="value">${layout}</div></div>
