@@ -940,7 +940,7 @@ function renderCompatSearch(query){
   const q = query.trim().toLowerCase();
 
   if(!q){
-    box.innerHTML = `<div class="compat-empty">키보드 브랜드를 입력해주세요.</div>`;
+    box.innerHTML = `<div class="compat-empty">제품명이나 브랜드를 입력해주세요.</div>`;
     return;
   }
 
@@ -963,15 +963,15 @@ function renderCompatSearch(query){
     return;
   }
 
-  box.innerHTML = matches.map(name=>{
+  const rows = matches.map(name=>{
     const data = keyboardCompatDB[name];
     const v = VERDICT_META[data.verdict];
-    return `<div class="compat-result-card">
-      <div class="compat-result-name">${name}</div>
-      <div class="compat-verdict ${data.verdict}">${v.label}</div>
-      <div class="compat-result-reason">${data.reason}</div>
-    </div>`;
+    return `<li class="compat-result-row">
+      <div class="cr-main"><span class="compat-result-name">${name}</span><span class="bm-badge ${data.verdict}">${v.label}</span></div>
+      <p class="compat-result-reason">${data.reason}</p>
+    </li>`;
   }).join('');
+  box.innerHTML = `<p class="compat-count">${matches.length}개 모델</p><ul class="compat-result-list">${rows}</ul>`;
 }
 
 /* ---------- 브랜드별 보기 ---------- */
@@ -981,6 +981,8 @@ function setCompatMode(mode){
   document.getElementById('compatBrandPane').classList.toggle('hidden', isSearch);
   document.getElementById('tabSearch').classList.toggle('active', isSearch);
   document.getElementById('tabBrand').classList.toggle('active', !isSearch);
+  document.getElementById('tabSearch').setAttribute('aria-pressed', isSearch ? 'true' : 'false');
+  document.getElementById('tabBrand').setAttribute('aria-pressed', isSearch ? 'false' : 'true');
   if(!isSearch) renderCompatBrandView();
 }
 
@@ -1180,17 +1182,17 @@ function resetQuiz(){
   window.scrollTo(0,0);
 }
 
-function renderQuestion(){
+function renderQuestion(moveFocus){
   const q = questions[current];
   const wrap = document.getElementById('questionsWrap');
   const filledDots = Array.from({length:questions.length}, (_,i)=>
     `<div class="dot ${i<=current?'filled':''}"></div>`).join('');
+  const progressLabel = `${questions.length}개 질문 중 ${current+1}번째`;
 
   wrap.innerHTML = `
-    <div class="progress">${filledDots}</div>
+    <div class="progress" role="progressbar" aria-label="${progressLabel}" aria-valuemin="1" aria-valuemax="${questions.length}" aria-valuenow="${current+1}">${filledDots}</div>
     <div class="q-card">
-      <div class="eyebrow q-eyebrow">${q.eyebrow}</div>
-      <div class="q-title">${q.title}</div>
+      <h2 class="q-title" id="qTitle" tabindex="-1">${q.title}</h2>
       <div id="optsWrap">
         ${q.options.map((o,i)=>`
           <button class="opt ${answers[q.id]===i?'selected':''}" onclick="selectOpt(${i})">${o.label}</button>
@@ -1201,6 +1203,7 @@ function renderQuestion(){
       </div>
     </div>
   `;
+  if(moveFocus){ const t = document.getElementById('qTitle'); if(t) t.focus({preventScroll:true}); }
 }
 
 function computeScores(){
@@ -1221,18 +1224,19 @@ function selectOpt(i){
   const q = questions[current];
   answers[q.id] = i;
   renderQuestion(); // instant highlight
+  const picked = document.querySelectorAll('#optsWrap .opt')[i]; if(picked) picked.focus({preventScroll:true});
   setTimeout(()=>{
     computeScores();
     if(current < questions.length-1){
       current++;
-      renderQuestion();
+      renderQuestion(true);
     } else {
       showResult();
     }
   }, 280);
 }
 
-function prevQ(){ if(current>0){ current--; renderQuestion(); } }
+function prevQ(){ if(current>0){ current--; renderQuestion(true); } }
 
 function top2(obj, fallbackList){
   let entries = Object.entries(obj);
@@ -1279,7 +1283,6 @@ function showResult(){
     lastResult = { drive, layout, sw: swLabel[sw], profile };
     return `
       <div class="result-card">
-        <div class="result-rank">최적의 조합</div>
         <div class="result-grid">
           <div class="result-item"><div class="label">키보드 종류</div><div class="value">${drive}</div></div>
           <div class="result-item"><div class="label">배열</div><div class="value">${layout}</div></div>
@@ -1294,6 +1297,7 @@ function showResult(){
   }).join('');
 
   document.getElementById('resultCards').innerHTML = cards;
+  const rt = document.getElementById('resultTitle'); if(rt) rt.focus({preventScroll:true});
 }
 
 let lastResult = null;

@@ -3,6 +3,7 @@
  * built: the project · redesign: polish · v2.0.0 */
 /* Hallmark · dropped heroKeys · the owner asked to drop the decorative keycap row from the hero */
 /* Hallmark · reworded "키보드 처음 사고 키캡 바꿔보려는데 용어부터 막막할 때 — 배열, 스위치, 프로파일까지 쉽게 정리했어요." to "배열, 스위치, 프로파일까지 처음 보는 용어를 쉽게 정리했어요." · 19 names the dash */
+/* Hallmark · reworded "내 키보드의 제품명을 검색해보세요" to "호환 가능 여부 확인하기" · the heading now matches the menu label and fits both the search and brand tabs */
 /* Hallmark · dismissed 41 · these panels inherit --paper, which swaps with --panel in dark mode, and --topbar-bg is a surface not a label */
 /* Hallmark · dismissed 19 · the footer copyright line is the owner's legal text and stays verbatim */
 /* 기본값(라이트) — prefers-color-scheme을 지원하지 않거나 설정이 없는 환경의 기본 테마 */
@@ -19,6 +20,9 @@
   --overlay-line:rgba(255,255,255,0.18);
   --overlay-ink:#F1EFE6;
   --ok-dim:#2E7D4F33;
+  --ok-ink:#155C33;
+  --warn-ink:#7A4515;
+  --no-ink:#A3222A;
   --warn-dim:#C98A4B33;
   --no-dim:#E8434B33;
   --diagram-bg:#FFFEFA;
@@ -59,6 +63,9 @@
     --accent-text:#F3D488;
     --focus:#F3D488;
     --layout-photo-bg:#0B0C0F;
+    --ok-ink:#7BE3A2;
+    --warn-ink:#E8B07A;
+    --no-ink:#FF8C91;
   }
 }
 
@@ -330,7 +337,7 @@ section{padding:8px 20px 48px;}
   background:var(--panel2); border:1px solid var(--line); border-radius:8px;
   color:var(--paper-dim); font-family:inherit; cursor:pointer;
 }
-.compat-tab.active{background:var(--accent-dim); border-color:var(--accent); color:var(--accent);}
+.compat-tab.active{background:var(--accent-dim); border-color:var(--accent); color:var(--accent-text);}
 mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margin:0 -2px; border-radius:3px; -webkit-box-decoration-break:clone; box-decoration-break:clone;}
 .section-note{font-size:12px; color:var(--paper-dim); margin:-2px 0 10px;}
 .compat-sort-note{font-size:11.5px; color:var(--paper-dim); margin-bottom:10px;}
@@ -341,19 +348,24 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 }
 .compat-search-input::placeholder{color:var(--paper-dim);}
 .compat-search-input:focus{border-color:var(--accent);}
-.compat-result-card{
-  background:var(--panel); border:1px solid var(--line); border-radius:12px;
-  padding:16px; margin-bottom:10px;
+.compat-count{font-size:13px; color:var(--paper-dim); margin:0 0 8px;}
+.compat-result-list{
+  list-style:none; margin:0; padding:0;
+  background:var(--panel); border:1px solid var(--line); border-radius:12px; overflow:hidden;
 }
-.compat-result-name{font-weight:700; font-size:15px; margin-bottom:8px;}
+.compat-result-row{padding:12px 16px; border-top:1px solid var(--line);}
+.compat-result-row:first-child{border-top:0;}
+.cr-main{display:flex; align-items:center; justify-content:space-between; gap:10px;}
+.compat-result-name{font-weight:700; font-size:15px; min-width:0; overflow-wrap:anywhere;}
+.compat-result-row .compat-result-reason{margin-top:4px;}
 .compat-verdict{
   display:inline-flex; align-items:center; gap:6px;
   font-size:12.5px; font-weight:700; padding:5px 11px; border-radius:20px;
   margin-bottom:10px;
 }
-.compat-verdict.ok{background:var(--ok-dim); color:var(--ok);}
-.compat-verdict.warn{background:var(--warn-dim); color:var(--tactile);}
-.compat-verdict.no{background:var(--no-dim); color:var(--linear);}
+.compat-verdict.ok{background:var(--ok-dim); color:var(--ok-ink);}
+.compat-verdict.warn{background:var(--warn-dim); color:var(--warn-ink);}
+.compat-verdict.no{background:var(--no-dim); color:var(--no-ink);}
 .compat-result-reason{font-size:13px; color:var(--paper-dim); line-height:1.55;}
 .compat-empty{
   text-align:center; padding:30px 10px; color:var(--paper-dim); font-size:13.5px; line-height:1.6;
@@ -377,9 +389,9 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 .brand-index span{
   flex:1 1 0; min-height:0; max-height:16px; width:18px;
   display:flex; align-items:center; justify-content:center;
-  font-size:10px; font-weight:700; line-height:1; color:var(--accent);
+  font-size:12px; font-weight:700; line-height:1; color:var(--accent-text);
 }
-.brand-index span.empty{color:var(--paper-dim); opacity:0.45; font-weight:500;}
+.brand-index span.empty{color:var(--paper-dim); font-weight:500;}
 .brand-group{transition:border-color 0.2s ease, box-shadow 0.2s ease;}
 .brand-group.flash{border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-dim);}
 @media (min-width:700px){ .brand-index{display:none;} }
@@ -425,11 +437,11 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 .brand-model-row .bm-name{color:var(--paper);}
 
 .bm-badge{
-  flex-shrink:0; font-size:11px; font-weight:700; padding:4px 10px; border-radius:20px; white-space:nowrap;
+  flex-shrink:0; font-size:12px; font-weight:700; padding:4px 10px; border-radius:20px; white-space:nowrap;
 }
-.bm-badge.ok{background:var(--ok-dim); color:var(--ok);}
-.bm-badge.warn{background:var(--warn-dim); color:var(--tactile);}
-.bm-badge.no{background:var(--no-dim); color:var(--linear);}
+.bm-badge.ok{background:var(--ok-dim); color:var(--ok-ink);}
+.bm-badge.warn{background:var(--warn-dim); color:var(--warn-ink);}
+.bm-badge.no{background:var(--no-dim); color:var(--no-ink);}
 
 /* ---------- horizontal card carousel (키보드 종류 / 배열) ---------- */
 .scroll-wrap{position:relative;}
@@ -674,6 +686,7 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
 .quiz-wrap{
   margin:0 auto;
 }
+#quizView .quiz-wrap{max-width:600px;}
 .progress{
   display:flex; gap:5px; margin-bottom:22px;
 }
@@ -685,8 +698,8 @@ mark.hl{background:var(--accent-dim); color:var(--paper); padding:1px 2px; margi
   border-radius:14px; padding:22px; min-height:280px;
   display:flex; flex-direction:column;
 }
-.q-eyebrow{margin-bottom:8px;}
-.q-title{font-size:18px; margin-bottom:20px; line-height:1.4;}
+.q-title{font-size:22px; font-weight:800; margin-bottom:20px; line-height:1.4; text-wrap:balance; word-break:keep-all;}
+.q-title:focus{outline:none;}
 .opt{
   display:block; width:100%; text-align:left;
   padding:15px 16px; margin-bottom:10px;
@@ -754,6 +767,10 @@ footer{padding:30px 20px 50px; color:var(--paper-dim); font-size:12px;}
 /* ---------- 미리듣기 아이콘 ---------- */
 .vi-play{display:inline-flex; align-items:center; gap:4px;}
 .vi-play .ico{flex:none;}
+
+/* ---------- 조합 찾기·호환 확인 제목 ---------- */
+.view-title{font-size:20px; margin-bottom:16px; text-wrap:balance;}
+.view-title:focus{outline:none;}
 
 /* ---------- 카테고리 상세 제목 ---------- */
 .category-title{font-size:22px; margin:8px 0 20px; text-wrap:balance;}

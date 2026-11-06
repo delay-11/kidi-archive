@@ -130,10 +130,10 @@
       <div id="questionsWrap"></div>
 
       <div id="resultWrap" class="hidden">
-        <h2 style="font-size:20px; margin-bottom:18px;">이 조합, 한번 보세요</h2>
+        <h2 id="resultTitle" tabindex="-1" class="view-title">이 조합, 한번 보세요</h2>
         <div id="resultCards"></div>
         <div class="result-actions">
-          <button class="btn" onclick="saveResultImage()">공유하기</button>
+          <button class="btn" onclick="saveResultImage()">이미지로 저장</button>
           <button class="btn primary" onclick="resetQuiz()">다시 답하기</button>
         </div>
       </div>
@@ -146,11 +146,11 @@
 <div id="compatCheckView" class="hidden">
   <section style="padding-top:24px;">
     <div class="quiz-wrap">
-      <h2 style="font-size:20px; margin-bottom:16px;">내 키보드의 제품명을 검색해보세요</h2>
+      <h2 class="view-title">호환 가능 여부 확인하기</h2>
 
       <div class="compat-tabs">
-        <button id="tabSearch" class="compat-tab active" onclick="setCompatMode('search')">제품명으로 검색</button>
-        <button id="tabBrand" class="compat-tab" onclick="setCompatMode('brand')">브랜드로 찾기</button>
+        <button id="tabSearch" class="compat-tab active" aria-pressed="true" onclick="setCompatMode('search')">제품명으로 검색</button>
+        <button id="tabBrand" class="compat-tab" aria-pressed="false" onclick="setCompatMode('brand')">브랜드로 찾기</button>
       </div>
 
       <div id="compatSearchPane">
@@ -159,7 +159,9 @@
           class="compat-search-input"
           type="text"
           inputmode="search"
-          placeholder=""
+          placeholder="예: Keychron K8, 레오폴드"
+          aria-label="키보드 제품명이나 브랜드"
+          autocomplete="off"
           oninput="renderCompatSearch(this.value)"
         >
         <div id="compatSearchResults" style="margin-top:16px;"></div>
