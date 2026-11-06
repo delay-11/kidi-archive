@@ -324,7 +324,7 @@ function showSpecModal(name){
   const modal = document.getElementById('specModal');
   modal.innerHTML = `
     <div class="spec-modal-head">
-      <span>${name}</span>
+      <span id="specModalTitle" translate="no">${name}</span>
       <button class="spec-modal-close" onclick="closeSpecModal()" aria-label="닫기">✕</button>
     </div>
     <div class="spec-modal-body">
@@ -334,6 +334,7 @@ function showSpecModal(name){
   modal.classList.remove('hidden');
   document.getElementById('specModalBackdrop').classList.remove('hidden');
   snapToPixel(modal);
+  openDialog(modal, closeSpecModal);
 }
 /* 팝업을 화면 가운데 정수 px 좌표에 놓기.
    translate(-50%,-50%)로 두면 높이가 266.5px처럼 반픽셀일 때 소수점 위치에 그려져서
@@ -349,9 +350,41 @@ function snapToPixel(el){
   el.style.top = Math.max(0, Math.round((window.innerHeight - el.getBoundingClientRect().height) / 2)) + 'px';
 }
 function closeSpecModal(){
-  document.getElementById('specModal').classList.add('hidden');
+  const modal = document.getElementById('specModal');
+  modal.classList.add('hidden');
   document.getElementById('specModalBackdrop').classList.add('hidden');
+  releaseDialog(modal);
 }
+
+/* ---------- 팝업·메뉴 공통: Esc로 닫기, 포커스를 안으로 옮기고 닫으면 되돌리기, Tab 가두기 ---------- */
+const dialogStack = [];
+const FOCUSABLE = 'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])';
+function openDialog(el, closeFn, focusEl){
+  if(dialogStack.some(d=>d.el===el)) return;
+  dialogStack.push({el, closeFn, opener: document.activeElement});
+  const target = focusEl || el.querySelector(FOCUSABLE) || el;
+  target.focus({preventScroll:true});
+}
+function releaseDialog(el){
+  const i = dialogStack.findIndex(d=>d.el===el);
+  if(i < 0) return;
+  const [d] = dialogStack.splice(i, 1);
+  if(d.opener && d.opener !== document.body && document.contains(d.opener) && d.opener.offsetParent !== null){
+    d.opener.focus({preventScroll:true});
+  }
+}
+document.addEventListener('keydown', e=>{
+  const top = dialogStack[dialogStack.length - 1];
+  if(!top) return;
+  if(e.key === 'Escape'){ e.preventDefault(); top.closeFn(); return; }
+  if(e.key !== 'Tab') return;
+  const items = [...top.el.querySelectorAll(FOCUSABLE)].filter(x=>x.offsetParent !== null);
+  if(!items.length) return;
+  const first = items[0], last = items[items.length - 1];
+  if(!top.el.contains(document.activeElement)){ e.preventDefault(); first.focus(); }
+  else if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+  else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+});
 
 function toggleVariantPanel(typeName){
   const panel = document.getElementById('variantPanel');
@@ -499,6 +532,7 @@ function openCompare(){
   document.getElementById('compareSheet').classList.remove('hidden');
   document.getElementById('compareBackdrop').classList.remove('hidden');
   snapToPixel(document.getElementById('compareSheet'));
+  openDialog(document.getElementById('compareSheet'), closeCompare);
 }
 function closeCompare(){
   const sheet = document.getElementById('compareSheet');
@@ -506,6 +540,7 @@ function closeCompare(){
   stopSwitchPreview();
   sheet.classList.add('hidden');
   document.getElementById('compareBackdrop').classList.add('hidden');
+  releaseDialog(sheet);
 }
 
 function setTopBack(show){
@@ -564,7 +599,7 @@ function setMenuOpen(open){
   btn.classList.toggle('open', open);
   menu.inert = !open;
   btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  if(open){ const first = menu.querySelector('.nav-item'); if(first) first.focus({preventScroll:true}); }
+  if(open){ openDialog(menu, closeMenu); } else { releaseDialog(menu); }
 }
 function toggleMenu(){
   setMenuOpen(!document.getElementById('navMenu').classList.contains('open'));
@@ -935,6 +970,10 @@ function openInquiry(){
   }
 }
 
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+}
+
 function renderCompatSearch(query){
   const box = document.getElementById('compatSearchResults');
   const q = query.trim().toLowerCase();
@@ -953,11 +992,11 @@ function renderCompatSearch(query){
     .sort(koSort);
 
   if(matches.length === 0){
-    const escaped = query.trim().replace(/'/g, "\\'");
+    const safe = escapeHtml(query.trim());
     box.innerHTML = `<div class="compat-empty">
       아직 데이터가 없는 모델이에요.
       <div class="compat-empty-actions">
-        <button class="btn primary" onclick="requestModelAdd('${escaped}')">"${query.trim()}" 등록 요청하기</button>
+        <button class="btn primary" data-model="${safe}" onclick="requestModelAdd(this.dataset.model)">“${safe}” 등록 요청하기</button>
       </div>
     </div>`;
     return;

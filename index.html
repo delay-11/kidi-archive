@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<a class="skip-link" href="#main" onclick="event.preventDefault(); document.getElementById('main').focus();">본문으로 건너뛰기</a>
 
 <div class="topbar">
   <button id="topBackBtn" class="top-back-btn hidden" onclick="goHome()" aria-label="홈으로"><span class="chev left" aria-hidden="true"></span></button>
@@ -28,7 +29,7 @@
 </div>
 
 <div id="menuBackdrop" class="menu-backdrop" onclick="closeMenu()"></div>
-<div id="navMenu" class="nav-menu" inert>
+<nav id="navMenu" class="nav-menu" aria-label="전체 메뉴" inert>
   <button class="nav-item" onclick="navGo('home')">홈</button>
   <button class="nav-item" onclick="navGo('keyboard')">키보드</button>
   <button class="nav-item" onclick="navGo('switch')">스위치</button>
@@ -37,15 +38,16 @@
   <button class="nav-item" onclick="navGo('accessories')">용품</button>
   <button class="nav-item nav-accent nav-accent-lead" onclick="navGo('quiz')">나에게 맞는 조합 찾기 <span class="chev" aria-hidden="true"></span></button>
   <button class="nav-item nav-accent nav-compat" onclick="navGo('compat')">호환 가능 여부 확인하기 <span class="chev" aria-hidden="true"></span></button>
-</div>
+</nav>
 
 <!-- ===== SPEC MODAL (축 스펙 팝업) ===== -->
 <audio id="switchPreviewAudio" preload="none"></audio>
 <div id="specModalBackdrop" class="spec-modal-backdrop hidden" onclick="closeSpecModal()"></div>
-<div id="specModal" class="spec-modal hidden"></div>
+<div id="specModal" class="spec-modal hidden" role="dialog" aria-modal="true" aria-labelledby="specModalTitle"></div>
 <div id="compareBackdrop" class="spec-modal-backdrop hidden" onclick="closeCompare()"></div>
-<div id="compareSheet" class="compare-sheet hidden" role="dialog" aria-label="스위치 비교"></div>
+<div id="compareSheet" class="compare-sheet hidden" role="dialog" aria-modal="true" aria-label="스위치 비교"></div>
 
+<main id="main" tabindex="-1">
 <!-- ===== HOME VIEW ===== -->
 <div id="homeView">
   <div class="hero">
@@ -175,6 +177,8 @@
     </div>
   </section>
 </div>
+
+</main>
 
 <script src="js/script.js"></script>
 </body>

@@ -787,6 +787,15 @@ footer{padding:30px 20px 50px; color:var(--paper-dim); font-size:12px;}
 /* ---------- 카테고리 상세 제목 ---------- */
 .category-title{font-size:22px; margin:8px 0 20px; text-wrap:balance;}
 
+/* ---------- 본문 바로가기 (키보드로 Tab 하면 나타남) ---------- */
+.skip-link{
+  position:absolute; left:12px; top:8px; z-index:100; padding:10px 14px; border-radius:8px;
+  background:var(--panel); color:var(--paper); border:1px solid var(--line); font-weight:700;
+  transform:translateY(-200%);
+}
+.skip-link:focus{transform:none;}
+#main:focus{outline:none;}
+
 /* ---------- 키보드 포커스: 모든 조작 요소에 같은 링, 즉시 표시 ---------- */
 :where(button, a, input, select, textarea, [tabindex]):focus-visible{
   outline:2px solid var(--focus); outline-offset:3px;
