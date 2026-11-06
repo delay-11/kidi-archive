@@ -221,7 +221,7 @@ function renderCategory(key){
       sec.items.forEach(it=>{
         const cardClass = sec.label==='키보드 배열' ? 'h-card h-card-layout' : 'h-card';
         const check = it.check ? `<div class="kc"><p class="kc-text"><span class="kc-label">키캡 확인</span> ${it.check}</p></div>` : '';
-        html += `<div class="${cardClass}">${photoSrc[it.name] ? photoSlot(it.name) : ''}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
+        html += `<div class="${cardClass}" data-item="${it.name}">${photoSrc[it.name] ? photoSlot(it.name) : ''}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
       });
       html += `</div>
         <button class="scroll-arrow right" onclick="scrollRowBy('${rowId}',1)" aria-label="다음"><span class="scroll-arrow-icon"></span></button>
@@ -231,7 +231,7 @@ function renderCategory(key){
       html += `<div class="layout-grid">`;
       sec.items.forEach(it=>{
         const check = it.check ? `<div class="kc"><p class="kc-text"><span class="kc-label">키캡 확인</span> ${it.check}</p></div>` : '';
-        html += `<div class="h-card h-card-layout">${photoSrc[it.name] ? photoSlot(it.name) : ''}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
+        html += `<div class="h-card h-card-layout" data-item="${it.name}">${photoSrc[it.name] ? photoSlot(it.name) : ''}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
       });
       html += `</div>`;
     } else if(isSwitchGrid){
@@ -249,7 +249,7 @@ function renderCategory(key){
     } else if(isPhotoList){
       html += `<div class="profile-list">`;
       sec.items.forEach(it=>{
-        html += `<div class="compat-item">${photoSlot(it.name)}<div class="compat-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div></div></div>`;
+        html += `<div class="compat-item" data-item="${it.name}">${photoSlot(it.name)}<div class="compat-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div></div></div>`;
       });
       html += `</div>`;
     } else if(isCompat){
@@ -1284,15 +1284,16 @@ function showResult(){
     return `
       <div class="result-card">
         <div class="result-grid">
-          <div class="result-item"><div class="label">키보드 종류</div><div class="value">${drive}</div></div>
-          <div class="result-item"><div class="label">배열</div><div class="value">${layout}</div></div>
-          <div class="result-item"><div class="label">스위치</div><div class="value" style="color:var(${swVar[sw]})">${swLabel[sw]}</div></div>
-          <div class="result-item"><div class="label">프로파일</div><div class="value">${profile}</div></div>
+          <div class="result-item"><div class="label">키보드 종류</div>${resultLink('drive', drive, drive, '키보드')}</div>
+          <div class="result-item"><div class="label">배열</div>${resultLink('layout', layout, layout, '키보드')}</div>
+          <div class="result-item"><div class="label">스위치</div>${resultLink('sw', swLabel[sw], swLabel[sw], '스위치', swVar[sw])}</div>
+          <div class="result-item"><div class="label">프로파일</div>${resultLink('profile', profile, profile, '키캡')}</div>
         </div>
         <div class="profile-viz">
           ${photoSlot(profile)}
         </div>
       </div>
+      <p class="result-hint">항목을 누르면 자세한 설명으로 이동해요.</p>
     `;
   }).join('');
 
@@ -1301,6 +1302,39 @@ function showResult(){
 }
 
 let lastResult = null;
+
+/* ---------- 결과 항목 → 카테고리 이동 ---------- */
+function resultLink(kind, value, text, where, colorVar){
+  const style = colorVar ? ` style="color:var(${colorVar})"` : '';
+  const v = String(value).replace(/'/g, "\\'");
+  return `<button class="value value-link"${style} onclick="goToResultItem('${kind}','${v}')" aria-label="${text}, ${where} 화면에서 자세히 보기">${text}<span class="chev" aria-hidden="true"></span></button>`;
+}
+// 결과에 쓰는 이름 → 카테고리 화면의 카드 이름
+const RESULT_LAYOUT_ITEM = {'풀사이즈':'108키 · 풀사이즈', 'TKL':'87키 · TKL', '60%':'60% · 61키'};
+function goToResultItem(kind, value){
+  const cat = {drive:'keyboard', layout:'keyboard', sw:'switch', profile:'keycap'}[kind];
+  if(!cat) return;
+  showCategory(cat);
+  let el = null;
+  if(kind === 'sw'){
+    toggleVariantPanel(value);
+    const toggle = document.querySelector(`.variant-toggle[data-type="${value}"]`);
+    el = toggle ? toggle.closest('.switch-card') : null;
+  } else {
+    const name = kind === 'layout' ? (RESULT_LAYOUT_ITEM[value] || value) : value;
+    el = [...document.querySelectorAll('#categoryContent [data-item]')].find(e=>e.dataset.item === name) || null;
+  }
+  if(!el) return;
+  const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  requestAnimationFrame(()=>{
+    el.scrollIntoView({block:'center', inline:'center', behavior: smooth ? 'smooth' : 'auto'});
+    el.setAttribute('tabindex', '-1');
+    el.focus({preventScroll:true});
+    el.classList.add('jump-flash');
+    clearTimeout(el._flashTimer);
+    el._flashTimer = setTimeout(()=>el.classList.remove('jump-flash'), 1800);
+  });
+}
 
 let html2canvasLoadPromise = null;
 function loadHtml2Canvas(){
