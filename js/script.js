@@ -115,17 +115,17 @@ const categoryData = {
       { label:'키보드 배열', items:[
         {name:'108키 · 풀사이즈', desc:'숫자패드와 기능키까지 갖춘 풀사이즈 배열이에요.', check:'추가 기능키 위치·크기 확인'},
         {name:'106키 · 한국형 풀사이즈', desc:'한/영·한자 키가 포함된 한국형 풀사이즈 배열이에요.', check:'한/영·한자 키와 하단열 확인'},
-        {name:'104키 · ANSI 풀사이즈', desc:'숫자패드까지 포함된 대표적인 ANSI 풀사이즈 배열이에요.', check:'Enter · Shift · Spacebar 규격 확인'},
-        {name:'98키 · 컴팩트 풀사이즈', desc:'숫자패드는 유지하면서 전체 폭을 줄인 배열이에요.', check:'우 Shift · Numpad 0 · 하단키 확인'},
-        {name:'96% · 컴팩트 풀사이즈', desc:'풀사이즈 기능을 대부분 유지한 압축형 배열이에요.', check:'우 Shift · Numpad 0 · 1U 키 확인'},
+        {name:'104키 · ANSI 풀사이즈', desc:'숫자패드까지 포함된 대표적인 ANSI 풀사이즈 배열이에요.', check:'Enter, Shift, 스페이스바 규격 확인'},
+        {name:'98키 · 컴팩트 풀사이즈', desc:'숫자패드는 유지하면서 전체 폭을 줄인 배열이에요.', check:'오른쪽 Shift, 숫자패드 0, 하단키 확인'},
+        {name:'96% · 컴팩트 풀사이즈', desc:'풀사이즈 기능을 대부분 유지한 압축형 배열이에요.', check:'오른쪽 Shift, 숫자패드 0, 1U 키 확인'},
         {name:'87키 · TKL', desc:'풀사이즈에서 숫자패드를 제외한 배열이에요.', check:'주요 특수키 규격 확인'},
-        {name:'75%', desc:'기능키와 방향키를 유지한 컴팩트 배열이에요.', check:'짧은 우 Shift · 우측 1U 키 확인'},
-        {name:'65%', desc:'기능키 줄은 생략하고 방향키는 유지한 배열이에요.', check:'짧은 우 Shift · 1U 하단키 확인'},
-        {name:'60% · 61키', desc:'기능키와 전용 방향키를 줄인 소형 배열이에요.', check:'변형 배열은 Shift · 하단열 확인'},
-        {name:'40%', desc:'숫자열까지 줄인 초소형 배열이에요.', check:'특수 modifier · Spacebar 확인'},
-        {name:'Numpad', desc:'숫자패드 부분만 따로 분리한 배열이에요.', check:'0 · + · Enter 크기 확인'},
-        {name:'Alice', desc:'양손 각도를 벌린 인체공학형 배열이에요.', check:'분할 Spacebar · B키 · Shift 확인'},
-        {name:'Split', desc:'좌우가 분리되어 배치를 조절할 수 있는 배열이에요.', check:'분할 Spacebar · 하단 특수키 구성 확인'}
+        {name:'75%', desc:'기능키와 방향키를 유지한 컴팩트 배열이에요.', check:'짧은 오른쪽 Shift, 오른쪽 1U 키 확인'},
+        {name:'65%', desc:'기능키 줄은 생략하고 방향키는 유지한 배열이에요.', check:'짧은 오른쪽 Shift, 1U 하단키 확인'},
+        {name:'60% · 61키', desc:'기능키와 전용 방향키를 줄인 소형 배열이에요.', check:'변형 배열이면 Shift와 하단열 확인'},
+        {name:'40%', desc:'숫자열까지 줄인 초소형 배열이에요.', check:'특수 modifier 키와 스페이스바 확인'},
+        {name:'Numpad', desc:'숫자패드 부분만 따로 분리한 배열이에요.', check:'0, +, Enter 키 크기 확인'},
+        {name:'Alice', desc:'양손 각도를 벌린 인체공학형 배열이에요.', check:'분할 스페이스바, B키, Shift 확인'},
+        {name:'Split', desc:'좌우가 분리되어 배치를 조절할 수 있는 배열이에요.', check:'분할 스페이스바와 하단 특수키 구성 확인'}
       ]}
     ]
   },
@@ -153,10 +153,10 @@ const categoryData = {
         {name:'MOA', desc:'둥글고 볼륨감 있는 상단이 특징이며, 행마다 높이와 각도가 같은 균일형 프로파일이에요.'}
       ]},
       { label:'호환성', items:[
-        {step:'STEP 1', name:'스위치 모양 확인하기', desc:'대부분의 기계식·커스텀 키보드는 <mark class="hl">십자(+) 형태의 MX 계열 스템</mark>을 사용해요. 정전용량 무접점이나 일부 로우프로파일 키보드는 체결 구조가 달라 전용 키캡이 필요할 수 있어요. 헷갈리면 키캡을 하나 빼 스위치 모양을 직접 확인하거나, 모델명으로 호환 여부를 확인해보세요.'},
-        {step:'STEP 2', name:'특수 키 크기(U) 확인하기', desc:'Shift · Ctrl · Enter · 스페이스바 같은 키는 제조사와 배열에 따라 크기가 달라요. 일반 문자키 1개의 너비를 1U라고 하며, 1.25U · 1.75U · 2.25U · 2.75U · 6.25U처럼 다양한 규격이 있어요. <mark class="hl">내 키보드의 키 크기와 구매하려는 세트의 구성품을 함께 확인</mark>해주세요.'},
-        {step:'STEP 3', name:'ANSI / ISO 배열 확인하기', desc:'<mark class="hl">ANSI는 가로형 Enter와 긴 왼쪽 Shift</mark>를, <mark class="hl">ISO는 세로로 큰 Enter와 짧은 왼쪽 Shift</mark>를 사용해요. 구매하려는 키캡 세트가 내 키보드 배열을 지원하는지 확인해주세요.'},
-        {step:'STEP 4', name:'로우프로파일 여부 확인하기', desc:'로우프로파일 키보드는 일반 키보드보다 <mark class="hl">스위치와 키캡 높이가 낮아요.</mark> 제품에 따라 체결 구조와 키캡 규격이 달라 일반 키캡과 호환되지 않을 수 있으니, 구매 전 <mark class="hl">로우프로파일 전용 여부를 확인</mark>해주세요.'}
+        {step:'1단계', name:'스위치 모양 확인하기', desc:'대부분의 기계식·커스텀 키보드는 <mark class="hl">십자(+) 형태의 MX 계열 스템</mark>을 사용해요. 정전용량 무접점이나 일부 로우프로파일 키보드는 체결 구조가 달라 전용 키캡이 필요할 수 있어요. 헷갈리면 키캡을 하나 빼 스위치 모양을 직접 확인하거나, 모델명으로 호환 여부를 확인해보세요.'},
+        {step:'2단계', name:'특수 키 크기(U) 확인하기', desc:'Shift, Ctrl, Enter, 스페이스바 같은 키는 제조사와 배열에 따라 크기가 달라요. 일반 문자키 1개의 너비를 1U라고 하며, 1.25U, 1.75U, 2.25U, 2.75U, 6.25U처럼 다양한 규격이 있어요. <mark class="hl">내 키보드의 키 크기와 구매하려는 세트의 구성품을 함께 확인</mark>해주세요.'},
+        {step:'3단계', name:'ANSI / ISO 배열 확인하기', desc:'<mark class="hl">ANSI는 가로형 Enter와 긴 왼쪽 Shift</mark>를, <mark class="hl">ISO는 세로로 큰 Enter와 짧은 왼쪽 Shift</mark>를 사용해요. 구매하려는 키캡 세트가 내 키보드 배열을 지원하는지 확인해주세요.'},
+        {step:'4단계', name:'로우프로파일 여부 확인하기', desc:'로우프로파일 키보드는 일반 키보드보다 <mark class="hl">스위치와 키캡 높이가 낮아요.</mark> 제품에 따라 체결 구조와 키캡 규격이 달라 일반 키캡과 호환되지 않을 수 있으니, 구매 전 <mark class="hl">로우프로파일 전용 여부를 확인</mark>해주세요.'}
       ]}
     ]
   },
@@ -200,7 +200,7 @@ function scrollRowBy(id, dir){
 
 function renderCategory(key){
   const data = categoryData[key];
-  let html = `<div class="eyebrow" style="margin-bottom:8px;">CATEGORY</div><h2 style="font-size:22px; margin-bottom:20px;">${data.title}</h2>`;
+  let html = `<h2 class="category-title">${data.title}</h2>`;
   data.sections.forEach((sec, idx)=>{
     if(key==='custom' && idx>0){ html += `<div class="section-divider"></div>`; }
     const isCompat = key==='keycap' && sec.label==='호환성';
@@ -217,8 +217,8 @@ function renderCategory(key){
         <div class="card-row" id="${rowId}">`;
       sec.items.forEach(it=>{
         const cardClass = sec.label==='키보드 배열' ? 'h-card h-card-layout' : 'h-card';
-        const check = it.check ? `<div class="kc"><div class="kc-divider"></div><div class="kc-label">KEYCAP CHECK</div><div class="kc-text">${it.check}</div></div>` : '';
-        html += `<div class="${cardClass}">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
+        const check = it.check ? `<div class="kc"><p class="kc-text"><span class="kc-label">키캡 확인</span> ${it.check}</p></div>` : '';
+        html += `<div class="${cardClass}">${photoSrc[it.name] ? photoSlot(it.name) : ''}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
       });
       html += `</div>
         <button class="scroll-arrow right" onclick="scrollRowBy('${rowId}',1)" aria-label="다음"><span class="scroll-arrow-icon"></span></button>
@@ -227,8 +227,8 @@ function renderCategory(key){
       // 배열은 종류가 많아서 넘기는 대신 한눈에 보이게 그리드로
       html += `<div class="layout-grid">`;
       sec.items.forEach(it=>{
-        const check = it.check ? `<div class="kc"><div class="kc-divider"></div><div class="kc-label">KEYCAP CHECK</div><div class="kc-text">${it.check}</div></div>` : '';
-        html += `<div class="h-card h-card-layout">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
+        const check = it.check ? `<div class="kc"><p class="kc-text"><span class="kc-label">키캡 확인</span> ${it.check}</p></div>` : '';
+        html += `<div class="h-card h-card-layout">${photoSrc[it.name] ? photoSlot(it.name) : ''}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
       });
       html += `</div>`;
     } else if(isSwitchGrid){
