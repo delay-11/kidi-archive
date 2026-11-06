@@ -222,7 +222,7 @@ function renderCategory(key){
       sec.items.forEach(it=>{
         const cardClass = sec.label==='키보드 배열' ? 'h-card h-card-layout' : 'h-card';
         const check = it.check ? `<div class="kc"><p class="kc-text"><span class="kc-label">키캡 확인</span> ${it.check}</p></div>` : '';
-        html += `<div class="${cardClass}" data-item="${it.name}">${photoSrc[it.name] ? photoSlot(it.name) : ''}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
+        html += `<div class="${cardClass}" data-item="${it.name}">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
       });
       html += `</div>
         <button class="scroll-arrow right" onclick="scrollRowBy('${rowId}',1)" aria-label="다음"><span class="scroll-arrow-icon"></span></button>
@@ -232,7 +232,7 @@ function renderCategory(key){
       html += `<div class="layout-grid">`;
       sec.items.forEach(it=>{
         const check = it.check ? `<div class="kc"><p class="kc-text"><span class="kc-label">키캡 확인</span> ${it.check}</p></div>` : '';
-        html += `<div class="h-card h-card-layout" data-item="${it.name}">${photoSrc[it.name] ? photoSlot(it.name) : ''}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
+        html += `<div class="h-card h-card-layout" data-item="${it.name}">${photoSlot(it.name)}<div class="h-body"><div class="d-name">${it.name}</div><div class="d-desc">${it.desc}</div>${check}</div></div>`;
       });
       html += `</div>`;
     } else if(isSwitchGrid){
