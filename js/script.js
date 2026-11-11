@@ -902,8 +902,8 @@ const keyboardCompatDB = {
   /* ---------- WEIKAV ---------- */
   'WEIKAV NUT65': {brand:'WEIKAV(웨이카브)', verdict:'ok', reason:OK_REASON, alias:['웨이카브 nut65']},
 
-  /* ---------- Corsair(커세어) ---------- */
-  'Corsair Vanguard Pro 96': {brand:'Corsair(커세어)', verdict:'ok', reason:OK_REASON, alias:['커세어 뱅가드 pro 96']}
+  /* ---------- CORSAIR(커세어) ---------- */
+  'CORSAIR Vanguard Pro 96': {brand:'CORSAIR(커세어)', verdict:'ok', reason:OK_REASON, alias:['커세어 뱅가드 pro 96']}
 };
 
 function startCompatCheck(){
