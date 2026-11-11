@@ -45,6 +45,7 @@ photoSrc['60% · 61키'] = 'images/60 layout.svg';
 photoSrc['40%'] = 'images/40 layout.svg';
 photoSrc['Numpad'] = 'images/Numpad layout.svg';
 photoSrc['Alice'] = 'images/Alice layout.svg';
+photoSrc['Split'] = 'images/Split layout.svg';
 
 function photoSlot(name){
   const src = photoSrc[name];
