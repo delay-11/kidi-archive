@@ -828,6 +828,7 @@ const keyboardCompatDB = {
   /* ---------- SWAGKEY ---------- */
   'SWAGKEY QK80MK2': {brand:'SWAGKEY(스웨그키)', verdict:'ok', reason:OK_REASON, alias:['스웨그키 qk80mk2']},
   'SWAGKEY NAJA68 래피드트리거 자석축 8K': {brand:'SWAGKEY(스웨그키)', verdict:'ok', reason:OK_REASON, alias:['스웨그키 naja68 래피드트리거 자석축 8k']},
+  'SWAGKEY EVO80': {brand:'SWAGKEY(스웨그키)', verdict:'ok', reason:OK_REASON, alias:['스웨그키 evo80']},
 
   /* ---------- VARO ---------- */
   'VARO V104': {brand:'VARO(바로)', verdict:'ok', reason:OK_REASON, alias:['바로 v104']},
