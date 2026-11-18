@@ -668,6 +668,7 @@ const keyboardCompatDB = {
   /* ---------- Logitech ---------- */
   'Logitech Alto Keys K98M': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON, alias:['로지텍 알토 키즈 k98m', '로지텍 k98m']},
   'Logitech G Pro': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON, alias:['로지텍 g pro']},
+  'Logitech G PRO GX Blue Clicky': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON, alias:['로지텍 g pro gx blue clicky']},
   'Logitech G316': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON, alias:['로지텍 g316']},
   'Logitech G316 X': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON, alias:['로지텍 g316 x']},
   'Logitech G512': {brand:'Logitech(로지텍)', verdict:'ok', reason:OK_REASON, alias:['로지텍 g512']},
